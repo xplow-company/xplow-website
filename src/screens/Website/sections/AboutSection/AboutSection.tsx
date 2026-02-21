@@ -1,28 +1,45 @@
-import { Card, CardContent } from "../../../../components/ui/card";
+import { useState } from "react";
+import CountUp from "../../../../components/CountUp";
+import SpotlightCard from "../../../../components/SpotlightCard";
+import { CardContent } from "../../../../components/ui/card";
 
 const statsData = [
   {
-    value: "50+",
+    value: 50,
+    suffix: "+",
     label: "Projects shipped",
     sublabel: "SaaS, fintech, e-comm",
   },
   {
-    value: "3x",
+    value: 3,
+    suffix: "x",
     label: "Avg. conversion lift",
     sublabel: "Across client portfolios",
   },
   {
-    value: "98%",
+    value: 98,
+    suffix: "%",
     label: "Client retention",
     sublabel: "They come back",
   },
   {
-    value: "30d",
+    value: 30,
+    suffix: "d",
     label: "First delivery",
     sublabel: "Kickoff to milestone",
   },
 ];
 export const AboutSection = (): JSX.Element => {
+    const [countUpEnded, setCountUpEnded] = useState<boolean[]>([]);
+
+    const handleCountUpEnd = (index: number) => {
+      setCountUpEnded((prev) => {
+        const next = [...prev];
+        next[index] = true;
+        return next;
+      });
+    };
+
     return (
       <section id="about" className="relative w-full bg-[#111111] py-44">
         <div className="container mx-auto px-16 max-w-[1440px]">
@@ -71,18 +88,31 @@ export const AboutSection = (): JSX.Element => {
 
             <div className="grid grid-cols-2 grid-rows-2 gap-4">
               {statsData.map((stat, index) => (
-                <Card
+                <div
                   key={index}
-                  className="bg-[#191919] rounded-2xl border border-[#2a2a2a] translate-y-[-1rem] animate-fade-in opacity-0"
+                  className="w-[296px] h-[128px] translate-y-[-1rem] animate-fade-in opacity-0"
                   style={
                     {
                       "--animation-delay": `${600 + index * 100}ms`,
                     } as React.CSSProperties
                   }
                 >
-                  <CardContent className="p-[25px] flex flex-col gap-2">
+                <SpotlightCard
+                  effectEnabled={countUpEnded[index] ?? false}
+                  spotlightColor="rgba(255, 31, 79, 0.2)"
+                  className="bg-[#191919] rounded-2xl border border-[#2a2a2a] p-0 w-full h-full"
+                >
+                  <CardContent className="p-[25px] flex flex-col gap-2 h-full min-h-0 justify-center">
                     <h3 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-white text-[32px] tracking-[-0.96px] leading-8">
-                      {stat.value}
+                      <CountUp
+                        to={stat.value}
+                        duration={1.6}
+                        delay={0.15}
+                        rootMargin="0px 0px -25% 0px"
+                        className="tabular-nums"
+                        onEnd={() => handleCountUpEnd(index)}
+                      />
+                      {stat.suffix}
                     </h3>
                     <p className="[font-family:'Inter',Helvetica] font-normal text-[#aaaaaa] text-[13px] tracking-[0] leading-[19.5px]">
                       {stat.label}
@@ -91,7 +121,8 @@ export const AboutSection = (): JSX.Element => {
                       {stat.sublabel}
                     </p>
                   </CardContent>
-                </Card>
+                </SpotlightCard>
+                </div>
               ))}
             </div>
             </div>
