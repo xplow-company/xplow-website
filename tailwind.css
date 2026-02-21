@@ -208,10 +208,30 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
   
     body {
       @apply bg-background text-foreground;
       font-feature-settings: "rlig" 1, "calt" 1;
+      overflow-x: hidden;
+      min-width: 0;
     }
   }
+
+/* Prevent content cutoff - allow text to wrap */
+@layer utilities {
+  .text-balance-safe {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+}
+
+/* Safe area for notched phones (iPhone X+, etc.) */
+@supports (padding: env(safe-area-inset-left)) {
+  .safe-area-padding {
+    padding-left: max(1.25rem, env(safe-area-inset-left));
+    padding-right: max(1.25rem, env(safe-area-inset-right));
+  }
+}

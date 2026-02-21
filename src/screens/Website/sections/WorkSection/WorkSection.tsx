@@ -53,7 +53,7 @@ const projectsData = [
 ];
 export const WorkSection = (): JSX.Element => {
   return (
-    <section id="work" className="flex flex-col items-start gap-16 pt-20 md:pt-24 px-4 md:px-8 lg:px-[125px] w-full bg-[#0c0c0c]">
+    <section id="work" className="flex flex-col items-start gap-y-5 md:gap-y-16 py-5 md:pt-24 md:pb-0 px-5 md:px-5 lg:px-12 xl:px-[125px] w-full bg-[#0c0c0c]">
       <header className="relative w-full translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 w-full">
           <div className="flex flex-col items-start gap-8 max-w-[626px]">
@@ -64,7 +64,7 @@ export const WorkSection = (): JSX.Element => {
               </span>
             </div>
 
-            <h2 className="[font-family:'Poppins'] font-bold text-[56px] tracking-[-1.96px] leading-[61.6px]">
+            <h2 className="[font-family:'Poppins'] font-bold text-[32px] sm:text-[44px] md:text-[52px] lg:text-[56px] tracking-[-1.96px] leading-[1.1]">
               <span className="text-white tracking-[-1.10px]">Work that </span>
               {/* <span className="text-white tracking-[-1.10px]">
                 speaks louder.
@@ -83,17 +83,16 @@ export const WorkSection = (): JSX.Element => {
           </Button> */}
         </div>
       </header>
-      <div className="flex flex-col gap-5 w-full max-w-[1312px] mx-auto translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
+      <div className="flex flex-col gap-4 sm:gap-5 w-full max-w-[1312px] mx-auto translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
         {[
           projectsData.slice(0, 2),
           projectsData.slice(2, 4),
         ].map((row, rowIndex) => (
-          <div key={rowIndex} className="flex gap-5 w-full justify-center">
+          <div key={rowIndex} className="flex flex-col sm:flex-row gap-4 sm:gap-5 w-full justify-center">
             {row.map((project) => (
               <Card
                 key={project.id}
-                className="overflow-hidden border-[#2a2a2a] bg-transparent hover:border-[#ff1f4f] transition-colors cursor-pointer group shrink-0"
-                style={{ width: project.width, height: project.height }}
+                className="overflow-hidden border-[#2a2a2a] bg-transparent hover:border-[#ff1f4f] transition-colors cursor-pointer group w-full sm:flex-1 min-w-0 aspect-[16/9] sm:aspect-[757/427]"
               >
                 <CardContent className="p-0 relative w-full h-full">
                   <div className="relative w-full h-full min-h-0 overflow-hidden">

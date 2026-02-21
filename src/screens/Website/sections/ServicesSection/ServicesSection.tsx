@@ -131,7 +131,7 @@ const stats = [
   ];
   export const ServicesSection = (): JSX.Element => {
     return (
-      <section id="services" className="relative w-full bg-[#0c0c0c] overflow-hidden py-16 md:py-20">
+      <section id="services" className="relative w-full bg-[#0c0c0c] overflow-hidden py-5 md:py-20">
         <style>{`
           .capability-card-glow-wrapper {
             --glow-x: 50%;
@@ -166,7 +166,7 @@ const stats = [
   
         <div className="absolute top-1/4 left-1/4 w-[900px] h-[900px] blur-[80px] [background:radial-gradient(50%_50%_at_50%_50%,rgba(255,31,79,0.04)_0%,rgba(255,31,79,0.01)_40%,rgba(0,0,0,0)_60%)] opacity-65" />
   
-        <div className="container relative mx-auto px-16 max-w-[1562px]">
+        <div className="container relative mx-auto px-5 md:px-5 lg:px-16 max-w-[1562px]">
           <header className="flex flex-col gap-8 mb-28 translate-y-[-1rem] animate-fade-in opacity-0">
             <div className="flex items-center gap-4">
               <div className="w-10 h-[1.5px] bg-[#ff1f4f]" />
@@ -200,14 +200,14 @@ const stats = [
             style={{ "--capability-gap": "24px" } as React.CSSProperties}
           >
             {/* Row 1: card 1 + card 2 with same gap as grid */}
-            <div className="flex gap-6">
+            <div className="flex flex-col lg:flex-row gap-4 sm:gap-6">
               {capabilities.slice(0, 2).map((capability, index) => (
                 <CapabilityCardGlow
                   key={capability.number}
-                  className={`shrink-0 translate-y-[-1rem] animate-fade-in opacity-0 ${index === 0 ? "w-[758.66px] h-[417px]" : "w-[537.33px] h-[417px]"}`}
+                  className={`flex-1 min-w-0 translate-y-[-1rem] animate-fade-in opacity-0 ${index === 0 ? "lg:flex-[1.41]" : "lg:flex-1"}`}
                 >
                 <ParticleCard
-                  className="w-full h-full rounded-2xl"
+                  className="w-full h-full min-h-[320px] sm:min-h-[360px] lg:min-h-[417px] rounded-2xl"
                   glowColor={GLOW_RGB}
                   particleCount={10}
                   enableTilt={false}
@@ -215,9 +215,7 @@ const stats = [
                   clickEffect={false}
                 >
                 <Card
-                  className={`relative bg-[#131313] border-[#2a2a2a] rounded-2xl overflow-hidden group ${
-                    index === 0 ? "w-[758.66px] h-[417px]" : "w-[537.33px] h-[417px]"
-                  }`}
+                  className={`relative bg-[#131313] border-[#2a2a2a] rounded-2xl overflow-hidden group w-full h-full min-h-[320px] sm:min-h-[360px] lg:min-h-[417px]`}
                   style={
                     {
                       "--animation-delay": `${200 + index * 100}ms`,
@@ -347,11 +345,11 @@ const stats = [
             </div>
 
             {/* Row 2: 3-column grid (cards 3, 4, 5) with same gap */}
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
               {capabilities.slice(2, 5).map((capability, index) => (
                 <CapabilityCardGlow
                   key={capability.number}
-                  className="w-[424.66px] h-[450.75px] shrink-0 translate-y-[-1rem] animate-fade-in opacity-0"
+                  className="min-w-0 translate-y-[-1rem] animate-fade-in opacity-0"
                 >
                 <ParticleCard
                   className="w-full h-full rounded-2xl"
@@ -362,7 +360,7 @@ const stats = [
                   clickEffect={false}
                 >
                 <Card
-                  className={`relative group ${capability.gridClass} bg-[#131313] border-[#2a2a2a] rounded-2xl overflow-hidden w-[424.66px] h-[450.75px] shrink-0`}
+                  className={`relative group ${capability.gridClass} bg-[#131313] border-[#2a2a2a] rounded-2xl overflow-hidden w-full min-h-[380px] xl:min-h-[450px]`}
                   style={
                     {
                       "--animation-delay": `${200 + (index + 2) * 100}ms`,
@@ -447,14 +445,14 @@ const stats = [
             </div>
 
             {/* Row 3: 6th and 7th cards side by side */}
-            <div className="flex gap-6">
+            <div className="flex flex-col lg:flex-row gap-4 sm:gap-6">
               {capabilities.slice(5, 7).map((capability, index) => (
                 <CapabilityCardGlow
                   key={capability.number}
-                  className="w-[648px] h-[417px] shrink-0 translate-y-[-1rem] animate-fade-in opacity-0"
+                  className="flex-1 min-w-0 translate-y-[-1rem] animate-fade-in opacity-0"
                 >
                 <ParticleCard
-                  className="w-full h-full rounded-2xl"
+                  className="w-full h-full min-h-[320px] sm:min-h-[360px] lg:min-h-[417px] rounded-2xl"
                   glowColor={GLOW_RGB}
                   particleCount={10}
                   enableTilt={false}
@@ -462,7 +460,7 @@ const stats = [
                   clickEffect={false}
                 >
                 <Card
-                  className="relative group bg-[#131313] border-[#2a2a2a] rounded-2xl overflow-hidden w-[648px] h-[417px] shrink-0"
+                  className="relative group bg-[#131313] border-[#2a2a2a] rounded-2xl overflow-hidden w-full min-h-[320px] sm:min-h-[360px] lg:min-h-[417px]"
                   style={
                     {
                       "--animation-delay": `${200 + (5 + index) * 100}ms`,

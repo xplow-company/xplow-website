@@ -6,6 +6,10 @@ module.exports = {
     ],
     theme: {
     	extend: {
+    		screens: {
+    			'xs': '375px',
+    			'xxs': '320px',
+    		},
     		colors: {
     			border: 'hsl(var(--border))',
     			input: 'hsl(var(--input))',
