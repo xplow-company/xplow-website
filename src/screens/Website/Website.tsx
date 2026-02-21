@@ -1,3 +1,4 @@
+import xplowLogo from "../../assets/xplow.svg";
 import GlassSurface from "../../components/GlassSurface";
 import { Button } from "../../components/ui/button";
 import { AboutSection } from "./sections/AboutSection";
@@ -19,7 +20,7 @@ const navigationItems = [
 
 export const Website = (): JSX.Element => {
   return (
-    <div className="w-full flex bg-white" data-model-id="5096:19571">
+    <div className="w-full flex bg-white overflow-x-hidden" data-model-id="5096:19571">
       <div className="z-[1] w-full flex bg-[#0c0c0c]">
         <div className="flex w-full relative flex-col items-start bg-[#0c0c0c]">
           <HeroSection />
@@ -35,28 +36,20 @@ export const Website = (): JSX.Element => {
       <nav className="fixed top-14 left-0 right-0 z-[2] w-full flex justify-center px-4 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
         <GlassSurface
           width="100%"
-          height={58}
+          height={52}
           borderRadius={9999}
           blur={26}
           backgroundOpacity={0.32}
           borderWidth={0.11}
           brightness={51}
           opacity={0.9}
-          className="w-full max-w-[1312px] [&>div]:!justify-start [&>div]:!p-0"
+          className="mx-auto w-full max-w-[1148px] [&>div]:!justify-start [&>div]:!p-0"
         >
           <div className="absolute inset-0 rounded-[inherit] bg-[rgba(28,10,10,0.75)] pointer-events-none z-0" aria-hidden />
           <div className="relative z-10 flex w-full min-w-0 items-center justify-between gap-4 px-6 py-2">
-            <div className="flex shrink-0 items-center gap-3">
-              <div className="flex flex-col gap-0.5">
-                <div className="h-[2px] w-6 bg-white/90 rounded-full" />
-                <div className="h-[2px] w-5 bg-white/80 rounded-full translate-x-1" />
-                <div className="h-[2px] w-6 bg-white/90 rounded-full" />
-                <div className="h-[2px] w-5 bg-white/80 rounded-full translate-x-1" />
-              </div>
-              <span className="font-semibold text-white text-lg tracking-tight [font-family:'Inter',Helvetica]">
-                Xplow
-              </span>
-            </div>
+            <a href="#hero" className="flex shrink-0 items-center">
+              <img src={xplowLogo} alt="Xplow" className="h-[23px] w-auto" />
+            </a>
 
             <div className="flex shrink-0 items-center gap-1">
               {navigationItems.map((item, index) => (

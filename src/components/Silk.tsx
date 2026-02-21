@@ -96,7 +96,9 @@ const SilkPlane = forwardRef<Mesh, SilkPlaneProps>(function SilkPlane({ uniforms
   useLayoutEffect(() => {
     const mesh = ref as React.MutableRefObject<Mesh | null>;
     if (mesh?.current && viewport) {
-      mesh.current.scale.set(viewport.width, viewport.height, 1);
+      // Slightly overscale to avoid a 1px seam at canvas edges
+      const pad = 2;
+      mesh.current.scale.set(viewport.width + pad, viewport.height + pad, 1);
     }
   }, [ref, viewport]);
 
