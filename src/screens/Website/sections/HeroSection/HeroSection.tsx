@@ -6,6 +6,9 @@ import {
   SiNextdotjs,
   SiTypescript,
   SiTailwindcss,
+  SiFigma,
+  SiSketch,
+  SiFramer,
 } from "react-icons/si";
 import { gsap } from "gsap";
 import arrowIcon from "@/assets/arrow.svg";
@@ -22,6 +25,9 @@ const techLogos: LogoItem[] = [
   { node: <SiNextdotjs className="text-white w-7 h-7 sm:w-9 sm:h-9" />, title: "Next.js", href: "https://nextjs.org" },
   { node: <SiTypescript className="text-white w-7 h-7 sm:w-9 sm:h-9" />, title: "TypeScript", href: "https://www.typescriptlang.org" },
   { node: <SiTailwindcss className="text-white w-7 h-7 sm:w-9 sm:h-9" />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+  { node: <SiFigma className="text-white w-7 h-7 sm:w-9 sm:h-9" />, title: "Figma", href: "https://www.figma.com" },
+  { node: <SiSketch className="text-white w-7 h-7 sm:w-9 sm:h-9" />, title: "Sketch", href: "https://www.sketch.com" },
+  { node: <SiFramer className="text-white w-7 h-7 sm:w-9 sm:h-9" />, title: "Framer", href: "https://www.framer.com" },
 ];
 
 const HeroBackgroundFallback = () => (
@@ -152,7 +158,7 @@ export const HeroSection = (): JSX.Element => {
       </div>
 
       <div className="relative z-10 flex flex-col min-h-[100dvh] sm:min-h-[700px] lg:min-h-[1058px] px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 pt-[calc(3.5rem+1vh)] -rotate-180">
-        <div className="flex-1 flex flex-col items-center justify-center pt-4">
+        <div className="flex-1 flex flex-col items-center justify-center pt-4 mt-[10px]">
           <div className="-translate-y-[4vh] sm:-translate-y-[6vh] lg:-translate-y-[8vh] mt-[6px]">
           <div className="flex flex-col items-center max-w-[883px] w-full space-y-8 sm:space-y-10 lg:space-y-12 translate-y-[-1rem] animate-fade-in opacity-0">
           <Badge

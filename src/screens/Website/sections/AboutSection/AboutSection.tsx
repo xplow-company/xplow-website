@@ -8,7 +8,7 @@ const statsData = [
     value: 50,
     suffix: "+",
     label: "Projects shipped",
-    sublabel: "SaaS, fintech, e-comm",
+    sublabel: "SaaS, fintech, e-comm, Web3",
   },
   {
     value: 3,
@@ -20,13 +20,13 @@ const statsData = [
     value: 98,
     suffix: "%",
     label: "Client retention",
-    sublabel: "They come back",
+    sublabel: "They come back, every time",
   },
   {
     value: 30,
     suffix: "d",
     label: "First delivery",
-    sublabel: "Kickoff to milestone",
+    sublabel: "Kickoff to first milestone",
   },
 ];
 export const AboutSection = (): JSX.Element => {
@@ -44,11 +44,11 @@ export const AboutSection = (): JSX.Element => {
       <section id="about" className="relative w-full bg-[#111111] py-44">
         <div className="container mx-auto px-16 max-w-[1440px]">
           <div className="flex flex-col gap-16">
-            <div className="flex items-center gap-4 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]">
-              <div className="w-10 h-0.5 bg-[#ff1f4f]" />
+            <div className="flex flex-col gap-2 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]">
               <p className="font-bold text-[#ff1f4f] text-[11px] tracking-[2.42px] leading-[16.5px] [font-family:'Inter',Helvetica] uppercase">
-                About XPLOW
+                ABOUT XPLOW
               </p>
+              <div className="w-10 h-0.5 bg-[#ff1f4f]" />
             </div>
   
             <div className="flex flex-col gap-4 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
@@ -65,23 +65,24 @@ export const AboutSection = (): JSX.Element => {
 
             <div className="grid grid-cols-2 gap-24 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
             <div className="flex flex-col gap-8">
-              <p className="[font-family:'Inter',Helvetica] font-normal text-[#aaaaaa] text-base tracking-[0] leading-[30.4px] max-w-[607px]">
-                XPLOW obsesses over user psychology, conversion funnels, and
-                brand systems that compound growth over time. Every pixel is a
-                business decision. Every interaction is engineered to move a
-                metric.
-              </p>
+              <div className="flex flex-col gap-6 max-w-[607px]">
+                <p className="[font-family:'Inter',Helvetica] font-normal text-white text-base tracking-[0] leading-[30.4px]">
+                  Most agencies build websites. We build competitive advantages. XPLOW exists at the intersection of strategic thinking and ruthless execution — where brand systems, product design, and engineering converge to create experiences that don&apos;t just look world-class, but <strong className="font-semibold text-white">perform like it.</strong>
+                </p>
+                <p className="[font-family:'Inter',Helvetica] font-normal text-white text-base tracking-[0] leading-[30.4px]">
+                  We obsess over user psychology, conversion funnels, and brand systems that compound growth over time. Every pixel is a business decision. Every interaction is engineered to move a metric. Every deliverable is designed to make your competitors wonder what happened.
+                </p>
+                <p className="[font-family:'Inter',Helvetica] font-normal text-white text-base tracking-[0] leading-[30.4px]">
+                  We&apos;ve spent years inside the trenches of SaaS, fintech, e-commerce, and Web3 — shipping products that real users depend on, not vanity projects for award submissions. When a founder partners with XPLOW, they&apos;re not hiring a vendor. They&apos;re adding a strategic arm that thinks in systems, ships in weeks, and measures in multiples.
+                </p>
+              </div>
 
-              <blockquote className="border-l-2 border-[#ff1f4f4c] pl-[26px]">
-                <p className="[font-family:'Inter',Helvetica] font-normal text-lg tracking-[0] leading-[30.6px] italic">
-                  <span className="text-[#cccccc]">
-                    "We don't design what looks good. We design what{" "}
-                  </span>
-                  <span className="text-[#ff1f4f]">works</span>
-                  <span className="text-[#cccccc]">
-                    {" "}
-                    — then make it look incredible."
-                  </span>
+              <blockquote className="border-l-2 border-[#ff1f4f] pl-[26px]">
+                <p className="[font-family:'Inter',Helvetica] font-normal text-lg tracking-[0] leading-[30.6px] text-[#cccccc]">
+                  &ldquo;We don&apos;t design what looks good. We design what{" "}
+                  <span className="text-[#ff1f4f] font-semibold">works</span>
+                  {" "}
+                  — then make it look incredible.&rdquo;
                 </p>
               </blockquote>
             </div>

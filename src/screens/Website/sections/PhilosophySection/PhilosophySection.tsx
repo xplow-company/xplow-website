@@ -61,7 +61,15 @@ export const PhilosophySection = (): JSX.Element => {
             The brands we build don't just compete. They set the standard everyone else chases.
           </h3> */}
 
-          <div className="w-full h-px bg-[#ff1f4f] [box-shadow:0_0_12px_#ff1f4f]" aria-hidden />
+          {/* Tubelight-effect line */}
+          <div
+            className="w-full h-[2px] rounded-full mt-2"
+            style={{
+              background: "linear-gradient(90deg, transparent 0%, #ff1f4f 15%, #ff1f4f 85%, transparent 100%)",
+              boxShadow: "0 0 8px #ff1f4f, 0 0 16px rgba(255, 31, 79, 0.7), 0 0 28px rgba(255, 31, 79, 0.4)",
+            }}
+            aria-hidden
+          />
         </div>
         </div>
       </div>
