@@ -56,13 +56,13 @@ export const WorkSection = (): JSX.Element => {
 
             <h2 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-[56px] tracking-[-1.96px] leading-[61.6px]">
               <span className="text-white tracking-[-1.10px]">Work that </span>
-              <span className="text-white tracking-[-1.10px]">
+              {/* <span className="text-white tracking-[-1.10px]">
                 speaks louder.
-              </span>
+              </span> */}
             </h2>
           </div>
 
-          <Button
+          {/* <Button
             variant="ghost"
             className="h-auto p-0 text-[#888888] hover:text-white transition-colors group"
           >
@@ -70,7 +70,7 @@ export const WorkSection = (): JSX.Element => {
               All Case Studies
             </span>
             <ArrowRightIcon className="ml-2 w-3.5 h-3.5" />
-          </Button>
+          </Button> */}
         </div>
       </header>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">

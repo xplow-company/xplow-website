@@ -1,0 +1,11 @@
+<svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.18">
+<path opacity="0.7036" d="M116 25H24C21.7909 25 20 26.7909 20 29V39C20 41.2091 21.7909 43 24 43H116C118.209 43 120 41.2091 120 39V29C120 26.7909 118.209 25 116 25Z" stroke="#FF1F4F" stroke-width="0.8"/>
+<path opacity="0.704448" d="M110 47H30C27.7909 47 26 48.7909 26 51V61C26 63.2091 27.7909 65 30 65H110C112.209 65 114 63.2091 114 61V51C114 48.7909 112.209 47 110 47Z" stroke="#FF1F4F" stroke-width="0.8"/>
+<path opacity="0.566909" d="M104 69H36C33.7909 69 32 70.7909 32 73V83C32 85.2091 33.7909 87 36 87H104C106.209 87 108 85.2091 108 83V73C108 70.7909 106.209 69 104 69Z" stroke="#FF1F4F" stroke-width="0.8"/>
+<path opacity="0.461973" d="M98 91H42C39.7909 91 38 92.7909 38 95V105C38 107.209 39.7909 109 42 109H98C100.209 109 102 107.209 102 105V95C102 92.7909 100.209 91 98 91Z" stroke="#FF1F4F" stroke-width="0.8"/>
+<path opacity="0.3" d="M70 43V47" stroke="#FF5C7C" stroke-width="0.5" stroke-dasharray="2 2"/>
+<path opacity="0.3" d="M70 65V69" stroke="#FF5C7C" stroke-width="0.5" stroke-dasharray="2 2"/>
+<path opacity="0.3" d="M70 87V91" stroke="#FF5C7C" stroke-width="0.5" stroke-dasharray="2 2"/>
+</g>
+</svg>

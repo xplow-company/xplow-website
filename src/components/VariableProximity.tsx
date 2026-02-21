@@ -2,8 +2,10 @@ import {
   forwardRef,
   useCallback,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
+  useState,
   type RefObject,
 } from "react";
 import { motion } from "motion/react";
@@ -84,6 +86,9 @@ const VariableProximity = forwardRef<HTMLSpanElement, VariableProximityProps>(
   ) => {
     const letterRefs = useRef<(HTMLSpanElement | null)[]>([]);
     const interpolatedSettingsRef = useRef<string[]>([]);
+    const rootRef = useRef<HTMLSpanElement | null>(null);
+    const rulerRef = useRef<HTMLSpanElement | null>(null);
+    const [minWidthPx, setMinWidthPx] = useState<number | null>(null);
     const mousePositionRef = useMousePositionRef(containerRef ?? { current: null });
     const lastPositionRef = useRef<{ x: number; y: number | null }>({
       x: 0,
@@ -175,17 +180,40 @@ const VariableProximity = forwardRef<HTMLSpanElement, VariableProximityProps>(
       });
     });
 
+    useLayoutEffect(() => {
+      const ruler = rulerRef.current;
+      if (!ruler) return;
+      const w = ruler.offsetWidth;
+      if (w > 0) setMinWidthPx(w);
+    }, [label, toFontVariationSettings, className]);
+
     const words = label.split(" ");
     let letterIndex = 0;
 
     return (
       <span
-        ref={ref}
+        ref={(el) => {
+          rootRef.current = el;
+          if (typeof ref === "function") ref(el);
+          else if (ref) (ref as React.MutableRefObject<HTMLSpanElement | null>).current = el;
+        }}
         className={`variable-proximity ${className}`.trim()}
         onClick={onClick}
-        style={{ display: "inline", ...style }}
+        style={{
+          display: "inline",
+          minWidth: minWidthPx != null ? `${minWidthPx}px` : undefined,
+          ...style,
+        }}
         {...restProps}
       >
+        <span
+          ref={rulerRef}
+          aria-hidden
+          className="variable-proximity absolute left-0 top-0 whitespace-nowrap opacity-0 pointer-events-none invisible"
+          style={{ fontVariationSettings: toFontVariationSettings }}
+        >
+          {label}
+        </span>
         {words.map((word, wordIndex) => (
           <span
             key={wordIndex}

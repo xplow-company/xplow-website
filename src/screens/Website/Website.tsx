@@ -4,6 +4,7 @@ import PremiumGlass from "../../components/PremiumGlass";
 import { Button } from "../../components/ui/button";
 import { AboutSection } from "./sections/AboutSection";
 import { FooterSubsection } from "./sections/FooterSubsection";
+import { PhilosophySection } from "./sections/PhilosophySection";
 import { HeroSection } from "./sections/HeroSection";
 import { ProcessSection } from "./sections/ProcessSection";
 import { SectionComponentNodeSubsection } from "./sections/SectionComponentNodeSubsection";
@@ -39,10 +40,11 @@ export const Website = (): JSX.Element => {
         <div className="flex w-full relative flex-col items-start bg-[#0c0c0c]">
           <HeroSection />
           <AboutSection />
+          <PhilosophySection />
           <ServicesSection />
           <ProcessSection />
-          <WhoAreWeSection />
           <WorkSection />
+          <WhoAreWeSection />
           <SectionComponentNodeSubsection />
           <FooterSubsection />
         </div>
