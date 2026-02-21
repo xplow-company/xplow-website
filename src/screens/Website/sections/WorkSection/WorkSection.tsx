@@ -8,49 +8,34 @@ import { Card, CardContent } from "../../../../components/ui/card";
 const projectsData = [
   {
     id: 1,
-    // label: "w1",
-    width: 757,
-    height: 426.69,
-    category: "SAAS · PRODUCT DESIGN",
+    category: "SAAS • PRODUCT DESIGN",
     title: "Nexus Platform",
     metric: "+340%",
-    contentTop: "top-[287px]",
     image: w1Image,
   },
   {
     id: 2,
-    // label: "w2",
-    width: 535,
-    height: 426.69,
-    category: "BRAND · IDENTITY",
+    category: "BRAND • IDENTITY",
     title: "Aura Identity",
     metric: "Full Rebrand",
-    contentTop: "top-[287px]",
     image: w2Image,
   },
   {
     id: 3,
-    // label: "w3",
-    width: 535,
-    height: 426.69,
-    category: "APP · DEVELOPMENT",
+    category: "APP • DEVELOPMENT",
     title: "Velo Mobile",
     metric: "50K+ DAU",
-    contentTop: "top-[287px]",
     image: w3Image,
   },
   {
     id: 4,
-    // label: "w4",
-    width: 757,
-    height: 426.69,
-    category: "E-COMMERCE · WEB",
+    category: "E-COMMERCE • WEB",
     title: "Arcane Store",
     metric: "2.8x CVR",
-    contentTop: "top-[287px]",
     image: w4Image,
   },
 ];
+
 export const WorkSection = (): JSX.Element => {
   return (
     <section id="work" className="flex flex-col items-start gap-y-5 md:gap-y-16 py-5 md:pt-24 md:pb-0 px-5 md:px-5 lg:px-12 xl:px-[125px] w-full bg-[#0c0c0c]">
@@ -66,24 +51,49 @@ export const WorkSection = (): JSX.Element => {
 
             <h2 className="[font-family:'Poppins'] font-bold text-[32px] sm:text-[44px] md:text-[52px] lg:text-[56px] tracking-[-1.96px] leading-[1.1]">
               <span className="text-white tracking-[-1.10px]">Work that </span>
-              {/* <span className="text-white tracking-[-1.10px]">
-                speaks louder.
-              </span> */}
+              <span className="text-[#ff1f4f] tracking-[-1.10px]">speaks louder.</span>
             </h2>
           </div>
-
-          {/* <Button
-            variant="ghost"
-            className="h-auto p-0 text-[#888888] hover:text-white transition-colors group"
-          >
-            <span className="[font-family:'Inter',Helvetica] font-medium text-[13px] tracking-[0.52px] leading-[19.5px]">
-              All Case Studies
-            </span>
-            <ArrowRightIcon className="ml-2 w-3.5 h-3.5" />
-          </Button> */}
         </div>
       </header>
-      <div className="flex flex-col gap-4 sm:gap-5 w-full max-w-[1312px] mx-auto translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
+
+      {/* Desktop: Bento grid 2x2 — cards with image, gradient overlay, badge, category + title */}
+      <div className="hidden md:grid md:grid-cols-2 md:gap-6 w-full max-w-[1312px] mx-auto translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
+        {projectsData.map((project) => (
+          <Card
+            key={project.id}
+            className="overflow-hidden border border-[#3a3a3a] bg-[#262626] hover:border-[#4a4a4a] transition-colors cursor-pointer group w-full rounded-2xl"
+          >
+            <CardContent className="p-0 relative w-full aspect-[16/9]">
+              <img
+                src={project.image}
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover rounded-2xl"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(12,12,12,0.95)_0%,rgba(12,12,12,0.3)_40%,transparent_70%)] rounded-2xl" />
+              <Badge
+                variant="secondary"
+                className="absolute top-5 left-5 bg-black border-0 text-white hover:bg-black h-8 px-4 rounded-full"
+              >
+                <span className="[font-family:'Space_Grotesk',Helvetica] font-medium text-xs">
+                  {project.metric}
+                </span>
+              </Badge>
+              <div className="absolute bottom-0 left-0 right-0 flex flex-col gap-2 px-6 pb-6">
+                <span className="[font-family:'Inter',Helvetica] font-bold text-[#ff1f4f] text-[11px] tracking-[1.80px] leading-[15px] uppercase">
+                  {project.category}
+                </span>
+                <h3 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-white text-[28px] tracking-[-0.56px] leading-[1.2]">
+                  {project.title}
+                </h3>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Mobile: original overlay layout */}
+      <div className="flex flex-col gap-4 sm:gap-5 w-full max-w-[1312px] mx-auto translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms] md:hidden">
         {[
           projectsData.slice(0, 2),
           projectsData.slice(2, 4),
@@ -102,10 +112,7 @@ export const WorkSection = (): JSX.Element => {
                       className="absolute inset-0 w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(12,12,12,1)_0%,rgba(12,12,12,0.2)_50%,rgba(0,0,0,0)_100%)]" />
-
-                    <div
-                      className={`absolute ${project.contentTop} left-0 right-0 flex flex-col gap-3 px-8 pb-8`}
-                    >
+                    <div className="absolute top-[287px] left-0 right-0 flex flex-col gap-3 px-8 pb-8">
                       <span className="[font-family:'Inter',Helvetica] font-bold text-[#ff1f4f] text-[10px] tracking-[1.80px] leading-[15px] whitespace-nowrap">
                         {project.category}
                       </span>
@@ -114,9 +121,6 @@ export const WorkSection = (): JSX.Element => {
                       </h3>
                     </div>
                     <div className="absolute top-5 left-5 flex items-center gap-2">
-                      {/* <span className="[font-family:'Inter',Helvetica] font-medium text-[#888888] text-[11px] tracking-[0.33px]">
-                        {project.id}
-                      </span> */}
                       <Badge
                         variant="secondary"
                         className="bg-[#0c0c0c99] border-[#2a2a2a] text-white hover:bg-[#0c0c0c99] h-8 px-[13px] rounded-full"

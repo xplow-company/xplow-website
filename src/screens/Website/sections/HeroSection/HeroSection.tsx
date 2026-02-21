@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   SiReact,
   SiNextdotjs,
@@ -10,8 +10,10 @@ import {
   SiSketch,
   SiFramer,
 } from "react-icons/si";
+import { MenuIcon, XIcon } from "lucide-react";
 import { gsap } from "gsap";
 import arrowIcon from "@/assets/arrow.svg";
+import xplowLogo from "../../../../assets/xplow.svg";
 import { ErrorBoundary } from "../../../../components/ErrorBoundary";
 import { LogoLoop } from "../../../../components/LogoLoop";
 import Silk from "../../../../components/Silk";
@@ -19,6 +21,14 @@ import VariableProximity from "../../../../components/VariableProximity";
 import { Badge } from "../../../../components/ui/badge";
 import { Button } from "../../../../components/ui/button";
 import type { LogoItem } from "../../../../components/LogoLoop";
+
+const navigationItems = [
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Process", href: "#process" },
+  { label: "Who We Are", href: "#founders" },
+  { label: "Work", href: "#work" },
+];
 
 const techLogos: LogoItem[] = [
   { node: <SiReact className="text-white w-7 h-7 sm:w-9 sm:h-9" />, title: "React", href: "https://react.dev" },
@@ -43,6 +53,7 @@ const HeroBackgroundFallback = () => (
 const EASE = "power2.easeOut";
 
 export const HeroSection = (): JSX.Element => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const headlineContainerRef = useRef<HTMLDivElement>(null);
   const letsBuildCircleRef = useRef<HTMLSpanElement>(null);
   const letsBuildTlRef = useRef<gsap.core.Timeline | null>(null);
@@ -157,8 +168,55 @@ export const HeroSection = (): JSX.Element => {
         </ErrorBoundary>
       </div>
 
-      <div className="relative z-10 flex flex-col min-h-[100dvh] sm:min-h-[700px] lg:min-h-[1058px] px-5 md:px-5 lg:px-8 py-5 md:py-16 lg:py-20 pt-[calc(3.5rem+1vh)] -rotate-180 safe-area-padding min-w-0">
-        <div className="flex-1 flex flex-col items-center justify-center pt-4 mt-[10px]">
+      <div className="relative z-10 flex flex-col min-h-[100dvh] sm:min-h-[700px] lg:min-h-[1058px] px-5 md:px-5 lg:px-8 pt-[28px] pb-5 md:py-16 lg:py-20 -rotate-180 safe-area-padding min-w-0">
+        <nav
+          className="relative z-[2] mx-auto w-full max-w-[1148px] rounded-full px-4 sm:px-6 py-2.5 flex items-center justify-between gap-4 bg-black mb-5 md:-mt-8 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]"
+          aria-label="Main navigation"
+        >
+          <a href="#hero" className="flex shrink-0 items-center" aria-label="Xplow home">
+            <img src={xplowLogo} alt="Xplow" className="h-[20px] sm:h-[23px] w-auto" />
+          </a>
+          <div className="hidden md:flex shrink-0 items-center gap-1">
+            {navigationItems.map((item, index) => (
+              <Button
+                key={index}
+                variant="ghost"
+                className="h-8 px-4 font-medium text-sm tracking-[0.13px] leading-[19.5px] [font-family:'Inter',Helvetica] whitespace-nowrap rounded-full transition-colors text-white hover:bg-white/10"
+                asChild
+              >
+                <a href={item.href}>{item.label}</a>
+              </Button>
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen((o) => !o)}
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full -mr-1"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? (
+              <XIcon className="w-5 h-5 text-white" />
+            ) : (
+              <MenuIcon className="w-5 h-5 text-white" />
+            )}
+          </button>
+          {mobileMenuOpen && (
+            <div className="absolute top-full left-0 right-0 mt-2 rounded-2xl py-4 px-4 shadow-lg md:hidden bg-black flex flex-col gap-1">
+              {navigationItems.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-4 py-3 rounded-xl font-medium text-sm [font-family:'Inter',Helvetica] transition-colors text-white hover:bg-white/10"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </nav>
+        <div className="flex-1 flex flex-col items-center justify-center pt-4 mt-[10px] md:pt-6">
           <div className="-translate-y-[4vh] sm:-translate-y-[6vh] lg:-translate-y-[8vh] mt-[6px]">
           <div className="flex flex-col items-center max-w-[883px] w-full space-y-8 sm:space-y-10 lg:space-y-12 translate-y-[-1rem] animate-fade-in opacity-0">
           <Badge
@@ -176,7 +234,7 @@ export const HeroSection = (): JSX.Element => {
 
           <div
             ref={headlineContainerRef}
-            className="flex flex-col items-center gap-3 sm:gap-5 [--animation-delay:200ms] translate-y-[-1rem] animate-fade-in opacity-0 w-full max-w-[883px] min-w-0 px-1"
+            className="flex flex-col items-center gap-3 sm:gap-5 [--animation-delay:200ms] translate-y-[-1rem] animate-fade-in opacity-0 w-full max-w-[883px] min-w-0 px-0 sm:px-1"
             style={{ position: "relative" }}
           >
             <h1 className="flex items-center justify-center gap-2 sm:gap-5 w-full text-center">
@@ -199,7 +257,7 @@ export const HeroSection = (): JSX.Element => {
                 toFontVariationSettings="'wght' 1000, 'opsz' 40"
                 radius={120}
                 falloff="linear"
-                className="font-extrabold text-white text-[clamp(1.75rem,8vw,2.5rem)] xs:text-[clamp(2rem,9vw,3rem)] sm:text-[clamp(2.5rem,10vw,3.5rem)] md:text-[62px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] text-center"
+                className="font-extrabold text-white text-[clamp(1.75rem,8vw,2.5rem)] xs:text-[clamp(2rem,9vw,3rem)] sm:text-[clamp(2.5rem,10vw,3.5rem)] md:text-[62px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] text-center md:whitespace-nowrap"
               />
             </h2>
           </div>
