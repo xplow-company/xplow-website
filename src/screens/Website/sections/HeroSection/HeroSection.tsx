@@ -183,11 +183,11 @@ export const HeroSection = (): JSX.Element => {
               <VariableProximity
                 label="We Build What"
                 containerRef={headlineContainerRef}
-                fromFontVariationSettings="'wght' 400, 'opsz' 9"
+                fromFontVariationSettings="'wght' 600, 'opsz' 9"
                 toFontVariationSettings="'wght' 1000, 'opsz' 40"
                 radius={120}
                 falloff="linear"
-                className="font-bold text-white text-[36px] sm:text-[52px] md:text-[64px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] sm:leading-[81.69px] text-center"
+                className="font-extrabold text-white text-[36px] sm:text-[52px] md:text-[64px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] sm:leading-[81.69px] text-center"
               />
             </h1>
 
@@ -195,11 +195,11 @@ export const HeroSection = (): JSX.Element => {
               <VariableProximity
                 label="Others Compete Against."
                 containerRef={headlineContainerRef}
-                fromFontVariationSettings="'wght' 400, 'opsz' 9"
+                fromFontVariationSettings="'wght' 600, 'opsz' 9"
                 toFontVariationSettings="'wght' 1000, 'opsz' 40"
                 radius={120}
                 falloff="linear"
-                className="font-bold text-white text-[36px] sm:text-[52px] md:text-[62px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] sm:leading-[81.69px] text-center"
+                className="font-extrabold text-white text-[36px] sm:text-[52px] md:text-[62px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] sm:leading-[81.69px] text-center"
               />
             </h2>
           </div>
