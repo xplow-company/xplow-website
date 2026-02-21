@@ -1,5 +1,11 @@
+import pen1 from "@/assets/pen1.svg";
+import pen2 from "@/assets/pen2.svg";
+import pen3 from "@/assets/pen.svg";
+import pen4 from "@/assets/pen4.svg";
 import { Badge } from "../../../../components/ui/badge";
 import { Card, CardContent } from "../../../../components/ui/card";
+
+const penIcons = [pen1, pen2, pen3, pen4];
 
 const phases = [
   {
@@ -53,7 +59,7 @@ const phases = [
 
 export const ProcessSection = (): JSX.Element => {
   return (
-    <section id="process" className="w-full bg-[#0c0c0c] px-4 md:px-8 lg:px-[125px] py-24">
+    <section id="process" className="w-full bg-[#111111] px-4 md:px-8 lg:px-[125px] py-24">
       <header className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 mb-[112px] translate-y-[-1rem] animate-fade-in opacity-0">
         <div className="flex flex-col items-start gap-8 max-w-[414px]">
           <div className="flex items-center gap-4">
@@ -67,27 +73,33 @@ export const ProcessSection = (): JSX.Element => {
             <h2 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-white text-[56px] tracking-[-1.96px] leading-[61.6px]">
               Four phases.
             </h2>
-            <h2 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-[#ff1f4f] text-[56px] tracking-[-1.96px] leading-[61.6px]">
+            <h2 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-[#ff1f4f] text-[56px] tracking-[-1.96px] leading-[61.6px] whitespace-nowrap">
               Zero guesswork.
             </h2>
           </div>
         </div>
 
-        <p className="max-w-[320px] [font-family:'Inter',Helvetica] font-normal text-[#888888] text-sm text-right tracking-[0] leading-[24.5px]">
-          A battle-tested framework that turns chaos into clarity, and ideas
-          into shipped product.
-        </p>
+        <div className="max-w-[320px] [font-family:'Inter',Helvetica] font-normal text-[#888888] text-sm text-right tracking-[0] leading-[24.5px]">
+          <span className="block">A battle-tested framework that turns chaos</span>
+          <span className="block">into clarity, and ideas into shipped product.</span>
+        </div>
       </header>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {phases.map((phase, index) => (
           <Card
             key={phase.number}
-            className="bg-[#191919] border-[#2a2a2a] rounded-2xl overflow-hidden translate-y-[-1rem] animate-fade-in opacity-0"
+            className="bg-[#191919] border-[#2a2a2a] rounded-2xl overflow-hidden translate-y-[-1rem] animate-fade-in opacity-0 min-w-0 w-full"
             style={{
               "--animation-delay": `${200 + index * 100}ms`,
             } as React.CSSProperties}
           >
-            <CardContent className="p-[29px] flex flex-col h-full">
+            <CardContent className="relative pt-6 px-8 pb-8 flex flex-col h-full">
+              <img
+                src={penIcons[index]}
+                alt=""
+                className="absolute top-6 right-8 w-10 h-10 object-contain pointer-events-none"
+                aria-hidden
+              />
               <div className="flex items-center justify-between mb-6">
                 <span className="[font-family:'Space_Grotesk',Helvetica] font-bold text-[#ff1f4fba] text-[40px] leading-10">
                   {phase.number}
@@ -95,15 +107,15 @@ export const ProcessSection = (): JSX.Element => {
                 <div className="w-10 h-10 bg-transparent" />
               </div>
 
-              <h3 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-white text-[22px] tracking-[-0.44px] leading-[33px] mb-1">
+              <h3 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-white text-[22px] tracking-[-0.44px] leading-[33px] mb-2">
                 {phase.title}
               </h3>
 
-              <p className="[font-family:'Inter',Helvetica] font-normal text-[#666666] text-xs tracking-[0.72px] leading-[18px] mb-4">
+              <p className="[font-family:'Inter',Helvetica] font-normal text-[#666666] text-xs tracking-[0.72px] leading-[18px] mb-5">
                 {phase.subtitle}
               </p>
 
-              <p className="[font-family:'Inter',Helvetica] font-normal text-[#999999] text-sm tracking-[0] leading-[23.8px] mb-5 flex-grow">
+              <p className="[font-family:'Inter',Helvetica] font-normal text-[#999999] text-sm tracking-[0] leading-[23.8px] mb-8 flex-grow">
                 {phase.description}
               </p>
 
