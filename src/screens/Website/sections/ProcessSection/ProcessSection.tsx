@@ -59,8 +59,8 @@ const phases = [
 
 export const ProcessSection = (): JSX.Element => {
   return (
-    <section id="process" className="w-full bg-[#111111] px-4 md:px-8 lg:px-[125px] py-24">
-      <header className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 mb-[112px] translate-y-[-1rem] animate-fade-in opacity-0">
+    <section id="process" className="w-full bg-[#111111] px-4 md:px-8 lg:px-[125px] py-16 md:py-20">
+      <header className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 mb-12 md:mb-16 translate-y-[-1rem] animate-fade-in opacity-0">
         <div className="flex flex-col items-start gap-8 max-w-[414px]">
           <div className="flex items-center gap-4">
             <div className="w-10 h-0.5 bg-[#ff1f4f]" />

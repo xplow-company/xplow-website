@@ -131,7 +131,7 @@ const stats = [
   ];
   export const ServicesSection = (): JSX.Element => {
     return (
-      <section id="services" className="relative w-full bg-[#0c0c0c] overflow-hidden py-24">
+      <section id="services" className="relative w-full bg-[#0c0c0c] overflow-hidden py-16 md:py-20">
         <style>{`
           .capability-card-glow-wrapper {
             --glow-x: 50%;
@@ -166,7 +166,7 @@ const stats = [
   
         <div className="absolute top-1/4 left-1/4 w-[900px] h-[900px] blur-[80px] [background:radial-gradient(50%_50%_at_50%_50%,rgba(255,31,79,0.04)_0%,rgba(255,31,79,0.01)_40%,rgba(0,0,0,0)_60%)] opacity-65" />
   
-        <div className="container relative mx-auto px-16 max-w-[1440px]">
+        <div className="container relative mx-auto px-16 max-w-[1562px]">
           <header className="flex flex-col gap-8 mb-28 translate-y-[-1rem] animate-fade-in opacity-0">
             <div className="flex items-center gap-4">
               <div className="w-10 h-[1.5px] bg-[#ff1f4f]" />
@@ -177,10 +177,10 @@ const stats = [
   
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
               <div className="flex flex-col">
-                <h2 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-white text-6xl tracking-[-2.40px] leading-[64.8px]">
+                <h2 className="[font-family:'poppins',Helvetica] font-bold text-white text-6xl tracking-[-2.40px] leading-[64.8px]">
                   Everything you need.
                 </h2>
-                <h2 className="[-webkit-text-stroke:1px_#ffffff] [font-family:'Space_Grotesk',Helvetica] font-bold text-transparent text-6xl tracking-[-2.40px] leading-[64.8px]">
+                <h2 className="[-webkit-text-stroke:1px_#ffffff] [font-family:'poppins',Helvetica] font-bold text-transparent text-6xl tracking-[-2.40px] leading-[64.8px]">
                   Nothing you don't.
                 </h2>
               </div>

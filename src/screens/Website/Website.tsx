@@ -10,6 +10,7 @@ import { HeroSection } from "./sections/HeroSection";
 import { ProcessSection } from "./sections/ProcessSection";
 import { SectionComponentNodeSubsection } from "./sections/SectionComponentNodeSubsection";
 import { ServicesSection } from "./sections/ServicesSection";
+import { FAQSection } from "./sections/FAQSection";
 import { WhoAreWeSection } from "./sections/WhoAreWeSection";
 import { WorkSection } from "./sections/WorkSection";
 
@@ -38,7 +39,7 @@ export const Website = (): JSX.Element => {
   return (
     <div className="w-full flex bg-white overflow-x-hidden" data-model-id="5096:19571">
       <div className="z-[1] w-full flex bg-[#0c0c0c]">
-        <div className="flex w-full relative flex-col items-start bg-[#0c0c0c]">
+        <div className="flex w-full relative flex-col items-start bg-[#0c0c0c] gap-y-16">
           <HeroSection />
           <AboutSection />
           <PhilosophySection />
@@ -46,6 +47,7 @@ export const Website = (): JSX.Element => {
           <ProcessSection />
           <WorkSection />
           <WhoAreWeSection />
+          <FAQSection />
           <SectionComponentNodeSubsection />
           <FoundersSection />
           <FooterSubsection />

@@ -1,39 +1,55 @@
-const trustedBrands = [
-  "MERIDIAN",
-  "MERIDIAN",
-  "vault.",
-  "PRISM",
-  "archon",
-  "LUMINA",
-  "ONYX",
-  "ONYX",
+const LOGO_COMPANIES = [
+  { name: "Liveblocks", domain: "liveblocks.io" },
+  { name: "Appwrite", domain: "appwrite.io" },
+  { name: "tldraw", domain: "tldraw.com" },
+  { name: "Spline", domain: "spline.design" },
+  { name: "Pitch", domain: "pitch.com" },
+  { name: "Langfuse", domain: "langfuse.com" },
+  { name: "Relevance AI", domain: "relevanceai.com" },
+  { name: "Nhost", domain: "nhost.io" },
 ];
 
 export const PhilosophySection = (): JSX.Element => {
   return (
     <section id="philosophy" className="w-full">
-      {/* Trusted by — white background */}
-      <div className="w-full bg-white py-12 md:py-16">
-        <div className="container mx-auto px-16 max-w-[1440px] flex flex-col items-center gap-8 translate-y-[-1rem] animate-fade-in opacity-0" style={{ "--animation-delay": "0ms" } as React.CSSProperties}>
-          <p className="[font-family:'Inter',Helvetica] font-medium text-black text-xs tracking-[2.5px] leading-[18px] uppercase text-center">
-            TRUSTED BY FORWARD-THINKING BRANDS
+      {/* Exploring emerging product teams — logo row */}
+      <div className="w-full bg-white py-12 md:py-14">
+        <div className="container mx-auto px-4 md:px-8 lg:px-16 max-w-[1562px] flex flex-col items-center gap-10 translate-y-[-1rem] animate-fade-in opacity-0" style={{ "--animation-delay": "0ms" } as React.CSSProperties}>
+          <p className="[font-family:'Inter',Helvetica] font-semibold text-black text-[22px] md:text-[26px] tracking-[-0.02em] leading-tight text-center">
+          Trusted by forward-thinking brands
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
-            {trustedBrands.map((brand, index) => (
-              <span
-                key={`${brand}-${index}`}
-                className="[font-family:'Space Grotesk'] font-medium text-black text-sm tracking-[0.5px] uppercase"
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 md:gap-8 w-full max-w-[1562px] mx-auto justify-items-center items-center">
+            {LOGO_COMPANIES.map((company) => (
+              <a
+                key={company.domain}
+                href={`https://${company.domain}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center h-16 md:h-[72px] w-full max-w-[140px] opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 group"
               >
-                {brand}
-              </span>
+                <img
+                  src={`https://logo.clearbit.com/${company.domain}`}
+                  alt={company.name}
+                  className="h-14 md:h-16 w-auto object-contain max-h-[80px]"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = "none";
+                    const fallback = target.parentElement?.querySelector(".logo-fallback");
+                    if (fallback) (fallback as HTMLElement).style.display = "block";
+                  }}
+                />
+                <span className="[font-family:'Inter',Helvetica] font-semibold text-black text-[20px] md:text-[24px] logo-fallback hidden whitespace-nowrap">
+                  {company.name}
+                </span>
+              </a>
             ))}
           </div>
         </div>
       </div>
 
       {/* Our Philosophy — dark background */}
-      <div className="w-full bg-[#111111] py-24">
-        <div className="container mx-auto px-16 max-w-[1440px] flex flex-col items-center">
+      <div className="w-full bg-[#111111] py-16 md:py-20">
+        <div className="container mx-auto px-16 max-w-[1562px] flex flex-col items-center">
         <div className="flex flex-col items-center text-center max-w-[720px] w-full translate-y-[-1rem] animate-fade-in opacity-0" style={{ "--animation-delay": "200ms" } as React.CSSProperties}>
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="w-10 h-px bg-[#ff1f4f]" aria-hidden />
@@ -61,7 +77,15 @@ export const PhilosophySection = (): JSX.Element => {
             The brands we build don't just compete. They set the standard everyone else chases.
           </h3> */}
 
-          <div className="w-full h-px bg-[#ff1f4f] [box-shadow:0_0_12px_#ff1f4f]" aria-hidden />
+          {/* Tubelight-effect line */}
+          <div
+            className="w-full h-[2px] rounded-full mt-2"
+            style={{
+              background: "linear-gradient(90deg, transparent 0%, #ff1f4f 15%, #ff1f4f 85%, transparent 100%)",
+              boxShadow: "0 0 8px #ff1f4f, 0 0 16px rgba(255, 31, 79, 0.7), 0 0 28px rgba(255, 31, 79, 0.4)",
+            }}
+            aria-hidden
+          />
         </div>
         </div>
       </div>
