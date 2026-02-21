@@ -55,6 +55,7 @@ const FAQ_DATA: Record<CategoryId, FAQItem[]> = {
       answer: [
         "We begin with a discovery phase: understanding your market, users, and goals. From there we align on scope, timeline, and deliverables. No surprise phases — you'll see the plan before we start.",
       ],
+      quote: "Clients often say our discovery phase alone was worth more than their last agency's entire engagement.",
     },
     {
       id: "p2",
@@ -81,6 +82,7 @@ const FAQ_DATA: Record<CategoryId, FAQItem[]> = {
       answer: [
         "We quote per project or retainer, not hourly. You'll get a clear proposal with scope, phases, and investment. Pricing depends on scope and timeline — we'll outline options after our first conversation.",
       ],
+      quote: "Every founder we've worked with says the ROI was clear within the first milestone.",
     },
     {
       id: "i2",
@@ -107,6 +109,7 @@ const FAQ_DATA: Record<CategoryId, FAQItem[]> = {
       answer: [
         "All strategy, design, and front-end development are done in-house. For specialized backend or infra we may partner with vetted experts; you'll always know who's on the team.",
       ],
+      quote: "Founders love that they always know exactly who's building their product — no mystery subcontractors.",
     },
     {
       id: "t2",
@@ -151,11 +154,11 @@ export const FAQSection = (): JSX.Element => {
               <span className="text-[#FF1F4F]">before the handshake.</span>
             </h2>
           </div>
-          <p className="[font-family:'Inter',Helvetica] font-normal text-[#888888] text-[15px] md:text-base leading-[26px] max-w-[400px] md:text-right">
+          <p className="[font-family:'Inter',Helvetica] font-normal text-[#888888] text-[15px] md:text-base leading-[26px] md:text-right whitespace-nowrap">
             Straight answers. No fluff, no corporate-speak.
             <br />
             If your question isn't here —{" "}
-            <a href="mailto:team@xplow.in" className="font-bold text-[#FF1F4F] underline hover:no-underline">
+            <a href="mailto:team@xplow.in" className="font-bold text-[#FF1F4F] no-underline">
               just ask.
             </a>
           </p>
@@ -173,14 +176,14 @@ export const FAQSection = (): JSX.Element => {
               }}
               className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium [font-family:'Inter',Helvetica] transition-colors border ${
                 activeCategory === cat.id
-                  ? "bg-[#FF1F4F] text-white border-transparent"
+                  ? "bg-[#3d1a24] text-white border-[#5a2a38]"
                   : "bg-[#1a1a1a] text-[#aaaaaa] border-[#333333] hover:bg-[#222222]"
               }`}
             >
               {cat.label}
               <span
                 className={`rounded-full px-2 py-0.5 text-xs font-medium ${
-                  activeCategory === cat.id ? "bg-[#ff1f4f99] text-white" : "bg-[#333333] text-[#888888]"
+                  activeCategory === cat.id ? "bg-[#5a2233] text-[#FF1F4F]" : "bg-[#333333] text-[#888888]"
                 }`}
               >
                 {cat.count}
@@ -190,8 +193,8 @@ export const FAQSection = (): JSX.Element => {
         </div>
 
         {/* Two-column: questions list + answer panel */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          <nav className="lg:col-span-5 flex flex-col gap-2">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-10 lg:min-h-[400px]">
+          <nav className="lg:w-[42%] flex flex-col gap-2">
             {items.map((item, index) => {
               const isActive = index === activeQuestionIndex;
               return (
@@ -201,17 +204,35 @@ export const FAQSection = (): JSX.Element => {
                   onClick={() => setActiveQuestionIndex(index)}
                   className="text-left transition-colors flex items-center gap-3 w-full"
                 >
-                  <span
-                    className={`[font-family:'Inter',Helvetica] text-[11px] tabular-nums shrink-0 w-7 h-7 flex items-center justify-center rounded-full ${
-                      isActive ? "bg-[#FF1F4F] text-white font-medium" : "text-[#555555]"
-                    }`}
-                  >
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+                  <div className="relative shrink-0 flex items-center justify-center w-7">
+                    {isActive && (
+                      <svg
+                        className="absolute left-0"
+                        width="14"
+                        height="32"
+                        viewBox="0 0 14 32"
+                        fill="none"
+                      >
+                        <path
+                          d="M13 1C6.5 1 1 7.5 1 16C1 24.5 6.5 31 13 31"
+                          stroke="#FF1F4F"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                    )}
+                    <span
+                      className={`[font-family:'Inter',Helvetica] text-[12px] tabular-nums font-medium ${
+                        isActive ? "text-[#FF1F4F]" : "text-[#555555]"
+                      }`}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
                   <span
                     className={`[font-family:'Inter',Helvetica] text-[14px] leading-snug flex-1 min-w-0 rounded-xl px-5 py-4 flex items-center border transition-colors ${
                       isActive
-                        ? "bg-[#1a1a1a] text-white font-medium border-[#2a2a2a]"
+                        ? "bg-[#241418] text-white font-medium border-[#3a1f28]"
                         : "text-[#777777] border-transparent hover:bg-[#111111]"
                     }`}
                   >
@@ -225,7 +246,9 @@ export const FAQSection = (): JSX.Element => {
             })}
           </nav>
 
-          <div className="lg:col-span-7 flex flex-col gap-6">
+          <div className="hidden lg:block w-px bg-[#1e1e1e] self-stretch" />
+
+          <div className="flex-1 flex flex-col gap-6">
             {activeItem.answerTag && (
               <div className="inline-flex items-center gap-2 rounded-full bg-[#FF1F4F]/20 px-4 py-1.5 w-fit">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FF1F4F] shrink-0" />
@@ -248,8 +271,9 @@ export const FAQSection = (): JSX.Element => {
               ))}
             </div>
             {activeItem.quote && (
-              <blockquote className="border-l-2 border-[#FF1F4F] pl-5 py-4 pr-6 bg-[#111111] rounded-r-xl">
-                <p className="[font-family:'Inter',Helvetica] font-normal italic text-[#aaaaaa] text-[15px] leading-[24px]">
+              <blockquote className="rounded-xl border border-[#2a2a2a] bg-[#141414] px-6 py-5 flex items-start gap-4">
+                <div className="w-[3px] shrink-0 self-stretch rounded-full bg-[#FF1F4F]" />
+                <p className="[font-family:'Inter',Helvetica] font-normal italic text-[#888888] text-[15px] leading-[24px]">
                   {activeItem.quote}
                 </p>
               </blockquote>
