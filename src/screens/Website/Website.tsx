@@ -3,6 +3,7 @@ import xplowLogo from "../../assets/xplow.svg";
 import PremiumGlass from "../../components/PremiumGlass";
 import { Button } from "../../components/ui/button";
 import { AboutSection } from "./sections/AboutSection";
+import { FoundersSection } from "./sections/FoundersSection";
 import { FooterSubsection } from "./sections/FooterSubsection";
 import { PhilosophySection } from "./sections/PhilosophySection";
 import { HeroSection } from "./sections/HeroSection";
@@ -16,7 +17,7 @@ const navigationItems = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Process", href: "#process" },
-  { label: "Who We Are", href: "#who-we-are" },
+  { label: "Who We Are", href: "#founders" },
   { label: "Work", href: "#work" },
 ];
 
@@ -46,6 +47,7 @@ export const Website = (): JSX.Element => {
           <WorkSection />
           <WhoAreWeSection />
           <SectionComponentNodeSubsection />
+          <FoundersSection />
           <FooterSubsection />
         </div>
       </div>
