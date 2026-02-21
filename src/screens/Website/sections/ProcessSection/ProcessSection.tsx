@@ -1,0 +1,127 @@
+import { Badge } from "../../../../components/ui/badge";
+import { Card, CardContent } from "../../../../components/ui/card";
+
+const phases = [
+  {
+    number: "01",
+    title: "Discover",
+    subtitle: "Deep Strategy",
+    description:
+      "Immerse in your brand, market, and users. Every decision is backed by real insight — never assumption.",
+    tags: [
+      "Research audit",
+      "Competitive analysis",
+      "User personas",
+      "Strategy roadmap",
+    ],
+  },
+  {
+    number: "02",
+    title: "Design",
+    subtitle: "Intentional Craft",
+    description:
+      "Systems, not screens. Every pixel serves a purpose — built for clarity, conversion, and delight.",
+    tags: ["Wireframes", "Hi-fi mockups", "Prototypes", "Design system"],
+  },
+  {
+    number: "03",
+    title: "Develop",
+    subtitle: "Scalable Execution",
+    description:
+      "Production-ready code and assets that ship. Built to perform today and evolve tomorrow.",
+    tags: [
+      "Frontend dev",
+      "Responsive builds",
+      "CMS integration",
+      "QA & testing",
+    ],
+  },
+  {
+    number: "04",
+    title: "Optimize",
+    subtitle: "Continuous Growth",
+    description:
+      "Post-launch analytics, experimentation, and iterative refinement to compound results.",
+    tags: [
+      "Analytics setup",
+      "A/B experiments",
+      "CRO iterations",
+      "Growth tracking",
+    ],
+  },
+];
+
+export const ProcessSection = (): JSX.Element => {
+  return (
+    <section id="process" className="w-full bg-[#0c0c0c] px-4 md:px-8 lg:px-[125px] py-24">
+      <header className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 mb-[112px] translate-y-[-1rem] animate-fade-in opacity-0">
+        <div className="flex flex-col items-start gap-8 max-w-[414px]">
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-0.5 bg-[#ff1f4f]" />
+            <span className="[font-family:'Inter',Helvetica] font-bold text-[#ff1f4f] text-[11px] tracking-[2.42px] leading-[16.5px] uppercase">
+              HOW WE WORK
+            </span>
+          </div>
+
+          <div className="flex flex-col gap-0">
+            <h2 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-white text-[56px] tracking-[-1.96px] leading-[61.6px]">
+              Four phases.
+            </h2>
+            <h2 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-[#ff1f4f] text-[56px] tracking-[-1.96px] leading-[61.6px]">
+              Zero guesswork.
+            </h2>
+          </div>
+        </div>
+
+        <p className="max-w-[320px] [font-family:'Inter',Helvetica] font-normal text-[#888888] text-sm text-right tracking-[0] leading-[24.5px]">
+          A battle-tested framework that turns chaos into clarity, and ideas
+          into shipped product.
+        </p>
+      </header>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {phases.map((phase, index) => (
+          <Card
+            key={phase.number}
+            className="bg-[#191919] border-[#2a2a2a] rounded-2xl overflow-hidden translate-y-[-1rem] animate-fade-in opacity-0"
+            style={{
+              "--animation-delay": `${200 + index * 100}ms`,
+            } as React.CSSProperties}
+          >
+            <CardContent className="p-[29px] flex flex-col h-full">
+              <div className="flex items-center justify-between mb-6">
+                <span className="[font-family:'Space_Grotesk',Helvetica] font-bold text-[#ff1f4fba] text-[40px] leading-10">
+                  {phase.number}
+                </span>
+                <div className="w-10 h-10 bg-transparent" />
+              </div>
+
+              <h3 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-white text-[22px] tracking-[-0.44px] leading-[33px] mb-1">
+                {phase.title}
+              </h3>
+
+              <p className="[font-family:'Inter',Helvetica] font-normal text-[#666666] text-xs tracking-[0.72px] leading-[18px] mb-4">
+                {phase.subtitle}
+              </p>
+
+              <p className="[font-family:'Inter',Helvetica] font-normal text-[#999999] text-sm tracking-[0] leading-[23.8px] mb-5 flex-grow">
+                {phase.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+                {phase.tags.map((tag, tagIndex) => (
+                  <Badge
+                    key={tagIndex}
+                    variant="outline"
+                    className="bg-[#0c0c0c] border-[#2a2a2a] text-[#777777] text-[10px] tracking-[0.30px] leading-[15px] [font-family:'Inter',Helvetica] font-normal px-[11px] py-[5px] h-auto rounded-full hover:bg-[#0c0c0c]"
+                  >
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </section>
+  );
+};
