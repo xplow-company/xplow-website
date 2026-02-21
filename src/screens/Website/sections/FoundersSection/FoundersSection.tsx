@@ -1,6 +1,8 @@
 import React from "react";
-import { LinkedinIcon, TwitterIcon } from "lucide-react";
-import { Avatar, AvatarFallback } from "../../../../components/ui/avatar";
+import { LinkedinIcon, MailIcon } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "../../../../components/ui/avatar";
+import hammadAvatar from "../../../../assets/hammad.jpeg";
+import moudipaAvatar from "../../../../assets/moudipa.jpeg";
 import { Badge } from "../../../../components/ui/badge";
 import { Card, CardContent } from "../../../../components/ui/card";
 
@@ -12,8 +14,9 @@ const founders = [
     bio: "Former design lead at two Y Combinator startups. Obsessed with the space where brand psychology meets pixel-perfect execution. Built identity systems for over 30 companies — from pre-seed to Series C. Believes every visual decision should be traceable to a strategic outcome.",
     quote: "Design is the most powerful business weapon most founders never learn to wield. I'm here to change that.",
     initials: "HZ",
-    linkedin: "#",
-    twitter: "#",
+    avatar: hammadAvatar,
+    linkedin: "https://www.linkedin.com/in/ui-ux-hammad/",
+    email: "mailto:hammadzia92000@gmail.com",
   },
   {
     name: "Moudipa Jana",
@@ -22,15 +25,16 @@ const founders = [
     bio: "Full-stack engineer turned design technologist. Ships production code that bridges design vision with technical reality — with a sharp focus on performance and craft.",
     quote: "The best designs in the world mean nothing if they don't ship. I make sure they ship — fast, flawless, and at scale.",
     initials: "MJ",
-    linkedin: "#",
-    twitter: "#",
+    avatar: moudipaAvatar,
+    linkedin: "https://www.linkedin.com/in/a0b89b1ba/",
+    email: "mailto:moudipajana2002@gmail.com",
   },
 ];
 
 export const FoundersSection = (): JSX.Element => {
   return (
-    <section id="founders" className="w-full bg-[#111111] py-24 px-4 md:px-8 lg:px-16">
-      <div className="max-w-[1440px] mx-auto">
+    <section id="founders" className="w-full bg-[#111111] py-16 md:py-20 px-4 md:px-8 lg:px-16">
+      <div className="max-w-[1562px] mx-auto">
         <header className="flex flex-col gap-8 mb-16 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms] text-left w-full">
           <div className="flex items-center gap-4">
             <div className="w-10 h-0.5 bg-[#ff1f4f]" />
@@ -41,9 +45,8 @@ export const FoundersSection = (): JSX.Element => {
           <h2 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-white text-[48px] md:text-[56px] tracking-[-1.96px] leading-[1.1]">
             Two founders.
           </h2>
-          <p className="[font-family:'Inter',Helvetica] font-normal text-[#eaeaea] text-[15px] md:text-[17px] tracking-[0] leading-[28px] md:leading-[30px] w-full space-y-2">
-            <span className="block">No account managers. No production layers. No junior handoffs. When you work with XPLOW, you work directly with the people who built it — the architects of the strategy</span>
-            <span className="block">and execution — taking full responsibility from first conversation to final delivery and staking their reputation on every pixel that ships.</span>
+          <p className="[font-family:'Inter',Helvetica] font-normal text-[#eaeaea] text-[15px] md:text-[17px] tracking-[0] leading-[28px] md:leading-[30px] w-full">
+            No account managers. No production layers. No junior handoffs. When you work with XPLOW, you work directly with the people who built it — the architects of the strategy and execution — taking full responsibility from first conversation to final delivery and staking their reputation on every pixel that ships.
           </p>
         </header>
 
@@ -51,13 +54,16 @@ export const FoundersSection = (): JSX.Element => {
           {founders.map((founder, index) => (
             <Card
               key={founder.name}
-              className="bg-[#111111] border border-[#FF1F4F] rounded-2xl overflow-hidden translate-y-[-1rem] animate-fade-in opacity-0"
+              className="bg-[#111111] rounded-2xl overflow-hidden translate-y-[-1rem] animate-fade-in opacity-0"
               style={{ "--animation-delay": `${200 + index * 100}ms` } as React.CSSProperties}
             >
               <CardContent className="p-8 md:p-10 flex flex-col gap-8">
                 <div className="flex flex-col sm:flex-row sm:items-start gap-6">
                   <div className="relative shrink-0">
-                    <Avatar className="w-28 h-28 rounded-none border-2 border-[#ff1f4f40 shrink-0 opacity-100 [box-shadow:4px_4px_20px_rgba(255,31,79,0.25)] overflow-hidden">
+                    <Avatar className="w-28 h-28 rounded-none shrink-0 opacity-100 [box-shadow:4px_4px_20px_rgba(255,31,79,0.25)] overflow-hidden">
+                      {founder.avatar && (
+                        <AvatarImage src={founder.avatar} alt={founder.name} className="object-cover" />
+                      )}
                       <AvatarFallback className="bg-[#1a1a1a] [font-family:'Space_Grotesk',Helvetica] font-bold text-[#ff1f4f] text-xl rounded-none">
                         {founder.initials}
                       </AvatarFallback>
@@ -90,11 +96,11 @@ export const FoundersSection = (): JSX.Element => {
                         <LinkedinIcon className="w-4 h-4" />
                       </a>
                       <a
-                        href={founder.twitter}
-                        aria-label="Twitter"
+                        href={founder.email}
+                        aria-label="Email"
                         className="w-10 h-10 rounded-full border-0 bg-[#1a1a1a] flex items-center justify-center text-white hover:bg-[#ff1f4f]/20 transition-colors"
                       >
-                        <TwitterIcon className="w-4 h-4" />
+                        <MailIcon className="w-4 h-4" />
                       </a>
                     </div>
                   </div>

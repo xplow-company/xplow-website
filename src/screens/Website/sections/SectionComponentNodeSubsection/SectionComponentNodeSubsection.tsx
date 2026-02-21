@@ -4,7 +4,7 @@ import { Button } from "../../../../components/ui/button";
 
 export const SectionComponentNodeSubsection = (): JSX.Element => {
   return (
-    <section className="relative w-full min-h-[749px] bg-[#FFFFFF] flex items-center justify-center overflow-hidden py-24">
+    <section className="relative w-full min-h-[749px] bg-[#FFFFFF] flex items-center justify-center overflow-hidden py-16 md:py-20">
       <div className="relative z-10 w-full max-w-[800px] px-4 flex flex-col items-center justify-center text-center mx-auto">
         <Badge
           variant="outline"

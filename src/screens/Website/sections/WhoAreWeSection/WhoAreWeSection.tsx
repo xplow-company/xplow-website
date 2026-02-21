@@ -26,8 +26,8 @@ export const WhoAreWeSection = (): JSX.Element => {
   const goNext = () => setActiveIndex((prev) => (prev + 1) % clientsList.length);
 
   return (
-    <section id="who-we-are" className="w-full bg-[#111111] py-24 px-4 md:px-8 lg:px-16">
-      <div className="max-w-[1440px] mx-auto">
+    <section id="who-we-are" className="w-full bg-[#111111] py-16 md:py-20 px-4 md:px-8 lg:px-16">
+      <div className="max-w-[1562px] mx-auto">
         <header className="flex flex-col gap-8 mb-24 translate-y-[-1rem] animate-fade-in opacity-0">
           <div className="flex items-center gap-4">
             <div className="w-10 h-0.5 bg-[#ff1f4f]" />
