@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import {
   SiReact,
   SiNextdotjs,
@@ -10,6 +11,7 @@ import arrowIcon from "@/assets/arrow.svg";
 import { ErrorBoundary } from "../../../../components/ErrorBoundary";
 import { LogoLoop } from "../../../../components/LogoLoop";
 import Silk from "../../../../components/Silk";
+import VariableProximity from "../../../../components/VariableProximity";
 import { Badge } from "../../../../components/ui/badge";
 import { Button } from "../../../../components/ui/button";
 import type { LogoItem } from "../../../../components/LogoLoop";
@@ -32,6 +34,8 @@ const HeroBackgroundFallback = () => (
 );
 
 export const HeroSection = (): JSX.Element => {
+  const headlineContainerRef = useRef<HTMLDivElement>(null);
+
   return (
     <section id="hero" className="relative w-full h-auto min-h-[100dvh] sm:min-h-[700px] lg:min-h-[1058px] rotate-180 overflow-hidden bg-[#0c0c0c]">
       <div className="absolute inset-0 w-full h-full min-h-[100dvh] sm:min-h-[700px] lg:min-h-[1058px] -rotate-180">
@@ -57,20 +61,42 @@ export const HeroSection = (): JSX.Element => {
             </span>
           </Badge>
 
-          <div className="flex flex-col items-center gap-3 sm:gap-5 [--animation-delay:200ms] translate-y-[-1rem] animate-fade-in opacity-0">
+          <div
+            ref={headlineContainerRef}
+            className="flex flex-col items-center gap-3 sm:gap-5 [--animation-delay:200ms] translate-y-[-1rem] animate-fade-in opacity-0"
+            style={{ position: "relative" }}
+          >
             <h1 className="flex flex-wrap items-center justify-center gap-2 sm:gap-5">
-              <span className="[font-family:'Poppins',Helvetica] font-bold text-white text-[36px] sm:text-[52px] md:text-[64px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] sm:leading-[81.69px] text-center">
-                We Build Brands
-              </span>
+              <VariableProximity
+                label="We Build Brands"
+                containerRef={headlineContainerRef}
+                fromFontVariationSettings="'wght' 400, 'opsz' 9"
+                toFontVariationSettings="'wght' 1000, 'opsz' 40"
+                radius={120}
+                falloff="linear"
+                className="font-bold text-white text-[36px] sm:text-[52px] md:text-[64px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] sm:leading-[81.69px] text-center"
+              />
             </h1>
 
             <h2 className="flex flex-wrap items-center justify-center gap-2 sm:gap-5">
-              <span className="[font-family:'Poppins',Helvetica] font-bold text-white text-[36px] sm:text-[52px] md:text-[62px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] sm:leading-[81.69px] text-center">
-                That
-              </span>
-              <span className="[font-family:'Poppins',Helvetica] font-bold text-white text-[36px] sm:text-[52px] md:text-[62px] lg:text-[78px] tracking-[-0.01em] sm:tracking-[-1.00px] leading-[1.1] sm:leading-[81.69px] text-center">
-                Feel Inevitable.
-              </span>
+              <VariableProximity
+                label="That"
+                containerRef={headlineContainerRef}
+                fromFontVariationSettings="'wght' 400, 'opsz' 9"
+                toFontVariationSettings="'wght' 1000, 'opsz' 40"
+                radius={120}
+                falloff="linear"
+                className="font-bold text-white text-[36px] sm:text-[52px] md:text-[62px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] sm:leading-[81.69px] text-center"
+              />
+              <VariableProximity
+                label="Feel Inevitable."
+                containerRef={headlineContainerRef}
+                fromFontVariationSettings="'wght' 400, 'opsz' 9"
+                toFontVariationSettings="'wght' 1000, 'opsz' 40"
+                radius={120}
+                falloff="linear"
+                className="font-bold text-white text-[36px] sm:text-[52px] md:text-[62px] lg:text-[78px] tracking-[-0.01em] sm:tracking-[-1.00px] leading-[1.1] sm:leading-[81.69px] text-center"
+              />
             </h2>
           </div>
 
