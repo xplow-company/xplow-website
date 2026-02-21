@@ -71,7 +71,7 @@ export const HeroSection = (): JSX.Element => {
               asChild
               className="ml-auto shrink-0 h-12 px-[21px] bg-white hover:bg-white/90 text-[#0b0b0d] rounded-full [font-family:'Space_Grotesk',Helvetica] font-bold text-[15.92px] tracking-[0.13px] transition-transform hover:scale-105"
             >
-              <a href="mailto:xplow.co@gmail.com">
+              <a href="mailto:team@xplow.in">
                 Let&apos;s Build
                 <img
                   src={arrowIcon}
