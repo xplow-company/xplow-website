@@ -53,7 +53,7 @@ export const Website = (): JSX.Element => {
           light={isPastHero}
           className="mx-auto w-full max-w-[1148px] rounded-full"
         >
-          <div className="flex w-full min-w-0 items-center justify-between gap-4 px-6 py-2">
+          <div className="flex w-full min-w-0 items-center justify-between gap-4 px-6 py-2.5">
             <a href="#hero" className="flex shrink-0 items-center">
               <img
                 src={xplowLogo}

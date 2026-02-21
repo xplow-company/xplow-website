@@ -41,7 +41,7 @@ export const HeroSection = (): JSX.Element => {
       </div>
 
       <div className="relative z-10 flex flex-col min-h-[100dvh] sm:min-h-[700px] lg:min-h-[1058px] px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 pt-[calc(3.5rem+1vh)] -rotate-180">
-        <div className="flex-1 flex flex-col items-center justify-center pt-2">
+        <div className="flex-1 flex flex-col items-center justify-center pt-4">
           <div className="-translate-y-[4vh] sm:-translate-y-[6vh] lg:-translate-y-[8vh] mt-[6px]">
           <div className="flex flex-col items-center max-w-[883px] w-full space-y-8 sm:space-y-10 lg:space-y-12 translate-y-[-1rem] animate-fade-in opacity-0">
           <Badge
