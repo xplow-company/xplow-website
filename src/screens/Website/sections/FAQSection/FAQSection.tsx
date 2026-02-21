@@ -138,7 +138,7 @@ export const FAQSection = (): JSX.Element => {
   const activeItem = items[activeQuestionIndex];
 
   return (
-    <section id="faq" className="w-full bg-[#0c0c0c] py-16 md:py-20 px-4 md:px-8 lg:px-16">
+    <section id="faq" className="w-full bg-[#0c0c0c] py-5 md:py-20 px-5 md:px-5 lg:px-16">
       <div className="max-w-[1562px] mx-auto flex flex-col gap-12">
         {/* Header */}
         <header className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between md:gap-12">
@@ -155,7 +155,7 @@ export const FAQSection = (): JSX.Element => {
               <span className="text-[#FF1F4F]">before the handshake.</span>
             </h2>
           </div>
-          <p className="[font-family:'Inter',Helvetica] font-normal text-[#888888] text-[15px] md:text-base leading-[26px] md:text-right whitespace-nowrap">
+          <p className="[font-family:'Inter',Helvetica] font-normal text-[#888888] text-[15px] md:text-base leading-[26px] md:text-right">
             Straight answers. No fluff, no corporate-speak.
             <br />
             If your question isn't here —{" "}

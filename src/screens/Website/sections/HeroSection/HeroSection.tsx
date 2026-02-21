@@ -157,7 +157,7 @@ export const HeroSection = (): JSX.Element => {
         </ErrorBoundary>
       </div>
 
-      <div className="relative z-10 flex flex-col min-h-[100dvh] sm:min-h-[700px] lg:min-h-[1058px] px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 pt-[calc(3.5rem+1vh)] -rotate-180">
+      <div className="relative z-10 flex flex-col min-h-[100dvh] sm:min-h-[700px] lg:min-h-[1058px] px-5 md:px-5 lg:px-8 py-5 md:py-16 lg:py-20 pt-[calc(3.5rem+1vh)] -rotate-180 safe-area-padding min-w-0">
         <div className="flex-1 flex flex-col items-center justify-center pt-4 mt-[10px]">
           <div className="-translate-y-[4vh] sm:-translate-y-[6vh] lg:-translate-y-[8vh] mt-[6px]">
           <div className="flex flex-col items-center max-w-[883px] w-full space-y-8 sm:space-y-10 lg:space-y-12 translate-y-[-1rem] animate-fade-in opacity-0">
@@ -176,10 +176,10 @@ export const HeroSection = (): JSX.Element => {
 
           <div
             ref={headlineContainerRef}
-            className="flex flex-col items-center gap-3 sm:gap-5 [--animation-delay:200ms] translate-y-[-1rem] animate-fade-in opacity-0 min-w-full w-full max-w-[883px]"
+            className="flex flex-col items-center gap-3 sm:gap-5 [--animation-delay:200ms] translate-y-[-1rem] animate-fade-in opacity-0 w-full max-w-[883px] min-w-0 px-1"
             style={{ position: "relative" }}
           >
-            <h1 className="flex items-center justify-center gap-2 sm:gap-5 w-full whitespace-nowrap">
+            <h1 className="flex items-center justify-center gap-2 sm:gap-5 w-full text-center">
               <VariableProximity
                 label="We Build What"
                 containerRef={headlineContainerRef}
@@ -187,11 +187,11 @@ export const HeroSection = (): JSX.Element => {
                 toFontVariationSettings="'wght' 1000, 'opsz' 40"
                 radius={120}
                 falloff="linear"
-                className="font-extrabold text-white text-[36px] sm:text-[52px] md:text-[64px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] sm:leading-[81.69px] text-center"
+                className="font-extrabold text-white text-[clamp(1.75rem,8vw,2.5rem)] xs:text-[clamp(2rem,9vw,3rem)] sm:text-[clamp(2.5rem,10vw,3.5rem)] md:text-[64px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] text-center"
               />
             </h1>
 
-            <h2 className="flex items-center justify-center w-full whitespace-nowrap">
+            <h2 className="flex items-center justify-center w-full text-center">
               <VariableProximity
                 label="Others Compete Against."
                 containerRef={headlineContainerRef}
@@ -199,74 +199,76 @@ export const HeroSection = (): JSX.Element => {
                 toFontVariationSettings="'wght' 1000, 'opsz' 40"
                 radius={120}
                 falloff="linear"
-                className="font-extrabold text-white text-[36px] sm:text-[52px] md:text-[62px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] sm:leading-[81.69px] text-center"
+                className="font-extrabold text-white text-[clamp(1.75rem,8vw,2.5rem)] xs:text-[clamp(2rem,9vw,3rem)] sm:text-[clamp(2.5rem,10vw,3.5rem)] md:text-[62px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] text-center"
               />
             </h2>
           </div>
 
-          <p className="w-full max-w-[883px] [font-family:'Inter',Helvetica] font-medium text-[#dddddd] text-[14px] sm:text-[16px] lg:text-[17.91px] text-center tracking-[0] leading-[1.5] sm:leading-[25.87px] px-1 [--animation-delay:400ms] translate-y-[-1rem] animate-fade-in opacity-0">
+          <p className="w-full max-w-[883px] [font-family:'Inter',Helvetica] font-medium text-[#dddddd] text-[clamp(0.8125rem,2.5vw,0.875rem)] xs:text-[clamp(0.875rem,2.8vw,1rem)] sm:text-[16px] lg:text-[17.91px] text-center tracking-[0] leading-[1.5] sm:leading-[25.87px] px-2 sm:px-1 [--animation-delay:400ms] translate-y-[-1rem] animate-fade-in opacity-0 break-words min-w-0">
           We partner with ambitious founders to design brand systems, digital products, and scalable infrastructure that set the benchmark for performance, clarity, and long-term market leadership.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between min-h-[58px] w-full max-w-[571px] gap-3 sm:gap-4 bg-[#000000ab] rounded-full border border-[#ffffff0f] shadow-[inset_0px_4px_4px_#000000] p-4 sm:pl-6 sm:pr-[0.5%] sm:py-0 [--animation-delay:600ms] translate-y-[-1rem] animate-fade-in opacity-0">
-            <span className="[font-family:'Space_Grotesk',Helvetica] font-medium text-white text-[14px] sm:text-[16px] lg:text-[18px] tracking-[0.13px] leading-[19.40px] text-center sm:text-left opacity-[0.93]">
-              What are we building together?
-            </span>
-
+          {/* Mobile & Tablet: Let's Build CTA only — centered, 20px vertical margin */}
+          <div className="md:hidden flex justify-center items-center my-5 [--animation-delay:600ms] translate-y-[-1rem] animate-fade-in opacity-0">
             <Button
               asChild
-              className="shrink-0 h-11 sm:h-12 px-4 sm:px-[21px] bg-white hover:bg-white text-[#0b0b0d] rounded-full [font-family:'Space_Grotesk',Helvetica] font-bold text-[14px] sm:text-[15.92px] tracking-[0.13px] self-center sm:ml-auto border-0 outline-none ring-0 shadow-none hover:border-0 hover:ring-0 hover:shadow-none focus-visible:ring-0 focus-visible:ring-offset-0"
+              className="h-12 min-h-[48px] px-6 bg-white hover:bg-[#f5f5f5] text-[#0b0b0d] rounded-full [font-family:'Space_Grotesk',Helvetica] font-bold text-[14px] tracking-[0.02em] border-0 shadow-none"
             >
               <a
                 href="mailto:team@xplow.in"
-                className="relative overflow-hidden inline-flex items-center justify-center h-full no-underline border-0 outline-none ring-0 hover:border-0 hover:ring-0 focus-visible:ring-0 focus-visible:outline-none [backface-visibility:hidden]"
-                onMouseEnter={handleLetsBuildEnter}
-                onMouseLeave={handleLetsBuildLeave}
+                className="relative overflow-hidden inline-flex items-center justify-center h-full gap-2 no-underline"
               >
-                <span
-                  className="hover-circle absolute left-1/2 bottom-0 rounded-full z-[1] block pointer-events-none [backface-visibility:hidden] [transform:translateZ(0)]"
-                  style={{
-                    background: "#0b0b0d",
-                    willChange: "transform",
-                  }}
-                  aria-hidden
-                  ref={letsBuildCircleRef}
-                />
-                <span className="label-stack relative inline-flex items-center leading-[1] z-[2] [backface-visibility:hidden] [transform:translateZ(0)]">
-                  <span
-                    className="lets-build-pill-label relative z-[2] inline-flex items-center [backface-visibility:hidden]"
-                    style={{ willChange: "transform" }}
-                  >
-                    Let&apos;s Build
-                    <img
-                      src={arrowIcon}
-                      className="w-6 h-6 sm:w-[29px] sm:h-[29px] ml-1"
-                      alt=""
-                      aria-hidden
-                    />
-                  </span>
-                  <span
-                    className="lets-build-pill-label-hover absolute left-0 top-0 z-[3] inline-flex items-center text-white [backface-visibility:hidden]"
-                    style={{ willChange: "transform, opacity" }}
-                    aria-hidden
-                  >
-                    Let&apos;s Build
-                    <img
-                      src={arrowIcon}
-                      className="w-6 h-6 sm:w-[29px] sm:h-[29px] ml-1 invert"
-                      alt=""
-                      aria-hidden
-                    />
-                  </span>
-                </span>
+                Let&apos;s Build
+                <img src={arrowIcon} className="w-5 h-5 ml-1.5" alt="" aria-hidden />
               </a>
             </Button>
+          </div>
+
+          {/* Desktop: Full input area + CTA (unchanged) */}
+          <div className="hidden md:block w-full max-w-[571px] min-w-0 [--animation-delay:600ms] translate-y-[-1rem] animate-fade-in opacity-0">
+            <div className="flex flex-row w-full rounded-full overflow-hidden bg-[#0d0d0d] border border-[#ffffff14] shadow-[0_4px_24px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.04)]">
+              <div className="flex-1 flex items-center min-h-[60px] pl-6 pr-4 py-0">
+                <span className="[font-family:'Inter',Helvetica] font-medium text-[#9ca3af] text-[15px] tracking-[0.02em] leading-[1.4]">
+                  What are we building together?
+                </span>
+              </div>
+              <div className="shrink-0 p-2 pr-2.5 py-2">
+                <Button
+                  asChild
+                  className="w-auto h-11 px-5 bg-white hover:bg-[#f5f5f5] text-[#0b0b0d] rounded-full [font-family:'Space_Grotesk',Helvetica] font-bold text-[15px] tracking-[0.02em] border-0 shadow-none"
+                >
+                  <a
+                    href="mailto:team@xplow.in"
+                    className="relative overflow-hidden inline-flex items-center justify-center h-full gap-2 no-underline"
+                    onMouseEnter={handleLetsBuildEnter}
+                    onMouseLeave={handleLetsBuildLeave}
+                  >
+                    <span
+                      className="hover-circle absolute left-1/2 bottom-0 rounded-full z-[1] block pointer-events-none [backface-visibility:hidden] [transform:translateZ(0)]"
+                      style={{ background: "#0b0b0d", willChange: "transform" }}
+                      aria-hidden
+                      ref={letsBuildCircleRef}
+                    />
+                    <span className="label-stack relative inline-flex items-center z-[2]">
+                      <span className="lets-build-pill-label relative z-[2] inline-flex items-center" style={{ willChange: "transform" }}>
+                        Let&apos;s Build
+                        <img src={arrowIcon} className="w-[22px] h-[22px] ml-1.5" alt="" aria-hidden />
+                      </span>
+                      <span className="lets-build-pill-label-hover absolute left-0 top-0 z-[3] inline-flex items-center text-white" style={{ willChange: "transform, opacity" }} aria-hidden>
+                        Let&apos;s Build
+                        <img src={arrowIcon} className="w-[22px] h-[22px] ml-1.5 invert" alt="" aria-hidden />
+                      </span>
+                    </span>
+                  </a>
+                </Button>
+              </div>
+            </div>
           </div>
           </div>
         </div>
         </div>
 
-        <div className="w-full flex-shrink-0 min-h-[44px] sm:min-h-[52px] pb-6 sm:pb-8">
+        <div className="w-full flex-shrink-0 min-h-[44px] sm:min-h-[52px] pb-5 md:pb-8">
           <LogoLoop
             logos={techLogos}
             speed={80}
