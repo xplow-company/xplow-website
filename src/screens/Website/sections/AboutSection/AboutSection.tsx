@@ -1,23 +1,28 @@
+import CountUp from "../../../../components/CountUp";
 import { Card, CardContent } from "../../../../components/ui/card";
 
 const statsData = [
   {
-    value: "50+",
+    value: 50,
+    suffix: "+",
     label: "Projects shipped",
     sublabel: "SaaS, fintech, e-comm",
   },
   {
-    value: "3x",
+    value: 3,
+    suffix: "x",
     label: "Avg. conversion lift",
     sublabel: "Across client portfolios",
   },
   {
-    value: "98%",
+    value: 98,
+    suffix: "%",
     label: "Client retention",
     sublabel: "They come back",
   },
   {
-    value: "30d",
+    value: 30,
+    suffix: "d",
     label: "First delivery",
     sublabel: "Kickoff to milestone",
   },
@@ -82,7 +87,8 @@ export const AboutSection = (): JSX.Element => {
                 >
                   <CardContent className="p-[25px] flex flex-col gap-2">
                     <h3 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-white text-[32px] tracking-[-0.96px] leading-8">
-                      {stat.value}
+                      <CountUp to={stat.value} duration={1.6} delay={0.15} rootMargin="0px 0px -25% 0px" className="tabular-nums" />
+                      {stat.suffix}
                     </h3>
                     <p className="[font-family:'Inter',Helvetica] font-normal text-[#aaaaaa] text-[13px] tracking-[0] leading-[19.5px]">
                       {stat.label}

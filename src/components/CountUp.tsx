@@ -10,6 +10,8 @@ interface CountUpProps {
   className?: string;
   startWhen?: boolean;
   separator?: string;
+  /** Root margin for in-view detection (e.g. "0px 0px -20% 0px" = only when scrolled into view, not on initial load) */
+  rootMargin?: string;
   onStart?: () => void;
   onEnd?: () => void;
 }
@@ -23,6 +25,7 @@ export default function CountUp({
   className = '',
   startWhen = true,
   separator = '',
+  rootMargin = '0px',
   onStart,
   onEnd
 }: CountUpProps) {
@@ -37,7 +40,7 @@ export default function CountUp({
     stiffness
   });
 
-  const isInView = useInView(ref, { once: true, margin: '0px' });
+  const isInView = useInView(ref, { once: true, margin: rootMargin as '0px' });
 
   const getDecimalPlaces = (num: number): number => {
     const str = num.toString();
