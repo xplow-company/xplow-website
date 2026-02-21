@@ -1,15 +1,18 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import {
   SiReact,
   SiNextdotjs,
   SiTypescript,
   SiTailwindcss,
 } from "react-icons/si";
+import { gsap } from "gsap";
 import arrowIcon from "@/assets/arrow.svg";
 import { ErrorBoundary } from "../../../../components/ErrorBoundary";
 import { LogoLoop } from "../../../../components/LogoLoop";
 import Silk from "../../../../components/Silk";
+import VariableProximity from "../../../../components/VariableProximity";
 import { Badge } from "../../../../components/ui/badge";
 import { Button } from "../../../../components/ui/button";
 import type { LogoItem } from "../../../../components/LogoLoop";
@@ -31,7 +34,115 @@ const HeroBackgroundFallback = () => (
   />
 );
 
+const EASE = "power2.easeOut";
+
 export const HeroSection = (): JSX.Element => {
+  const headlineContainerRef = useRef<HTMLDivElement>(null);
+  const letsBuildCircleRef = useRef<HTMLSpanElement>(null);
+  const letsBuildTlRef = useRef<gsap.core.Timeline | null>(null);
+  const letsBuildActiveTweenRef = useRef<gsap.core.Tween | null>(null);
+
+  useEffect(() => {
+    const runLayout = () => {
+      const circle = letsBuildCircleRef.current;
+      if (!circle?.parentElement) return;
+
+      const pill = circle.parentElement as HTMLElement;
+      const rect = pill.getBoundingClientRect();
+      const w = rect.width;
+      const h = rect.height;
+      const R = (w * w) / 4 + h * h;
+      const Rval = R / (2 * h);
+      const D = Math.ceil(2 * Rval) + 2;
+      const delta =
+        Math.ceil(
+          Rval - Math.sqrt(Math.max(0, Rval * Rval - (w * w) / 4))
+        ) + 1;
+      const originY = D - delta;
+
+      circle.style.width = `${D}px`;
+      circle.style.height = `${D}px`;
+      circle.style.bottom = `-${delta}px`;
+
+      gsap.set(circle, {
+        xPercent: -50,
+        scale: 0,
+        transformOrigin: `50% ${originY}px`,
+      });
+
+      const label = pill.querySelector<HTMLElement>(".lets-build-pill-label");
+      const hoverLabel = pill.querySelector<HTMLElement>(
+        ".lets-build-pill-label-hover"
+      );
+
+      if (label) gsap.set(label, { y: 0 });
+      if (hoverLabel) gsap.set(hoverLabel, { y: h + 12, opacity: 0 });
+
+      letsBuildTlRef.current?.kill();
+      const tl = gsap.timeline({ paused: true });
+
+      tl.to(
+        circle,
+        {
+          scale: 1.2,
+          xPercent: -50,
+          duration: 2,
+          ease: EASE,
+          overwrite: "auto",
+        },
+        0
+      );
+
+      if (label) {
+        tl.to(
+          label,
+          { y: -(h + 8), duration: 2, ease: EASE, overwrite: "auto" },
+          0
+        );
+      }
+
+      if (hoverLabel) {
+        gsap.set(hoverLabel, { y: Math.ceil(h + 100), opacity: 0 });
+        tl.to(
+          hoverLabel,
+          { y: 0, opacity: 1, duration: 2, ease: EASE, overwrite: "auto" },
+          0
+        );
+      }
+
+      letsBuildTlRef.current = tl;
+    };
+
+    runLayout();
+    window.addEventListener("resize", runLayout);
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(runLayout).catch(() => {});
+    }
+    return () => window.removeEventListener("resize", runLayout);
+  }, []);
+
+  const handleLetsBuildEnter = () => {
+    const tl = letsBuildTlRef.current;
+    if (!tl) return;
+    letsBuildActiveTweenRef.current?.kill();
+    letsBuildActiveTweenRef.current = tl.tweenTo(tl.duration(), {
+      duration: 0.3,
+      ease: EASE,
+      overwrite: "auto",
+    });
+  };
+
+  const handleLetsBuildLeave = () => {
+    const tl = letsBuildTlRef.current;
+    if (!tl) return;
+    letsBuildActiveTweenRef.current?.kill();
+    letsBuildActiveTweenRef.current = tl.tweenTo(0, {
+      duration: 0.2,
+      ease: EASE,
+      overwrite: "auto",
+    });
+  };
+
   return (
     <section id="hero" className="relative w-full h-auto min-h-[100dvh] sm:min-h-[700px] lg:min-h-[1058px] rotate-180 overflow-hidden bg-[#0c0c0c]">
       <div className="absolute inset-0 w-full h-full min-h-[100dvh] sm:min-h-[700px] lg:min-h-[1058px] -rotate-180">
@@ -57,25 +168,38 @@ export const HeroSection = (): JSX.Element => {
             </span>
           </Badge>
 
-          <div className="flex flex-col items-center gap-3 sm:gap-5 [--animation-delay:200ms] translate-y-[-1rem] animate-fade-in opacity-0">
-            <h1 className="flex flex-wrap items-center justify-center gap-2 sm:gap-5">
-              <span className="[font-family:'Poppins',Helvetica] font-bold text-white text-[36px] sm:text-[52px] md:text-[64px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] sm:leading-[81.69px] text-center">
-                We Build Brands
-              </span>
+          <div
+            ref={headlineContainerRef}
+            className="flex flex-col items-center gap-3 sm:gap-5 [--animation-delay:200ms] translate-y-[-1rem] animate-fade-in opacity-0 min-w-full w-full max-w-[883px]"
+            style={{ position: "relative" }}
+          >
+            <h1 className="flex items-center justify-center gap-2 sm:gap-5 w-full whitespace-nowrap">
+              <VariableProximity
+                label="We Build What"
+                containerRef={headlineContainerRef}
+                fromFontVariationSettings="'wght' 400, 'opsz' 9"
+                toFontVariationSettings="'wght' 1000, 'opsz' 40"
+                radius={120}
+                falloff="linear"
+                className="font-bold text-white text-[36px] sm:text-[52px] md:text-[64px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] sm:leading-[81.69px] text-center"
+              />
             </h1>
 
-            <h2 className="flex flex-wrap items-center justify-center gap-2 sm:gap-5">
-              <span className="[font-family:'Poppins',Helvetica] font-bold text-white text-[36px] sm:text-[52px] md:text-[62px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] sm:leading-[81.69px] text-center">
-                That
-              </span>
-              <span className="[font-family:'Poppins',Helvetica] font-bold text-white text-[36px] sm:text-[52px] md:text-[62px] lg:text-[78px] tracking-[-0.01em] sm:tracking-[-1.00px] leading-[1.1] sm:leading-[81.69px] text-center">
-                Feel Inevitable.
-              </span>
+            <h2 className="flex items-center justify-center w-full whitespace-nowrap">
+              <VariableProximity
+                label="Others Compete Against."
+                containerRef={headlineContainerRef}
+                fromFontVariationSettings="'wght' 400, 'opsz' 9"
+                toFontVariationSettings="'wght' 1000, 'opsz' 40"
+                radius={120}
+                falloff="linear"
+                className="font-bold text-white text-[36px] sm:text-[52px] md:text-[62px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] sm:leading-[81.69px] text-center"
+              />
             </h2>
           </div>
 
           <p className="w-full max-w-[883px] [font-family:'Inter',Helvetica] font-medium text-[#dddddd] text-[14px] sm:text-[16px] lg:text-[17.91px] text-center tracking-[0] leading-[1.5] sm:leading-[25.87px] px-1 [--animation-delay:400ms] translate-y-[-1rem] animate-fade-in opacity-0">
-            Strategy-led brand systems and digital products designed to earn attention, build authority, and scale with precision.
+          We partner with ambitious founders to design brand systems, digital products, and scalable infrastructure that set the benchmark for performance, clarity, and long-term market leadership.
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between min-h-[58px] w-full max-w-[571px] gap-3 sm:gap-4 bg-[#000000ab] rounded-full border border-[#ffffff0f] shadow-[inset_0px_4px_4px_#000000] p-4 sm:pl-6 sm:pr-[0.5%] sm:py-0 [--animation-delay:600ms] translate-y-[-1rem] animate-fade-in opacity-0">
@@ -85,16 +209,50 @@ export const HeroSection = (): JSX.Element => {
 
             <Button
               asChild
-              className="shrink-0 h-11 sm:h-12 px-4 sm:px-[21px] bg-white hover:bg-white/90 text-[#0b0b0d] rounded-full [font-family:'Space_Grotesk',Helvetica] font-bold text-[14px] sm:text-[15.92px] tracking-[0.13px] self-center sm:ml-auto"
+              className="shrink-0 h-11 sm:h-12 px-4 sm:px-[21px] bg-white hover:bg-white text-[#0b0b0d] rounded-full [font-family:'Space_Grotesk',Helvetica] font-bold text-[14px] sm:text-[15.92px] tracking-[0.13px] self-center sm:ml-auto border-0 outline-none ring-0 shadow-none hover:border-0 hover:ring-0 hover:shadow-none focus-visible:ring-0 focus-visible:ring-offset-0"
             >
-              <a href="mailto:team@xplow.in">
-                Let&apos;s Build
-                <img
-                  src={arrowIcon}
-                  className="w-6 h-6 sm:w-[29px] sm:h-[29px] ml-1"
-                  alt=""
+              <a
+                href="mailto:team@xplow.in"
+                className="relative overflow-hidden inline-flex items-center justify-center h-full no-underline border-0 outline-none ring-0 hover:border-0 hover:ring-0 focus-visible:ring-0 focus-visible:outline-none [backface-visibility:hidden]"
+                onMouseEnter={handleLetsBuildEnter}
+                onMouseLeave={handleLetsBuildLeave}
+              >
+                <span
+                  className="hover-circle absolute left-1/2 bottom-0 rounded-full z-[1] block pointer-events-none [backface-visibility:hidden] [transform:translateZ(0)]"
+                  style={{
+                    background: "#0b0b0d",
+                    willChange: "transform",
+                  }}
                   aria-hidden
+                  ref={letsBuildCircleRef}
                 />
+                <span className="label-stack relative inline-flex items-center leading-[1] z-[2] [backface-visibility:hidden] [transform:translateZ(0)]">
+                  <span
+                    className="lets-build-pill-label relative z-[2] inline-flex items-center [backface-visibility:hidden]"
+                    style={{ willChange: "transform" }}
+                  >
+                    Let&apos;s Build
+                    <img
+                      src={arrowIcon}
+                      className="w-6 h-6 sm:w-[29px] sm:h-[29px] ml-1"
+                      alt=""
+                      aria-hidden
+                    />
+                  </span>
+                  <span
+                    className="lets-build-pill-label-hover absolute left-0 top-0 z-[3] inline-flex items-center text-white [backface-visibility:hidden]"
+                    style={{ willChange: "transform, opacity" }}
+                    aria-hidden
+                  >
+                    Let&apos;s Build
+                    <img
+                      src={arrowIcon}
+                      className="w-6 h-6 sm:w-[29px] sm:h-[29px] ml-1 invert"
+                      alt=""
+                      aria-hidden
+                    />
+                  </span>
+                </span>
               </a>
             </Button>
           </div>
