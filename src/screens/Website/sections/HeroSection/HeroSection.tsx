@@ -42,7 +42,7 @@ export const HeroSection = (): JSX.Element => {
 
       <div className="relative z-10 flex flex-col min-h-[100dvh] sm:min-h-[700px] lg:min-h-[1058px] px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 pt-[calc(3.5rem+1vh)] -rotate-180">
         <div className="flex-1 flex flex-col items-center justify-center">
-          <div className="-translate-y-[4vh] sm:-translate-y-[6vh] lg:-translate-y-[8vh]">
+          <div className="-translate-y-[4vh] sm:-translate-y-[6vh] lg:-translate-y-[8vh] mt-[6px]">
           <div className="flex flex-col items-center max-w-[883px] w-full space-y-8 sm:space-y-10 lg:space-y-12 translate-y-[-1rem] animate-fade-in opacity-0">
           <Badge
             variant="outline"
@@ -59,7 +59,7 @@ export const HeroSection = (): JSX.Element => {
 
           <div className="flex flex-col items-center gap-3 sm:gap-5 [--animation-delay:200ms] translate-y-[-1rem] animate-fade-in opacity-0">
             <h1 className="flex flex-wrap items-center justify-center gap-2 sm:gap-5">
-              <span className="[font-family:'Poppins',Helvetica] font-bold text-white text-[36px] sm:text-[52px] md:text-[62px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] sm:leading-[81.69px] text-center">
+              <span className="[font-family:'Poppins',Helvetica] font-bold text-white text-[36px] sm:text-[52px] md:text-[64px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] sm:leading-[81.69px] text-center">
                 We Build Brands
               </span>
             </h1>
@@ -75,7 +75,7 @@ export const HeroSection = (): JSX.Element => {
           </div>
 
           <p className="w-full max-w-[883px] [font-family:'Inter',Helvetica] font-medium text-[#dddddd] text-[14px] sm:text-[16px] lg:text-[17.91px] text-center tracking-[0] leading-[1.5] sm:leading-[25.87px] px-1 [--animation-delay:400ms] translate-y-[-1rem] animate-fade-in opacity-0">
-          Strategy-led brand systems and digital products designed to earn attention, build authority, and scale with precision.
+            Strategy-led brand systems and digital products designed to earn attention, build authority, and scale with precision.
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between min-h-[58px] w-full max-w-[571px] gap-3 sm:gap-4 bg-[#000000ab] rounded-full border border-[#ffffff0f] shadow-[inset_0px_4px_4px_#000000] p-4 sm:pl-6 sm:pr-[0.5%] sm:py-0 [--animation-delay:600ms] translate-y-[-1rem] animate-fade-in opacity-0">
@@ -85,7 +85,7 @@ export const HeroSection = (): JSX.Element => {
 
             <Button
               asChild
-              className="shrink-0 h-11 sm:h-12 px-4 sm:px-[21px] bg-white hover:bg-white/90 text-[#0b0b0d] rounded-full [font-family:'Space_Grotesk',Helvetica] font-bold text-[14px] sm:text-[15.92px] tracking-[0.13px] transition-transform hover:scale-105 self-center sm:ml-auto"
+              className="shrink-0 h-11 sm:h-12 px-4 sm:px-[21px] bg-white hover:bg-white/90 text-[#0b0b0d] rounded-full [font-family:'Space_Grotesk',Helvetica] font-bold text-[14px] sm:text-[15.92px] tracking-[0.13px] self-center sm:ml-auto"
             >
               <a href="mailto:team@xplow.in">
                 Let&apos;s Build
