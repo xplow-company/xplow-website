@@ -138,8 +138,8 @@ export const FAQSection = (): JSX.Element => {
   const activeItem = items[activeQuestionIndex];
 
   return (
-    <section id="faq" className="w-full bg-[#0c0c0c] py-28 px-4 md:px-8 lg:px-16">
-      <div className="max-w-[1440px] mx-auto flex flex-col gap-16">
+    <section id="faq" className="w-full bg-[#0c0c0c] py-16 md:py-20 px-4 md:px-8 lg:px-16">
+      <div className="max-w-[1562px] mx-auto flex flex-col gap-12">
         {/* Header */}
         <header className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between md:gap-12">
           <div className="flex flex-col gap-8">
@@ -149,8 +149,9 @@ export const FAQSection = (): JSX.Element => {
                 FAQ
               </span>
             </div>
-            <h2 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-white text-[40px] md:text-[48px] lg:text-[56px] tracking-[-1.96px] leading-[1.1]">
-              Questions we get{" "}
+            <h2 className="[font-family:'popins',Helvetica] font-bold text-white text-[40px] md:text-[48px] lg:text-[56px] tracking-[-1.96px] leading-[1.1]">
+              Questions we get
+              <br />
               <span className="text-[#FF1F4F]">before the handshake.</span>
             </h2>
           </div>
