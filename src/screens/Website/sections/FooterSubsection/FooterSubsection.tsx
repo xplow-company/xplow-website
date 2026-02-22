@@ -11,9 +11,9 @@ const navigationLinks = [
 ];
 
 const socialLinks = [
-  { label: "LinkedIn", href: "https://www.linkedin.com", Icon: SiLinkedin },
-  { label: "Instagram", href: "https://www.instagram.com", Icon: SiInstagram },
-  { label: "Twitter", href: "https://twitter.com", Icon: SiX },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/xplow/", Icon: SiLinkedin },
+  { label: "Instagram", href: "https://www.instagram.com/xplow.company?igsh=MWxtY25oM284OTYxaQ==", Icon: SiInstagram },
+  { label: "Twitter", href: "https://x.com/XplowCo", Icon: SiX },
 ];
 
 export const FooterSubsection = (): JSX.Element => {
