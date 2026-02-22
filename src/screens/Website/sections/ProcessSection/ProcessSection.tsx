@@ -10,7 +10,7 @@ const penIcons = [pen1, pen2, pen3, pen4];
 const phases = [
   {
     number: "01",
-    title: "Discover",
+    title: "DECODE",
     subtitle: "Deep Strategy",
     description:
       "Immerse in your brand, market, and users. Every decision is backed by real insight — never assumption.",
@@ -23,7 +23,7 @@ const phases = [
   },
   {
     number: "02",
-    title: "Design",
+    title: "FRAME",
     subtitle: "Intentional Craft",
     description:
       "Systems, not screens. Every pixel serves a purpose — built for clarity, conversion, and delight.",
@@ -31,7 +31,7 @@ const phases = [
   },
   {
     number: "03",
-    title: "Develop",
+    title: "FORGE",
     subtitle: "Scalable Execution",
     description:
       "Production-ready code and assets that ship. Built to perform today and evolve tomorrow.",
@@ -44,7 +44,7 @@ const phases = [
   },
   {
     number: "04",
-    title: "Optimize",
+    title: "REFINE",
     subtitle: "Continuous Growth",
     description:
       "Post-launch analytics, experimentation, and iterative refinement to compound results.",
