@@ -69,19 +69,26 @@ export const AboutSection = (): JSX.Element => {
           </div>
 
           {/* Content: 2-col (body text | cards) — cards align with top of body text */}
-          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,607px)_1fr] gap-x-12 gap-y-8 lg:gap-y-0 items-start translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms] min-w-0">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,607px)_1fr] gap-x-20 gap-y-8 lg:gap-y-0 items-start translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms] min-w-0">
             <div className="flex flex-col gap-6 max-w-[607px] w-full min-w-0">
               <p className="[font-family:'Inter',Helvetica] font-normal text-white text-[15px] sm:text-base tracking-[0] leading-[1.6] sm:leading-[30.4px] break-words">
-                Most agencies build websites. We build competitive advantages. XPLOW exists at the intersection of strategic thinking and ruthless execution — where brand systems, product design, and engineering converge to create experiences that don&apos;t just look world-class, but <strong className="font-semibold text-white">perform like it.</strong>
+                Most agencies design screens. We design competitive edges.
               </p>
+
               <p className="[font-family:'Inter',Helvetica] font-normal text-white text-[15px] sm:text-base tracking-[0] leading-[1.6] sm:leading-[30.4px] break-words">
-                We obsess over user psychology, conversion funnels, and brand systems that compound growth over time. Every pixel is a business decision. Every interaction is engineered to move a metric. Every deliverable is designed to make your competitors wonder what happened.
+                XPLOW operates at the intersection of strategic clarity and ruthless execution where brand systems, product design, and engineering align to create experiences that don't just look refined, but <strong className="font-semibold text-white">perform relentlessly.</strong>
               </p>
+
               <p className="[font-family:'Inter',Helvetica] font-normal text-white text-[15px] sm:text-base tracking-[0] leading-[1.6] sm:leading-[30.4px] break-words">
-                We&apos;ve spent years inside the trenches of SaaS, fintech, e-commerce, and Web3 — shipping products that real users depend on, not vanity projects for award submissions. When a founder partners with XPLOW, they&apos;re not hiring a vendor. They&apos;re adding a strategic arm that thinks in systems, ships in weeks, and measures in multiples.
+                We study user psychology. We map decision friction. We structure growth architecture. Every pixel carries business intent. Every interaction moves a metric.
               </p>
+
+              <p className="[font-family:'Inter',Helvetica] font-normal text-white text-[15px] sm:text-base tracking-[0] leading-[1.6] sm:leading-[30.4px] break-words">
+                When founders partner with XPLOW, they're not hiring vendors. They're adding a strategic arm that thinks in systems, ships in weeks, and measures in multiples.
+              </p>
+
               <blockquote className="border-l-2 border-[#ff1f4f] pl-4 sm:pl-[26px] mt-2 min-w-0">
-                <p className="[font-family:'Inter',Helvetica] font-normal text-[15px] sm:text-lg tracking-[0] leading-[1.6] sm:leading-[30.6px] text-[#cccccc] break-words">
+                <p className="[font-family:'Inter',Helvetica] font-normal text-[15px] sm:text-lg tracking-[0] leading-[1.6] sm:leading-[30.6px] text-[#cccccc] italic break-words">
                   &ldquo;We don&apos;t design what looks good. We design what{" "}
                   <span className="text-[#ff1f4f] font-semibold">works</span>
                   {" "}
@@ -90,8 +97,8 @@ export const AboutSection = (): JSX.Element => {
               </blockquote>
             </div>
 
-            {/* KPI cards: 1 col on xxs/xs, 2 cols on sm+ — auto height, no distortion */}
-            <div className="grid grid-cols-1 min-[400px]:grid-cols-2 gap-3 sm:gap-4 w-full max-w-[624px] lg:max-w-none min-w-0">
+            {/* KPI cards: 1 col on xxs/xs, 2 cols on sm+ — sleek minimal design */}
+            <div className="grid grid-cols-1 min-[400px]:grid-cols-2 gap-4 sm:gap-5 w-full max-w-[624px] lg:max-w-none min-w-0">
               {statsData.map((stat, index) => (
                 <div
                   key={index}
@@ -100,27 +107,37 @@ export const AboutSection = (): JSX.Element => {
                 >
                   <SpotlightCard
                     effectEnabled={countUpEnded[index] ?? false}
-                    spotlightColor="rgba(255, 31, 79, 0.2)"
-                    className="bg-[#191919] rounded-xl sm:rounded-2xl border border-[#2a2a2a] p-0 w-full"
+                    spotlightColor="rgba(255, 31, 79, 0.15)"
+                    className="bg-gradient-to-br from-[#0f0f0f] to-[#1a1a1a] rounded-2xl border border-[#252525] hover:border-[#252525] transition-all duration-300 p-0 w-full shadow-lg hover:shadow-[0_8px_32px_rgba(255,31,79,0.1)]"
                   >
-                    <CardContent className="p-4 sm:p-5 md:p-6 flex flex-col gap-1 sm:gap-2 min-h-0 justify-center">
-                      <h3 className="[font-family:'poppins',Helvetica] font-bold text-white text-[clamp(1.5rem,4.5vw,2rem)] sm:text-[32px] tracking-[-0.96px] leading-tight tabular-nums">
-                        <CountUp
-                          to={stat.value}
-                          duration={1.6}
-                          delay={0.15}
-                          rootMargin="0px 0px -25% 0px"
-                          className="tabular-nums"
-                          onEnd={() => handleCountUpEnd(index)}
-                        />
-                        {stat.suffix}
-                      </h3>
-                      <p className="[font-family:'Inter',Helvetica] font-normal text-[#aaaaaa] text-[11px] sm:text-[13px] tracking-[0] leading-[1.4] break-words">
-                        {stat.label}
-                      </p>
-                      <p className="[font-family:'Inter',Helvetica] font-normal text-[#555555] text-[10px] sm:text-[11px] tracking-[0] leading-[1.4] break-words">
-                        {stat.sublabel}
-                      </p>
+                    <CardContent className="p-4 sm:p-5 flex flex-col gap-3 min-h-0 justify-center">
+                      <div className="flex items-baseline gap-1">
+                        <h3 className="[font-family:'poppins',Helvetica] font-bold text-white text-[clamp(1.75rem,5vw,2.5rem)] sm:text-[40px] tracking-[-1px] leading-tight tabular-nums">
+                          <CountUp
+                            to={stat.value}
+                            duration={1.8}
+                            delay={0.2}
+                            rootMargin="0px 0px -25% 0px"
+                            className="tabular-nums"
+                            onEnd={() => handleCountUpEnd(index)}
+                          />
+                        </h3>
+                        <span className="[font-family:'poppins',Helvetica] text-white text-[clamp(1.5rem,4vw,2.25rem)] sm:text-3xl font-bold tracking-tight">
+                          {stat.suffix}
+                        </span>
+                      </div>
+                      
+                      <div className="flex flex-col gap-1">
+                        <p className="[font-family:'Inter',Helvetica] font-semibold text-white text-[13px] sm:text-[14px] tracking-[0.3px] leading-[1.4]">
+                          {stat.label}
+                        </p>
+                        <p className="[font-family:'Inter',Helvetica] font-normal text-[#888888] text-[11px] sm:text-[12px] tracking-[0.2px] leading-[1.4]">
+                          {stat.sublabel}
+                        </p>
+                      </div>
+
+                      {/* Accent bar */}
+                      <div className="mt-2 h-0.5 w-8 bg-gradient-to-r from-[#ff1f4f] to-transparent rounded-full" />
                     </CardContent>
                   </SpotlightCard>
                 </div>
