@@ -52,6 +52,12 @@ const HeroBackgroundFallback = () => (
 
 const EASE = "power2.easeOut";
 
+const heroBeamKeyframes = `
+  @keyframes hero-beam-spin {
+    to { transform: rotate(360deg); }
+  }
+`;
+
 export const HeroSection = (): JSX.Element => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const headlineContainerRef = useRef<HTMLDivElement>(null);
@@ -170,18 +176,23 @@ export const HeroSection = (): JSX.Element => {
 
       <div className="relative z-10 flex flex-col min-h-[100dvh] sm:min-h-[700px] lg:min-h-[1058px] px-5 md:px-5 lg:px-8 pt-[28px] pb-5 md:py-16 lg:py-20 -rotate-180 safe-area-padding min-w-0">
         <nav
-          className="relative z-[2] mx-auto w-full max-w-[1148px] rounded-full px-4 sm:px-6 py-2.5 flex items-center justify-between gap-4 bg-black mb-5 md:-mt-8 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]"
+          className="group/nav relative z-[2] mx-auto w-full max-w-[1148px] rounded-full px-4 sm:px-6 py-2 flex items-center justify-between gap-4 bg-black mb-5 -mt-[10px] md:-mt-[42px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms] transition-colors duration-300 ease-out hover:bg-white"
           aria-label="Main navigation"
         >
-          <a href="#hero" className="flex shrink-0 items-center" aria-label="Xplow home">
-            <img src={xplowLogo} alt="Xplow" className="h-[20px] sm:h-[23px] w-auto" />
+          <a href="#hero" className="flex shrink-0 items-center gap-1.5 px-[4px] min-h-[40px]" aria-label="Xplow home">
+            <span className="flex shrink-0 w-[26px] sm:w-[28px] overflow-hidden">
+              <img src={xplowLogo} alt="" className="h-[20px] sm:h-[23px] w-[95px] max-w-none object-contain object-left block transition-[filter] duration-300 ease-out group-hover/nav:invert" aria-hidden />
+            </span>
+            <span className="[font-family:'Clash_Display',sans-serif] font-medium leading-none block translate-y-px uppercase tracking-tight text-[20px] sm:text-[24px] text-white transition-colors duration-300 ease-out group-hover/nav:text-black">
+              XPLOW
+            </span>
           </a>
           <div className="hidden md:flex shrink-0 items-center gap-1">
             {navigationItems.map((item, index) => (
               <Button
                 key={index}
                 variant="ghost"
-                className="h-8 px-4 font-medium text-sm tracking-[0.13px] leading-[19.5px] [font-family:'Inter',Helvetica] whitespace-nowrap rounded-full transition-colors text-white hover:bg-white/10"
+                className="h-8 px-4 font-medium text-sm tracking-[0.13px] leading-[19.5px] [font-family:'Inter',Helvetica] whitespace-nowrap rounded-full transition-colors duration-300 ease-out text-white hover:bg-white/10 group-hover/nav:text-black group-hover/nav:hover:bg-black/10"
                 asChild
               >
                 <a href={item.href}>{item.label}</a>
@@ -191,14 +202,14 @@ export const HeroSection = (): JSX.Element => {
           <button
             type="button"
             onClick={() => setMobileMenuOpen((o) => !o)}
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full -mr-1"
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full -mr-1 text-white transition-colors duration-300 ease-out group-hover/nav:text-black"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
-              <XIcon className="w-5 h-5 text-white" />
+              <XIcon className="w-5 h-5" />
             ) : (
-              <MenuIcon className="w-5 h-5 text-white" />
+              <MenuIcon className="w-5 h-5" />
             )}
           </button>
           {mobileMenuOpen && (
@@ -216,9 +227,9 @@ export const HeroSection = (): JSX.Element => {
             </div>
           )}
         </nav>
-        <div className="flex-1 flex flex-col items-center justify-center pt-4 mt-[10px] md:pt-6">
-          <div className="-translate-y-[4vh] sm:-translate-y-[6vh] lg:-translate-y-[8vh] mt-[6px]">
-          <div className="flex flex-col items-center max-w-[883px] w-full space-y-8 sm:space-y-10 lg:space-y-12 translate-y-[-1rem] animate-fade-in opacity-0">
+        <div className="flex-1 flex flex-col items-center justify-center pt-4 mt-[24px] md:pt-6">
+          <div className="-translate-y-[4vh] sm:-translate-y-[6vh] lg:-translate-y-[8vh] mt-[10px]">
+          <div className="flex flex-col items-center max-w-[883px] w-full space-y-8 sm:space-y-10 lg:space-y-12 translate-y-[-1rem] animate-fade-in opacity-0 min-w-0">
           <Badge
             variant="outline"
             className="h-8 sm:h-9 px-3 sm:px-4 flex items-center gap-2 sm:gap-2.5 bg-[#000000ab] rounded-full border border-[#ffffff0f] shadow-[inset_0px_4px_4px_#000000] hover:bg-[#000000ab] [--animation-delay:0ms] translate-y-[-1rem] animate-fade-in opacity-0"
@@ -234,10 +245,10 @@ export const HeroSection = (): JSX.Element => {
 
           <div
             ref={headlineContainerRef}
-            className="flex flex-col items-center gap-3 sm:gap-5 [--animation-delay:200ms] translate-y-[-1rem] animate-fade-in opacity-0 w-full max-w-[883px] min-w-0 px-0 sm:px-1"
+            className="flex flex-col items-center gap-3 sm:gap-5 [--animation-delay:200ms] translate-y-[-1rem] animate-fade-in opacity-0 w-full max-w-[883px] min-w-0"
             style={{ position: "relative" }}
           >
-            <h1 className="flex items-center justify-center gap-2 sm:gap-5 w-full text-center">
+            <h1 className="flex items-center justify-center gap-2 sm:gap-5 w-full text-center min-w-0">
               <VariableProximity
                 label="We Build What"
                 containerRef={headlineContainerRef}
@@ -245,11 +256,11 @@ export const HeroSection = (): JSX.Element => {
                 toFontVariationSettings="'wght' 1000, 'opsz' 40"
                 radius={120}
                 falloff="linear"
-                className="font-extrabold text-white text-[clamp(1.75rem,8vw,2.5rem)] xs:text-[clamp(2rem,9vw,3rem)] sm:text-[clamp(2.5rem,10vw,3.5rem)] md:text-[64px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] text-center"
+                className="font-black text-white tracking-[-0.02em] leading-[1.12] text-center min-w-0 break-words text-[clamp(1.5rem,6.5vw,2rem)] sm:text-[clamp(2rem,8vw,2.75rem)] md:text-[clamp(2.5rem,9vw,64px)] lg:text-[78px] sm:tracking-[-2.65px]"
               />
             </h1>
 
-            <h2 className="flex items-center justify-center w-full text-center">
+            <h2 className="flex items-center justify-center w-full text-center min-w-0">
               <VariableProximity
                 label="Others Compete Against."
                 containerRef={headlineContainerRef}
@@ -257,13 +268,13 @@ export const HeroSection = (): JSX.Element => {
                 toFontVariationSettings="'wght' 1000, 'opsz' 40"
                 radius={120}
                 falloff="linear"
-                className="font-extrabold text-white text-[clamp(1.75rem,8vw,2.5rem)] xs:text-[clamp(2rem,9vw,3rem)] sm:text-[clamp(2.5rem,10vw,3.5rem)] md:text-[62px] lg:text-[78px] tracking-[-0.02em] sm:tracking-[-2.65px] leading-[1.1] text-center md:whitespace-nowrap"
+                className="font-black text-white tracking-[-0.02em] leading-[1.12] text-center min-w-0 break-words text-[32px] sm:text-[clamp(2rem,8vw,2.75rem)] md:text-[clamp(2.5rem,9vw,62px)] lg:text-[78px] sm:tracking-[-2.65px] md:whitespace-nowrap"
               />
             </h2>
           </div>
 
-          <p className="w-full max-w-[883px] [font-family:'Inter',Helvetica] font-medium text-[#dddddd] text-[clamp(0.8125rem,2.5vw,0.875rem)] xs:text-[clamp(0.875rem,2.8vw,1rem)] sm:text-[16px] lg:text-[17.91px] text-center tracking-[0] leading-[1.5] sm:leading-[25.87px] px-2 sm:px-1 [--animation-delay:400ms] translate-y-[-1rem] animate-fade-in opacity-0 break-words min-w-0">
-          We partner with ambitious founders to design brand systems, digital products, and scalable infrastructure that set the benchmark for performance, clarity, and long-term market leadership.
+          <p className="w-full max-w-[883px] [font-family:'Inter',Helvetica] font-medium text-[#dddddd] text-center tracking-[0] leading-[1.65] sm:leading-[28px] break-words min-w-0 [--animation-delay:400ms] translate-y-[-1rem] animate-fade-in opacity-0 text-[clamp(0.875rem,2.5vw,1rem)] sm:text-[15px] md:text-[16px] lg:text-[17.91px] px-5 md:px-0">
+          We partner with ambitious founders to design brand systems, digital products, and growth infrastructure engineered for authority, clarity, and measurable impact.
           </p>
 
           {/* Mobile & Tablet: Let's Build CTA only — centered, 20px vertical margin */}
@@ -282,18 +293,29 @@ export const HeroSection = (): JSX.Element => {
             </Button>
           </div>
 
-          {/* Desktop: Full input area + CTA (unchanged) */}
+          {/* Desktop: Full input area + CTA with smooth white beam */}
           <div className="hidden md:block w-full max-w-[571px] min-w-0 [--animation-delay:600ms] translate-y-[-1rem] animate-fade-in opacity-0">
-            <div className="flex flex-row w-full rounded-full overflow-hidden bg-[#0d0d0d] border border-[#ffffff14] shadow-[0_4px_24px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.04)]">
-              <div className="flex-1 flex items-center min-h-[60px] pl-6 pr-4 py-0">
-                <span className="[font-family:'Inter',Helvetica] font-medium text-[#9ca3af] text-[15px] tracking-[0.02em] leading-[1.4]">
-                  What are we building together?
-                </span>
-              </div>
-              <div className="shrink-0 p-2 pr-2.5 py-2">
+            <style>{heroBeamKeyframes}</style>
+            <div className="relative w-full rounded-full overflow-hidden p-[2px]">
+              {/* Smooth white beam — soft gradient, 4s linear spin */}
+              <div
+                className="absolute inset-[-100%] will-change-transform"
+                style={{
+                  background: "conic-gradient(from 0deg, transparent 0deg, transparent 200deg, rgba(255,255,255,0.15) 230deg, rgba(255,255,255,0.45) 255deg, rgba(255,255,255,0.9) 275deg, rgb(255,255,255) 285deg, rgba(255,255,255,0.9) 295deg, rgba(255,255,255,0.45) 315deg, rgba(255,255,255,0.15) 340deg, transparent 360deg)",
+                  animation: "hero-beam-spin 4s linear infinite",
+                }}
+              />
+              <div className="absolute inset-[2px] rounded-full bg-[#0d0d0d]" />
+              <div className="relative z-10 flex flex-row w-full rounded-full overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.04)]">
+                <div className="flex-1 flex items-center min-h-[60px] pl-6 pr-4 py-0">
+                  <span className="[font-family:'Inter',Helvetica] font-medium text-[#9ca3af] text-[15px] tracking-[0.02em] leading-[1.4]">
+                    What are we building together?
+                  </span>
+                </div>
+                <div className="shrink-0 p-2 pr-2.5 py-2">
                 <Button
                   asChild
-                  className="w-auto h-11 px-5 bg-white hover:bg-[#f5f5f5] text-[#0b0b0d] rounded-full [font-family:'Space_Grotesk',Helvetica] font-bold text-[15px] tracking-[0.02em] border-0 shadow-none"
+                  className="w-auto h-11 px-5 bg-white hover:bg-[#f5f5f5] text-[#0b0b0d] rounded-full [font-family:'Space_Grotesk',Helvetica] font-bold text-[15px] tracking-[0.02em] border-2 border-transparent hover:border-[#ff1f4f] shadow-none transition-colors duration-200"
                 >
                   <a
                     href="mailto:team@xplow.in"
@@ -319,6 +341,7 @@ export const HeroSection = (): JSX.Element => {
                     </span>
                   </a>
                 </Button>
+                </div>
               </div>
             </div>
           </div>

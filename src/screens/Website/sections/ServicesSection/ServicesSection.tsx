@@ -35,8 +35,8 @@ function CapabilityCardGlow({ children, className }: { children: React.ReactNode
 const capabilities = [
   {
     number: "01",
-    title: "Brand Strategy",
-    subtitle: "& Identity",
+    title: "Brand",
+    subtitle: "Signal",
     description:
       "We build brand systems that compound — positioning, visual identity, voice, and strategy that make you impossible to ignore and effortless to remember.",
     metric: "3x",
@@ -53,20 +53,20 @@ const capabilities = [
   {
     number: "02",
     title: "Product",
-    subtitle: "Design",
+    subtitle: "Clarity",
     description:
       "Every pixel is a business decision. Interfaces engineered to convert, retain, and delight — across web, mobile, and complex systems.",
     metric: "340%",
     metricLabel: "activation lift",
-    tags: ["UI/UX", "Prototyping", "User Research", "Design Systems"],
+    tags: ["UX/UI", "Prototyping", "User Research", "Design Systems"],
     gridClass: "col-span-1 row-span-1",
   },
   {
     number: "03",
-    title: "Frontend",
-    subtitle: "Engineering",
+    title: "Precision",
+    subtitle: "Build",
     description:
-      "Production-grade React, Next.js, and Flutter code. Pixel-perfect implementation with performance obsession and scalable architecture.",
+      "Design that translates pixel-perfect into Flutter code. Easter eggs for developers — pixel-perfect implementation with performance obsession and scalable architecture.",
     metric: "99",
     metricLabel: "Lighthouse score",
     tags: ["React / Next.js", "TypeScript", "Flutter", "APIs"],
@@ -74,10 +74,10 @@ const capabilities = [
   },
   {
     number: "04",
-    title: "Motion &",
-    subtitle: "Interaction",
+    title: "Living",
+    subtitle: "Motion",
     description:
-      "Cinematic micro-interactions and transitions that give your product a premium, living feel — because static is forgettable.",
+      "Cinematic micro-interactions and transitions that give your product a premium, living feel. Invisible is forgettable.",
     metric: "60%",
     metricLabel: "engagement lift",
     tags: ["Micro-interactions", "Page Transitions", "Scroll Animation", "3D"],
@@ -85,8 +85,8 @@ const capabilities = [
   },
   {
     number: "05",
-    title: "Design",
-    subtitle: "Systems",
+    title: "Structured",
+    subtitle: "Scale",
     description:
       "Token-based component libraries that scale your product team from 2 to 200 without design debt or implementation drift.",
     metric: "10x",
@@ -96,8 +96,8 @@ const capabilities = [
   },
   {
     number: "06",
-    title: "Growth",
-    subtitle: "Engineering",
+    title: "Momentum",
+    subtitle: "Layer",
     description:
       "CRO, experimentation, and analytics architecture. We don't just design — we measure, learn, and compound your results over time.",
     metric: "2.8x",
@@ -113,8 +113,8 @@ const capabilities = [
   },
   {
     number: "07",
-    title: "AI &",
-    subtitle: "Automation",
+    title: "Intelligence",
+    subtitle: "Layer",
     description:
       "Intelligent workflows, AI-powered features, and automation systems that give your product an unfair advantage in the market.",
     metric: "40%",

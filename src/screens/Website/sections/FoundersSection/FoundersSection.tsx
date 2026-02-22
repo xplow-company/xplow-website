@@ -156,16 +156,16 @@ export const FoundersSection = (): JSX.Element => {
           ))}
         </div>
 
-        {/* CTA */}
-        <div className="flex justify-end mt-10 md:mt-12 lg:mt-16 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:500ms]">
+        {/* CTA — premium hover: red accent fill, white content, soft glow */}
+        <div className="flex justify-center mt-10 md:mt-12 lg:mt-16 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:500ms]">
           <Button
             asChild
             variant="outline"
-            className="h-12 px-6 rounded-full border-[#ff1f4f] bg-transparent hover:bg-[#ff1f4f]/10 text-white [font-family:'Inter',Helvetica] font-medium text-sm tracking-[0.5px]"
+            className="group/cta h-12 px-6 rounded-full border-2 border-[#ff1f4f] bg-transparent hover:bg-[#ff1f4f] hover:border-[#ff1f4f] text-white [font-family:'Inter',Helvetica] font-medium text-sm tracking-[0.5px] transition-all duration-300 ease-out hover:shadow-[0_0_28px_-4px_rgba(255,31,79,0.45)] hover:scale-[1.02]"
           >
             <a href="mailto:team@xplow.in" className="inline-flex items-center gap-2">
-              Book a call with us
-              <ArrowRightIcon className="w-4 h-4 text-[#ff1f4f]" />
+              <span className="transition-colors duration-300 group-hover/cta:text-white">Book a call with us</span>
+              <ArrowRightIcon className="w-4 h-4 text-[#ff1f4f] transition-all duration-300 group-hover/cta:text-white group-hover/cta:-rotate-45" />
             </a>
           </Button>
         </div>

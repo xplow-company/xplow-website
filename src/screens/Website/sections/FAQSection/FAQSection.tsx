@@ -299,11 +299,11 @@ export const FAQSection = (): JSX.Element => {
           </div>
           <Button
             asChild
-            className="shrink-0 h-12 px-8 rounded-full bg-[#FF1F4F] hover:bg-[#FF1F4F]/90 text-white font-bold [font-family:'Space_Grotesk',Helvetica] border-0"
+            className="group/cta shrink-0 h-12 px-8 rounded-full border-2 border-[#ff1f4f] bg-[#ff1f4f] hover:bg-[#ff1f4f] hover:border-[#ff1f4f] text-white font-bold [font-family:'Space_Grotesk',Helvetica] transition-all duration-300 ease-out hover:shadow-[0_0_28px_-4px_rgba(255,31,79,0.45)] hover:scale-[1.02]"
           >
             <a href="mailto:team@xplow.in" className="inline-flex items-center gap-2">
-              Let's Talk
-              <ArrowUpRightIcon className="w-4 h-4" />
+              <span className="transition-colors duration-300 group-hover/cta:text-white">Let&apos;s Talk</span>
+              <ArrowUpRightIcon className="w-4 h-4 transition-all duration-300 group-hover/cta:-rotate-45" />
             </a>
           </Button>
         </div>
