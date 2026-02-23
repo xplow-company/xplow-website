@@ -42,7 +42,7 @@ export const AboutSection = (): JSX.Element => {
   };
 
   return (
-    <section id="about" className="relative w-full bg-[#111111] py-5 md:pt-24 md:pb-20 overflow-hidden">
+    <section id="about" className="relative w-full bg-transparent py-5 md:pt-24 md:pb-20 overflow-hidden">
       <div className="container mx-auto px-5 md:px-5 lg:px-16 max-w-[1562px] w-full min-w-0">
         <div className="flex flex-col gap-8 w-full min-w-0">
           {/* ABOUT XPLOW — 10–15px to red line */}

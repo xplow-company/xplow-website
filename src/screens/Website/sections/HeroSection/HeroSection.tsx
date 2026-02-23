@@ -167,7 +167,7 @@ export const HeroSection = (): JSX.Element => {
   };
 
   return (
-    <section id="hero" className="relative w-full h-auto min-h-[100dvh] sm:min-h-[700px] lg:min-h-[1058px] rotate-180 overflow-hidden bg-[#0c0c0c]">
+    <section id="hero" className="relative w-full h-auto min-h-[100dvh] sm:min-h-[700px] lg:min-h-[1058px] rotate-180 overflow-hidden bg-transparent">
       <div className="absolute inset-0 w-full h-full min-h-[100dvh] sm:min-h-[700px] lg:min-h-[1058px] -rotate-180">
         <ErrorBoundary fallback={<HeroBackgroundFallback />}>
           <Silk speed={6.2} scale={1.5} color="#fb1849" noiseIntensity={1.4} rotation={0} />
