@@ -59,7 +59,7 @@ const phases = [
 
 export const ProcessSection = (): JSX.Element => {
   return (
-    <section id="process" className="w-full min-w-0 bg-[#111111] px-5 md:px-5 lg:px-12 xl:px-[125px] py-5 md:py-20 overflow-hidden">
+    <section id="process" className="w-full min-w-0 bg-transparent px-5 md:px-5 lg:px-12 xl:px-[125px] py-5 md:py-20 overflow-hidden">
       <header className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 mb-12 md:mb-16 translate-y-[-1rem] animate-fade-in opacity-0 min-w-0">
         <div className="flex flex-col items-start gap-8 max-w-[414px] w-full min-w-0">
           <div className="flex items-center gap-4">

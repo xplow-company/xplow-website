@@ -225,7 +225,7 @@ const stats = [
   ];
   export const ServicesSection = (): JSX.Element => {
     return (
-      <section id="services" className="relative w-full bg-[#0c0c0c] overflow-hidden py-5 md:py-20">
+      <section id="services" className="relative w-full bg-transparent overflow-hidden py-5 md:py-20">
         <style>{`
           .capability-card-glow-wrapper {
             --glow-x: 50%;
