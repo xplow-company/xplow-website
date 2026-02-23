@@ -1,6 +1,8 @@
 "use client";
+import { useState } from "react";
 import { SiLinkedin, SiInstagram, SiX } from "react-icons/si";
 import footerLogo from "@/assets/logowithname.svg";
+import { LegalModal, type LegalModalType } from "@/components/LegalModal";
 
 const navigationLinks = [
   { label: "About", href: "#about" },
@@ -17,6 +19,8 @@ const socialLinks = [
 ];
 
 export const FooterSubsection = (): JSX.Element => {
+  const [legalModal, setLegalModal] = useState<LegalModalType>(null);
+
   return (
     <footer id="footer" className="relative w-full bg-black py-5 md:py-16 px-5 md:px-5 lg:px-16">
       <div className="mx-auto w-full max-w-[1562px]">
@@ -108,20 +112,24 @@ export const FooterSubsection = (): JSX.Element => {
             © 2026 XPLOW.CO All Rights Reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a
-              href="#"
-              className="[font-family:'Inter',Helvetica] font-normal text-[#eaeaea] text-[11px] tracking-[0] leading-[16.5px] hover:text-white transition-colors"
+            <button
+              type="button"
+              onClick={() => setLegalModal("terms")}
+              className="[font-family:'Inter',Helvetica] font-normal text-[#eaeaea] text-[11px] tracking-[0] leading-[16.5px] hover:text-white transition-colors bg-transparent border-none cursor-pointer p-0"
             >
               Terms &amp; Conditions
-            </a>
-            <a
-              href="#"
-              className="[font-family:'Inter',Helvetica] font-normal text-[#eaeaea] text-[11px] tracking-[0] leading-[16.5px] hover:text-white transition-colors"
+            </button>
+            <button
+              type="button"
+              onClick={() => setLegalModal("privacy")}
+              className="[font-family:'Inter',Helvetica] font-normal text-[#eaeaea] text-[11px] tracking-[0] leading-[16.5px] hover:text-white transition-colors bg-transparent border-none cursor-pointer p-0"
             >
               Privacy Policy
-            </a>
+            </button>
           </div>
         </div>
+
+        <LegalModal type={legalModal} onClose={() => setLegalModal(null)} />
       </div>
     </footer>
   );
