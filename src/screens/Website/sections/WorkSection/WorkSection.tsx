@@ -38,7 +38,7 @@ const projectsData = [
 
 export const WorkSection = (): JSX.Element => {
   return (
-    <section id="work" className="flex flex-col items-start gap-y-5 md:gap-y-16 py-5 md:pt-24 md:pb-0 px-5 md:px-5 lg:px-12 xl:px-[125px] w-full bg-transparent">
+    <section id="work" className="flex flex-col items-start gap-y-5 md:gap-y-16 py-5 md:pt-24 md:pb-0 px-5 md:px-5 lg:px-12 xl:px-[125px] w-full bg-[#0c0c0c]">
       <header className="relative w-full translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 w-full">
           <div className="flex flex-col items-start gap-8 max-w-[626px]">
