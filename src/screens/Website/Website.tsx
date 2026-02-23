@@ -10,14 +10,12 @@ import { ServicesSection } from "./sections/ServicesSection";
 import { FAQSection } from "./sections/FAQSection";
 import { WhoAreWeSection } from "./sections/WhoAreWeSection";
 import { WorkSection } from "./sections/WorkSection";
-import { ScrollBackground } from "./ScrollBackground";
 
 export const Website = (): JSX.Element => {
   return (
-    <div className="w-full min-w-0 flex bg-transparent overflow-x-hidden relative" data-model-id="5096:19571">
-      <ScrollBackground />
-      <div className="relative z-[1] w-full min-w-0 flex bg-transparent">
-        <div className="flex w-full min-w-0 relative flex-col items-stretch bg-transparent gap-y-5 md:gap-y-12 lg:gap-y-16">
+    <div className="w-full min-w-0 flex bg-[#0c0c0c] overflow-x-hidden" data-model-id="5096:19571">
+      <div className="z-[1] w-full min-w-0 flex bg-[#0c0c0c]">
+        <div className="flex w-full min-w-0 relative flex-col items-stretch bg-[#0c0c0c] gap-y-5 md:gap-y-12 lg:gap-y-16">
           <HeroSection />
           <AboutSection />
           <TrustedBySection />

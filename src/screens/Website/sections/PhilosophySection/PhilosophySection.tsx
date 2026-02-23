@@ -1,7 +1,7 @@
 export const PhilosophySection = (): JSX.Element => {
   return (
     <section id="philosophy" className="w-full min-w-0 overflow-hidden">
-      <div id="philosophy-content" className="w-full bg-transparent py-5 md:py-20">
+      <div id="philosophy-content" className="w-full bg-[#111111] py-5 md:py-20">
         <div className="container mx-auto px-5 md:px-5 lg:px-16 max-w-[1562px] flex flex-col items-center">
         <div className="flex flex-col items-center text-center max-w-[720px] w-full min-w-0 translate-y-[-1rem] animate-fade-in opacity-0 px-1" style={{ "--animation-delay": "200ms" } as React.CSSProperties}>
           <div className="flex items-center justify-center gap-4 mb-8">

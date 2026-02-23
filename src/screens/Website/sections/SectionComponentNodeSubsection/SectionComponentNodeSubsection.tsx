@@ -50,7 +50,7 @@ export const SectionComponentNodeSubsection = (): JSX.Element => {
   return (
     <section
       id="lets-build"
-      className="relative w-full bg-transparent overflow-hidden py-5 md:py-24"
+      className="relative w-full bg-[#FFFFFF] overflow-hidden py-5 md:py-24"
     >
       <div className="container mx-auto px-5 md:px-5 lg:px-16 max-w-[1562px] w-full min-w-0">
         {/* Header */}
