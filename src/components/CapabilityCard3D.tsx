@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useMemo } from "react";
+import React, { useRef, useMemo, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Mesh, Group } from "three";
 import * as THREE from "three";
@@ -25,12 +25,21 @@ interface CapabilityCard3DProps {
 // 1. Brand Signal — 3D broadcast sphere with radiating rings
 function BrandSignalScene({ isHovered }: { isHovered?: boolean }) {
   const groupRef = useRef<Group>(null);
-  useFrame((_, delta) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.x = 0.25;
-      groupRef.current.rotation.y += (isHovered ? 0.7 : 0.2) * delta;
-    }
-  });
+  const isHoveredRef = useRef(isHovered);
+  isHoveredRef.current = isHovered;
+  useEffect(() => {
+    let rafId: number;
+    const animate = () => {
+      if (groupRef.current) {
+        groupRef.current.rotation.x = 0.25;
+        const speed = isHoveredRef.current ? 0.9 : 0.35;
+        groupRef.current.rotation.z += speed * 0.016;
+      }
+      rafId = requestAnimationFrame(animate);
+    };
+    rafId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafId);
+  }, []);
   return (
     <group ref={groupRef} position={[0, 0, 0]}>
       {/* Central brand core — solid sphere */}
