@@ -32,7 +32,7 @@ function BrandSignalScene({ isHovered }: { isHovered?: boolean }) {
     const animate = () => {
       if (groupRef.current) {
         groupRef.current.rotation.x = 0.25;
-        const speed = isHoveredRef.current ? 0.9 : 0.35;
+        const speed = isHoveredRef.current ? 0.9 : 0;
         groupRef.current.rotation.z += speed * 0.016;
       }
       rafId = requestAnimationFrame(animate);
@@ -48,7 +48,7 @@ function BrandSignalScene({ isHovered }: { isHovered?: boolean }) {
         <meshBasicMaterial
           color={ACCENT}
           transparent
-          opacity={isHovered ? 0.95 : 0.7}
+          opacity={isHovered ? 0.95 : 0.28}
         />
       </mesh>
       {/* Radiating signal rings — thick torus for clear visibility */}
@@ -58,7 +58,7 @@ function BrandSignalScene({ isHovered }: { isHovered?: boolean }) {
           <meshBasicMaterial
             color={ACCENT}
             transparent
-            opacity={isHovered ? 0.7 - i * 0.15 : 0.45 - i * 0.1}
+            opacity={isHovered ? 0.7 - i * 0.15 : 0.22 - i * 0.05}
             side={THREE.DoubleSide}
           />
         </mesh>
@@ -72,8 +72,8 @@ function ProductClarityScene({ isHovered }: { isHovered?: boolean }) {
   const meshRef = useRef<Mesh>(null);
   useFrame((_, delta) => {
     if (meshRef.current) {
-      meshRef.current.rotation.x += (isHovered ? 0.4 : 0.1) * delta;
-      meshRef.current.rotation.y += (isHovered ? 0.5 : 0.12) * delta;
+      meshRef.current.rotation.x += (isHovered ? 0.4 : 0) * delta;
+      meshRef.current.rotation.y += (isHovered ? 0.5 : 0) * delta;
     }
   });
   return (
@@ -94,7 +94,7 @@ function PrecisionBuildScene({ isHovered }: { isHovered?: boolean }) {
   const groupRef = useRef<Group>(null);
   useFrame((_, delta) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y += (isHovered ? 0.5 : 0.1) * delta;
+      groupRef.current.rotation.y += (isHovered ? 0.5 : 0) * delta;
     }
   });
   return (
@@ -120,10 +120,10 @@ function LivingMotionScene({ isHovered }: { isHovered?: boolean }) {
   const orbitRef = useRef<Group>(null);
   useFrame((_, delta) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y += (isHovered ? 0.6 : 0.2) * delta;
+      groupRef.current.rotation.y += (isHovered ? 0.6 : 0) * delta;
     }
     if (orbitRef.current) {
-      orbitRef.current.rotation.y += (isHovered ? 1.2 : 0.4) * delta;
+      orbitRef.current.rotation.y += (isHovered ? 1.2 : 0) * delta;
     }
   });
   return (
@@ -165,7 +165,7 @@ function StructuredScaleScene({ isHovered }: { isHovered?: boolean }) {
   );
   useFrame((_, delta) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y += (isHovered ? 0.4 : 0.08) * delta;
+      groupRef.current.rotation.y += (isHovered ? 0.4 : 0) * delta;
     }
   });
   return (
@@ -191,7 +191,7 @@ function MomentumLayerScene({ isHovered }: { isHovered?: boolean }) {
   const heights = [0.2, 0.35, 0.5, 0.65, 0.8];
   useFrame((_, delta) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y += (isHovered ? 0.5 : 0.1) * delta;
+      groupRef.current.rotation.y += (isHovered ? 0.5 : 0) * delta;
     }
   });
   return (
@@ -224,7 +224,7 @@ function IntelligenceLayerScene({ isHovered }: { isHovered?: boolean }) {
   );
   useFrame((_, delta) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y += (isHovered ? 0.6 : 0.15) * delta;
+      groupRef.current.rotation.y += (isHovered ? 0.6 : 0) * delta;
     }
   });
   return (
