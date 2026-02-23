@@ -18,7 +18,7 @@ const socialLinks = [
 
 export const FooterSubsection = (): JSX.Element => {
   return (
-    <footer id="footer" className="relative w-full bg-transparent py-5 md:py-16 px-5 md:px-5 lg:px-16">
+    <footer id="footer" className="relative w-full bg-black py-5 md:py-16 px-5 md:px-5 lg:px-16">
       <div className="mx-auto w-full max-w-[1562px]">
         {/* Top: three columns — left aligned, center aligned, right aligned */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-6 md:mb-8">

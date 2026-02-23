@@ -35,7 +35,7 @@ export const FoundersSection = (): JSX.Element => {
   return (
     <section
       id="founders"
-      className="w-full min-w-0 bg-transparent py-5 md:py-20 lg:py-24 px-5 md:px-5 lg:px-16 overflow-hidden"
+      className="w-full min-w-0 bg-[#0a0a0a] py-5 md:py-20 lg:py-24 px-5 md:px-5 lg:px-16 overflow-hidden"
       aria-labelledby="founders-heading"
     >
       <div className="mx-auto w-full max-w-[1562px] min-w-0">
