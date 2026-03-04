@@ -26,7 +26,7 @@ const FAQ_DATA: Record<CategoryId, FAQItem[]> = {
       question: "How involved do founders need to be during a project?",
       answerTag: "2-3 hrs/week",
       answer: [
-        "We need your brain for strategy, not your time for micromanagement. Expect 2–3 hours per week during discovery, then a 30-minute async review per milestone. We run tight — you'll get Loom walkthroughs, annotated Figma links, and a shared Slack channel. No meetings that could've been an email.",
+        "2–3 hours/week during discovery, then ~30 min async review per milestone. Loom walkthroughs, Figma links, Slack. No meetings that could've been an email.",
       ],
       quote: "Most founders tell us we're the lowest-overhead partner they've ever had.",
     },
@@ -43,7 +43,7 @@ const FAQ_DATA: Record<CategoryId, FAQItem[]> = {
       question: "We've been burned by agencies before. How are you different?",
       answerTag: "Direct",
       answer: [
-        "No account managers or production layers — you work with the people who do the work. We stake our reputation on every pixel and ship. If your question isn't here, just ask.",
+        "You work with the people who do the work — no account managers. We stake our reputation on every pixel.",
       ],
     },
   ],
@@ -62,7 +62,7 @@ const FAQ_DATA: Record<CategoryId, FAQItem[]> = {
       question: "How do you handle feedback and revisions?",
       answerTag: "Structured",
       answer: [
-        "Feedback is collected in structured review points (e.g. end of sprint). We use clear revision rounds so the project stays on track. We'll agree on the number of rounds in the scope.",
+        "Structured review points (e.g. end of sprint). Clear revision rounds. We agree on rounds in scope.",
       ],
     },
     {
@@ -80,7 +80,7 @@ const FAQ_DATA: Record<CategoryId, FAQItem[]> = {
       question: "What do you charge?",
       answerTag: "Project-based",
       answer: [
-        "We quote per project or retainer, not hourly. You'll get a clear proposal with scope, phases, and investment. Pricing depends on scope and timeline — we'll outline options after our first conversation.",
+        "Per project or retainer, not hourly. Clear proposal with scope, phases, investment. We outline options after our first conversation.",
       ],
       quote: "Every founder we've worked with says the ROI was clear within the first milestone.",
     },
@@ -97,7 +97,7 @@ const FAQ_DATA: Record<CategoryId, FAQItem[]> = {
       question: "What's included in the initial proposal?",
       answerTag: "Full scope",
       answer: [
-        "Scope of work, deliverables, timeline, and total investment. We don't hide fees — what we quote is what you pay unless scope changes and we agree on a change order.",
+        "Scope, deliverables, timeline, investment. No hidden fees — what we quote is what you pay unless scope changes.",
       ],
     },
   ],
@@ -107,7 +107,7 @@ const FAQ_DATA: Record<CategoryId, FAQItem[]> = {
       question: "Do you build in-house or outsource development?",
       answerTag: "In-house",
       answer: [
-        "All strategy, design, and front-end development are done in-house. For specialized backend or infra we may partner with vetted experts; you'll always know who's on the team.",
+        "Strategy, design, and frontend in-house. Specialized backend/infra: vetted partners. You always know who's on the team.",
       ],
       quote: "Founders love that they always know exactly who's building their product — no mystery subcontractors.",
     },
@@ -124,7 +124,7 @@ const FAQ_DATA: Record<CategoryId, FAQItem[]> = {
       question: "What about ongoing support after launch?",
       answerTag: "Optional",
       answer: [
-        "We offer post-launch support and retainer options: bug fixes, iterations, and new features. Many clients move to a retainer after the initial project so we can keep shipping together.",
+        "Post-launch support and retainers: bug fixes, iterations, new features. Many clients move to a retainer after launch.",
       ],
     },
   ],
@@ -138,7 +138,7 @@ export const FAQSection = (): JSX.Element => {
   const activeItem = items[activeQuestionIndex];
 
   return (
-    <section id="faq" className="w-full bg-[#0c0c0c] py-5 md:py-20 px-5 md:px-5 lg:px-16">
+    <section id="faq" className="w-full bg-[#0c0c0c] py-12 md:py-20 px-4 md:px-4 lg:px-12 xl:px-16">
       <div className="max-w-[1562px] mx-auto flex flex-col gap-12">
         {/* Header */}
         <header className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between md:gap-12">
@@ -293,7 +293,7 @@ export const FAQSection = (): JSX.Element => {
                 Still have questions?
               </h3>
               <p className="[font-family:'Inter',Helvetica] font-normal text-[#888888] text-[14px] leading-[22px]">
-                We respond within 24 hours. No forms, no chatbots — a real human who understands your project.
+                We respond within 24 hours. A real human who understands your project.
               </p>
             </div>
           </div>
