@@ -30,14 +30,14 @@ const IMAGES = {
   replicate: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1400&q=90", // AI, neural networks
 };
 
-// Brand logos via Clearbit (high-quality, transparent)
+// Brand logos — Simple Icons CDN (reliable) + Google favicon fallback for others
 const LOGOS: Record<string, string> = {
-  linear: "https://logo.clearbit.com/linear.app",
-  stripe: "https://logo.clearbit.com/stripe.com",
-  "cal-com": "https://logo.clearbit.com/cal.com",
-  gumroad: "https://logo.clearbit.com/gumroad.com",
-  icluster: "https://logo.clearbit.com/iclusters.in",
-  replicate: "https://logo.clearbit.com/replicate.com",
+  linear: "https://cdn.simpleicons.org/linear/5E6AD2",
+  stripe: "https://cdn.simpleicons.org/stripe/635BFF",
+  "cal-com": "https://cdn.simpleicons.org/caldotcom/292929",
+  gumroad: "https://cdn.simpleicons.org/gumroad/36A9AE",
+  icluster: "https://www.google.com/s2/favicons?domain=iclusters.in&sz=128",
+  replicate: "https://www.google.com/s2/favicons?domain=replicate.com&sz=128",
 };
 
 export const workProjects: WorkProject[] = [

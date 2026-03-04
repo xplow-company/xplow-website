@@ -2,7 +2,6 @@ import pen1 from "@/assets/pen1.svg";
 import pen2 from "@/assets/pen2.svg";
 import pen3 from "@/assets/pen.svg";
 import pen4 from "@/assets/pen4.svg";
-import { Badge } from "../../../../components/ui/badge";
 import { Card, CardContent } from "../../../../components/ui/card";
 
 const penIcons = [pen1, pen2, pen3, pen4];
@@ -13,7 +12,7 @@ const phases = [
     title: "DECODE",
     subtitle: "Deep Strategy",
     description:
-      "Immerse in your brand, market, and users. Every decision is backed by real insight — never assumption.",
+      "Immerse in your brand, market, and users. Every decision backed by insight — never assumption.",
     tags: [
       "Research audit",
       "Competitive analysis",
@@ -47,7 +46,7 @@ const phases = [
     title: "REFINE",
     subtitle: "Continuous Growth",
     description:
-      "Post-launch analytics, experimentation, and iterative refinement to compound results.",
+      "Post-launch analytics and experimentation to compound results.",
     tags: [
       "Analytics setup",
       "A/B experiments",
@@ -59,76 +58,82 @@ const phases = [
 
 export const ProcessSection = (): JSX.Element => {
   return (
-    <section id="process" className="w-full min-w-0 bg-[#111111] px-5 md:px-5 lg:px-12 xl:px-[125px] py-5 md:py-20 overflow-hidden">
-      <header className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 mb-12 md:mb-16 translate-y-[-1rem] animate-fade-in opacity-0 min-w-0">
-        <div className="flex flex-col items-start gap-8 max-w-[414px] w-full min-w-0">
+    <section id="process" className="w-full min-w-0 bg-[#0c0c0c] px-4 md:px-4 lg:px-12 xl:px-20 py-16 md:py-24 overflow-hidden">
+      <header className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8 mb-16 md:mb-20 translate-y-[-1rem] animate-fade-in opacity-0 min-w-0">
+        <div className="flex flex-col items-start gap-8 max-w-[480px] w-full min-w-0">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-0.5 bg-[#ff1f4f]" />
-            <span className="[font-family:'Inter',Helvetica] font-bold text-[#ff1f4f] text-[11px] tracking-[2.42px] leading-[16.5px] uppercase">
+            <div className="w-12 h-[2px] bg-[#ff1f4f]" />
+            <span className="[font-family:'Inter',Helvetica] font-semibold text-[#ff1f4f] text-[10px] tracking-[3px] uppercase">
               HOW WE WORK
             </span>
           </div>
 
           <div className="flex flex-col gap-0">
-            <h2 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-white text-[36px] sm:text-[44px] md:text-[52px] lg:text-[56px] tracking-[-1.96px] leading-[1.1]">
+            <h2 className="[font-family:'Poppins',Helvetica] font-bold text-white text-[36px] sm:text-[44px] md:text-[52px] lg:text-[58px] tracking-[-2px] leading-[1.08]">
               Four phases.
             </h2>
-            <h2 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-[#ff1f4f] text-[36px] sm:text-[44px] md:text-[52px] lg:text-[56px] tracking-[-1.96px] leading-[1.1]">
+            <h2 className="[font-family:'Poppins',Helvetica] font-bold text-[#ff1f4f] text-[36px] sm:text-[44px] md:text-[52px] lg:text-[58px] tracking-[-2px] leading-[1.08]">
               Zero guesswork.
             </h2>
           </div>
         </div>
 
-        <div className="max-w-[320px] w-full min-w-0 [font-family:'Inter',Helvetica] font-normal text-[#888888] text-sm text-right tracking-[0] leading-[24.5px] break-words">
-          <span className="block">A battle-tested framework that turns chaos</span>
-          <span className="block">into clarity, and ideas into shipped product.</span>
+        <div className="max-w-[360px] w-full min-w-0 [font-family:'Inter',Helvetica] font-normal text-[#888] text-[15px] leading-[1.7] break-words lg:text-right">
+          <span className="block">A framework that turns chaos into clarity and ideas into shipped product.</span>
         </div>
       </header>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
         {phases.map((phase, index) => (
           <Card
             key={phase.number}
-            className="bg-[#191919] border-[#2a2a2a] rounded-2xl overflow-hidden translate-y-[-1rem] animate-fade-in opacity-0 min-w-0 w-full"
+            className="group relative bg-[#141414] border border-white/[0.08] rounded-2xl overflow-hidden translate-y-[-1rem] animate-fade-in opacity-0 min-w-0 w-full hover:border-[#ff1f4f]/25 hover:shadow-[0_0_0_1px_rgba(255,31,79,0.1),0_20px_40px_-15px_rgba(0,0,0,0.4)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
             style={{
               "--animation-delay": `${200 + index * 100}ms`,
             } as React.CSSProperties}
           >
-            <CardContent className="relative pt-6 px-8 pb-8 flex flex-col h-full">
+            <CardContent className="relative pt-6 px-6 md:px-8 pb-8 flex flex-col h-full">
               <img
                 src={penIcons[index]}
                 alt=""
-                className="absolute top-6 right-8 w-10 h-10 object-contain pointer-events-none"
+                className="absolute top-6 right-6 md:right-8 w-10 h-10 object-contain pointer-events-none opacity-70"
                 aria-hidden
               />
-              <div className="flex items-center justify-between mb-6">
-                <span className="[font-family:'Space_Grotesk',Helvetica] font-bold text-[#ff1f4fba] text-[40px] leading-10">
+
+              <div className="flex items-center justify-between mb-5">
+                <span className="[font-family:'Poppins',Helvetica] font-bold text-[#ff1f4f] text-[36px] sm:text-[40px] leading-none tracking-[0.02em]">
                   {phase.number}
                 </span>
                 <div className="w-10 h-10 bg-transparent" />
               </div>
 
-              <h3 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-white text-[22px] tracking-[-0.44px] leading-[33px] mb-2">
+              <h3 className="[font-family:'Poppins',Helvetica] font-bold text-white text-[22px] sm:text-[24px] tracking-[-0.5px] leading-[1.2] mb-2">
                 {phase.title}
               </h3>
 
-              <p className="[font-family:'Inter',Helvetica] font-normal text-[#666666] text-xs tracking-[0.72px] leading-[18px] mb-5">
+              <p className="[font-family:'Inter',Helvetica] font-semibold text-[#ff1f4f] text-[12px] tracking-[0.5px] uppercase mb-4">
                 {phase.subtitle}
               </p>
 
-              <p className="[font-family:'Inter',Helvetica] font-normal text-[#999999] text-sm tracking-[0] leading-[23.8px] mb-8 flex-grow">
+              <p className="[font-family:'Inter',Helvetica] font-normal text-[#999] text-[14px] leading-[1.65] mb-6 flex-grow">
                 {phase.description}
               </p>
 
-              <div className="flex flex-wrap gap-2">
-                {phase.tags.map((tag, tagIndex) => (
-                  <Badge
-                    key={tagIndex}
-                    variant="outline"
-                    className="bg-[#0c0c0c] border-[#2a2a2a] text-[#777777] text-[10px] tracking-[0.30px] leading-[15px] [font-family:'Inter',Helvetica] font-normal px-[11px] py-[5px] h-auto rounded-full hover:bg-[#0c0c0c]"
-                  >
-                    {tag}
-                  </Badge>
-                ))}
+              {/* Services — elevated, prominent */}
+              <div className="flex flex-col gap-3">
+                <span className="[font-family:'Inter',Helvetica] font-semibold text-[#ff1f4f] text-[10px] tracking-[2px] uppercase">
+                  Services
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {phase.tags.map((tag, tagIndex) => (
+                    <span
+                      key={tagIndex}
+                      className="inline-flex items-center px-4 py-2 rounded-full bg-white text-black [font-family:'Inter',Helvetica] font-semibold text-[12px] tracking-[0.2px] leading-tight transition-opacity duration-300 group-hover:opacity-90"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </CardContent>
           </Card>

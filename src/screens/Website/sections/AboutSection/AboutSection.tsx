@@ -3,30 +3,40 @@ import CountUp from "../../../../components/CountUp";
 import SpotlightCard from "../../../../components/SpotlightCard";
 import { CardContent } from "../../../../components/ui/card";
 
+const accentRed = "#ff1f4f";
+
 const statsData = [
   {
-    value: 50,
-    suffix: "+",
-    label: "Projects shipped",
-    sublabel: "SaaS, fintech, e-comm, Web3",
-  },
-  {
-    value: 3,
+    value: 2.8,
     suffix: "x",
-    label: "Avg. conversion lift",
-    sublabel: "Across client portfolios",
+    label: "Conversion lift",
+    sublabel: "Within 90 days of launch",
+    barColor: accentRed,
+    progress: 90,
   },
   {
-    value: 98,
+    value: 47,
     suffix: "%",
-    label: "Client retention",
-    sublabel: "They come back, every time",
+    label: "Activation lift",
+    sublabel: "First week post-launch",
+    barColor: accentRed,
+    progress: 47,
   },
   {
-    value: 30,
-    suffix: "d",
-    label: "First delivery",
-    sublabel: "Kickoff to first milestone",
+    value: 6,
+    suffix: "wk",
+    label: "To first ship",
+    sublabel: "Kickoff to live",
+    barColor: accentRed,
+    progress: 85,
+  },
+  {
+    value: 92,
+    suffix: "%",
+    label: "Clients return",
+    sublabel: "For second project",
+    barColor: accentRed,
+    progress: 92,
   },
 ];
 
@@ -43,7 +53,7 @@ export const AboutSection = (): JSX.Element => {
 
   return (
     <section id="about" className="relative w-full bg-[#111111] py-5 md:pt-24 md:pb-20 overflow-hidden">
-      <div className="container mx-auto px-5 md:px-5 lg:px-16 max-w-[1562px] w-full min-w-0">
+      <div className="container mx-auto px-4 md:px-4 lg:px-12 xl:px-16 max-w-[1562px] w-full min-w-0">
         <div className="flex flex-col gap-8 w-full min-w-0">
           {/* ABOUT XPLOW — 10–15px to red line */}
           <div className="flex flex-col gap-8 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms] min-w-0">
@@ -76,7 +86,7 @@ export const AboutSection = (): JSX.Element => {
               </p>
 
               <p className="[font-family:'Inter',Helvetica] font-normal text-white text-[15px] sm:text-base tracking-[0] leading-[1.6] sm:leading-[30.4px] break-words">
-                XPLOW operates at the intersection of strategic clarity and ruthless execution where brand systems, product design, and engineering align to create experiences that don't just look refined, but <strong className="font-semibold text-white">perform relentlessly.</strong>
+                XPLOW sits at the intersection of strategy and execution — brand, product, and engineering aligned for experiences that look refined and <strong className="font-semibold text-white">perform relentlessly.</strong>
               </p>
 
               <p className="[font-family:'Inter',Helvetica] font-normal text-white text-[15px] sm:text-base tracking-[0] leading-[1.6] sm:leading-[30.4px] break-words">
@@ -84,7 +94,7 @@ export const AboutSection = (): JSX.Element => {
               </p>
 
               <p className="[font-family:'Inter',Helvetica] font-normal text-white text-[15px] sm:text-base tracking-[0] leading-[1.6] sm:leading-[30.4px] break-words">
-                When founders partner with XPLOW, they're not hiring vendors. They're adding a strategic arm that thinks in systems, ships in weeks, and measures in multiples.
+                Founders partner with XPLOW for a strategic arm that thinks in systems, ships in weeks, and measures in multiples.
               </p>
 
               <blockquote className="border-l-2 border-[#ff1f4f] pl-4 sm:pl-[26px] mt-2 min-w-0">
@@ -97,7 +107,7 @@ export const AboutSection = (): JSX.Element => {
               </blockquote>
             </div>
 
-            {/* KPI cards: 1 col on xxs/xs, 2 cols on sm+ — sleek minimal design */}
+            {/* KPI cards — gradient accents, progress bars, intuitive layout */}
             <div className="grid grid-cols-1 min-[400px]:grid-cols-2 gap-4 sm:gap-5 w-full max-w-[624px] lg:max-w-none min-w-0">
               {statsData.map((stat, index) => (
                 <div
@@ -107,12 +117,13 @@ export const AboutSection = (): JSX.Element => {
                 >
                   <SpotlightCard
                     effectEnabled={countUpEnded[index] ?? false}
-                    spotlightColor="rgba(255, 31, 79, 0.15)"
-                    className="bg-gradient-to-br from-[#0f0f0f] to-[#1a1a1a] rounded-2xl border border-[#252525] hover:border-[#252525] transition-all duration-300 p-0 w-full shadow-lg hover:shadow-[0_8px_32px_rgba(255,31,79,0.1)]"
+                    spotlightColor="rgba(255, 255, 255, 0.06)"
+                    className="relative overflow-hidden rounded-2xl border border-white/10 bg-black transition-all duration-300 p-0 w-full group hover:border-white/20 hover:shadow-[0_16px_48px_-12px_rgba(0,0,0,0.6)]"
                   >
-                    <CardContent className="p-4 sm:p-5 flex flex-col gap-3 min-h-0 justify-center">
-                      <div className="flex items-baseline gap-1">
-                        <h3 className="[font-family:'poppins',Helvetica] font-bold text-white text-[clamp(1.75rem,5vw,2.5rem)] sm:text-[40px] tracking-[-1px] leading-tight tabular-nums">
+                    <CardContent className="relative px-4 py-2 sm:px-5 sm:py-2.5 flex flex-col gap-3 min-h-0 justify-center">
+                      {/* Value — dominant */}
+                      <div className="flex items-baseline gap-1.5">
+                        <h3 className="[font-family:'Poppins',Helvetica] font-bold text-white tabular-nums tracking-tight text-[clamp(1.75rem,4.5vw,2.25rem)] sm:text-[28px] md:text-[32px]">
                           <CountUp
                             to={stat.value}
                             duration={1.8}
@@ -122,22 +133,41 @@ export const AboutSection = (): JSX.Element => {
                             onEnd={() => handleCountUpEnd(index)}
                           />
                         </h3>
-                        <span className="[font-family:'poppins',Helvetica] text-white text-[clamp(1.5rem,4vw,2.25rem)] sm:text-3xl font-bold tracking-tight">
+                        <span className="[font-family:'Poppins',Helvetica] font-bold text-white tracking-tight text-[clamp(1rem,3vw,1.25rem)] sm:text-lg">
                           {stat.suffix}
                         </span>
                       </div>
-                      
-                      <div className="flex flex-col gap-1">
-                        <p className="[font-family:'Inter',Helvetica] font-semibold text-white text-[13px] sm:text-[14px] tracking-[0.3px] leading-[1.4]">
+
+                      {/* Label + sublabel */}
+                      <div className="flex flex-col gap-0">
+                        <p className="[font-family:'Inter',Helvetica] font-semibold text-white text-[13px] sm:text-[14px] tracking-[-0.01em]">
                           {stat.label}
                         </p>
-                        <p className="[font-family:'Inter',Helvetica] font-normal text-[#888888] text-[11px] sm:text-[12px] tracking-[0.2px] leading-[1.4]">
+                        <p className="[font-family:'Inter',Helvetica] font-normal text-white/80 text-[11px] sm:text-[12px] leading-[1.4]">
                           {stat.sublabel}
                         </p>
                       </div>
 
-                      {/* Accent bar */}
-                      <div className="mt-2 h-0.5 w-8 bg-gradient-to-r from-[#ff1f4f] to-transparent rounded-full" />
+                      {/* Progress bar — accent red */}
+                      <div className="flex flex-col gap-1 mt-0.5">
+                        <div className="flex justify-between items-center">
+                          <span className="[font-family:'Inter',Helvetica] text-white/70 text-[10px] uppercase tracking-wider">
+                            Impact
+                          </span>
+                          <span className="[font-family:'Inter',Helvetica] font-medium text-white text-[11px] tabular-nums">
+                            {stat.progress}%
+                          </span>
+                        </div>
+                        <div className="h-1 w-full rounded-full bg-white/10 overflow-hidden">
+                          <div
+                            className="h-full rounded-full transition-all duration-1000 ease-out"
+                            style={{
+                              width: countUpEnded[index] ? `${stat.progress}%` : "0%",
+                              backgroundColor: stat.barColor,
+                            }}
+                          />
+                        </div>
+                      </div>
                     </CardContent>
                   </SpotlightCard>
                 </div>
