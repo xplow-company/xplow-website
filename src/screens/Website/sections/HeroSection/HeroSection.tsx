@@ -174,9 +174,9 @@ export const HeroSection = (): JSX.Element => {
         </ErrorBoundary>
       </div>
 
-      <div className="relative z-10 flex flex-col min-h-[100dvh] sm:min-h-[700px] lg:min-h-[1058px] px-5 md:px-5 lg:px-8 pt-[28px] pb-5 md:py-16 lg:py-20 -rotate-180 safe-area-padding min-w-0">
+      <div className="relative z-10 flex flex-col min-h-[100dvh] sm:min-h-[700px] lg:min-h-[1058px] px-4 md:px-4 lg:px-8 pt-6 pb-5 md:py-16 lg:py-20 -rotate-180 safe-area-padding min-w-0 overflow-x-hidden">
         <nav
-          className="group/nav relative z-[2] mx-auto w-full max-w-[1148px] rounded-full px-4 sm:px-6 py-2 flex items-center justify-between gap-4 bg-black mb-5 -mt-[10px] md:-mt-[42px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms] transition-colors duration-300 ease-out hover:bg-white"
+          className="group/nav relative z-[2] mx-auto w-full max-w-[1148px] rounded-full px-4 sm:px-6 py-2.5 flex items-center justify-between gap-3 sm:gap-4 bg-black mb-4 md:mb-5 -mt-2 md:-mt-[42px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms] transition-colors duration-300 ease-out hover:bg-white"
           aria-label="Main navigation"
         >
           <a href="#hero" className="flex shrink-0 items-center gap-1.5 px-[4px] min-h-[40px]" aria-label="Xplow home">
@@ -227,12 +227,12 @@ export const HeroSection = (): JSX.Element => {
             </div>
           )}
         </nav>
-        <div className="flex-1 flex flex-col items-center justify-center pt-4 mt-[24px] md:pt-6">
-          <div className="-translate-y-[4vh] sm:-translate-y-[6vh] lg:-translate-y-[8vh] mt-[10px]">
-          <div className="flex flex-col items-center max-w-[883px] w-full space-y-8 sm:space-y-10 lg:space-y-12 translate-y-[-1rem] animate-fade-in opacity-0 min-w-0">
+        <div className="flex-1 flex flex-col justify-center pt-4 md:pt-6 px-0 md:items-center mt-5">
+          <div className="-translate-y-0 md:-translate-y-[6vh] lg:-translate-y-[8vh] w-full max-w-[883px]">
+          <div className="flex flex-col w-full space-y-4 md:space-y-8 lg:space-y-12 items-center translate-y-[-1rem] animate-fade-in opacity-0 min-w-0">
           <Badge
             variant="outline"
-            className="h-8 sm:h-9 px-3 sm:px-4 flex items-center gap-2 sm:gap-2.5 bg-[#000000ab] rounded-full border border-[#ffffff0f] shadow-[inset_0px_4px_4px_#000000] hover:bg-[#000000ab] [--animation-delay:0ms] translate-y-[-1rem] animate-fade-in opacity-0"
+            className="hidden sm:flex h-8 sm:h-9 px-3 sm:px-4 items-center gap-2 sm:gap-2.5 bg-[#000000ab] rounded-full border border-[#ffffff0f] shadow-[inset_0px_4px_4px_#000000] hover:bg-[#000000ab] [--animation-delay:0ms] translate-y-[-1rem] animate-fade-in opacity-0"
           >
             <div className="relative w-1.5 h-1.5">
               <div className="absolute top-[-3px] left-[-3px] w-[11px] h-[11px] bg-green-500 rounded-full opacity-[0.06]" />
@@ -245,52 +245,67 @@ export const HeroSection = (): JSX.Element => {
 
           <div
             ref={headlineContainerRef}
-            className="flex flex-col items-center gap-3 sm:gap-5 [--animation-delay:200ms] translate-y-[-1rem] animate-fade-in opacity-0 w-full max-w-[883px] min-w-0"
+            className="flex flex-col gap-1 sm:gap-4 [--animation-delay:200ms] translate-y-[-1rem] animate-fade-in opacity-0 w-full min-w-0 px-0 items-center"
             style={{ position: "relative" }}
           >
-            <h1 className="flex items-center justify-center gap-2 sm:gap-5 w-full text-center min-w-0">
+            {/* Mobile: plain text, center-aligned */}
+            <h1 className="md:hidden [font-family:'Poppins',Helvetica] font-bold text-white tracking-[-0.03em] leading-[1.15] text-center w-full text-[26px] break-words">
+              We Build Brands & Digital Products
+            </h1>
+            <h2 className="md:hidden [font-family:'Poppins',Helvetica] font-bold text-white tracking-[-0.03em] leading-[1.15] text-center w-full text-[26px] break-words">
+              That Dominate Their Category.
+            </h2>
+
+            {/* Desktop: VariableProximity — each line stays on one row (no mid-phrase breaks) */}
+            <h1 className="hidden md:flex items-center justify-center w-full text-center whitespace-nowrap">
               <VariableProximity
-                label="We Build What"
+                label="We Build Brands & Digital Products"
                 containerRef={headlineContainerRef}
-                fromFontVariationSettings="'wght' 600, 'opsz' 9"
+                fromFontVariationSettings="'wght' 700, 'opsz' 9"
                 toFontVariationSettings="'wght' 1000, 'opsz' 40"
                 radius={120}
                 falloff="linear"
-                className="font-black text-white tracking-[-0.02em] leading-[1.12] text-center min-w-0 break-words text-[clamp(1.5rem,6.5vw,2rem)] sm:text-[clamp(2rem,8vw,2.75rem)] md:text-[clamp(2.5rem,9vw,64px)] lg:text-[78px] sm:tracking-[-2.65px]"
+                className="[font-family:'Poppins',Helvetica] font-bold text-white tracking-[-0.03em] leading-[1.1] text-center text-[clamp(2.25rem,8vw,56px)] lg:text-[72px] tracking-[-2.5px] md:tracking-[-3px]"
               />
             </h1>
-
-            <h2 className="flex items-center justify-center w-full text-center min-w-0">
+            <h2 className="hidden md:flex items-center justify-center w-full text-center whitespace-nowrap">
               <VariableProximity
-                label="Others Compete Against."
+                label="That Dominate Their Category."
                 containerRef={headlineContainerRef}
-                fromFontVariationSettings="'wght' 600, 'opsz' 9"
+                fromFontVariationSettings="'wght' 700, 'opsz' 9"
                 toFontVariationSettings="'wght' 1000, 'opsz' 40"
                 radius={120}
                 falloff="linear"
-                className="font-black text-white tracking-[-0.02em] leading-[1.12] text-center min-w-0 break-words text-[32px] sm:text-[clamp(2rem,8vw,2.75rem)] md:text-[clamp(2.5rem,9vw,62px)] lg:text-[78px] sm:tracking-[-2.65px] md:whitespace-nowrap"
+                className="[font-family:'Poppins',Helvetica] font-bold text-white tracking-[-0.03em] leading-[1.1] text-center text-[clamp(2.25rem,8vw,56px)] lg:text-[72px] tracking-[-2.5px] md:tracking-[-3px]"
               />
             </h2>
           </div>
 
-          <p className="w-full max-w-[883px] [font-family:'Inter',Helvetica] font-medium text-[#dddddd] text-center tracking-[0] leading-[1.65] sm:leading-[28px] break-words min-w-0 [--animation-delay:400ms] translate-y-[-1rem] animate-fade-in opacity-0 text-[clamp(0.875rem,2.5vw,1rem)] sm:text-[15px] md:text-[16px] lg:text-[17.91px] px-5 md:px-0">
-          We partner with ambitious founders to design brand systems, digital products, and growth infrastructure engineered for authority, clarity, and measurable impact.
+          <p className="w-full max-w-[883px] [font-family:'Inter',Helvetica] font-light text-[#FAFAFA] text-center tracking-[0.02em] leading-[1.7] sm:leading-[28px] md:leading-[32px] break-words min-w-0 [--animation-delay:400ms] translate-y-[-1rem] animate-fade-in opacity-0 text-[16px] sm:text-[17px] md:text-[18px] lg:text-[19px] px-0">
+          We partner with ambitious founders to design brands and digital products that drive authority, clarity, and measurable impact.
           </p>
 
-          {/* Mobile & Tablet: Let's Build CTA only — centered, 20px vertical margin */}
-          <div className="md:hidden flex justify-center items-center my-5 [--animation-delay:600ms] translate-y-[-1rem] animate-fade-in opacity-0">
+          {/* Mobile & Tablet: CTA only (no View our work on phone) — pill-shaped, center-aligned */}
+          <div className="md:hidden flex flex-col items-center mt-2 [--animation-delay:600ms] translate-y-[-1rem] animate-fade-in opacity-0">
             <Button
               asChild
-              className="h-12 min-h-[48px] px-6 bg-white hover:bg-[#f5f5f5] text-[#0b0b0d] rounded-full [font-family:'Space_Grotesk',Helvetica] font-bold text-[14px] tracking-[0.02em] border-0 shadow-none"
+              className="w-full sm:w-auto h-12 min-h-[48px] px-8 bg-white hover:bg-[#f5f5f5] text-[#0b0b0d] rounded-full [font-family:'Space_Grotesk',Helvetica] font-bold text-[14px] tracking-[0.02em] border-0 shadow-none"
             >
               <a
                 href="mailto:team@xplow.in"
-                className="relative overflow-hidden inline-flex items-center justify-center h-full gap-2 no-underline"
+                className="relative overflow-hidden inline-flex items-center justify-center h-full gap-2 no-underline w-full sm:w-auto"
               >
                 Let&apos;s Build
                 <img src={arrowIcon} className="w-5 h-5 ml-1.5" alt="" aria-hidden />
               </a>
             </Button>
+            <a
+              href="#work"
+              className="hidden sm:inline-flex [font-family:'Inter',Helvetica] font-medium text-white/90 text-[14px] hover:text-white transition-colors items-center gap-1.5 mt-4"
+            >
+              View our work
+              <img src={arrowIcon} className="w-4 h-4 opacity-80" alt="" aria-hidden />
+            </a>
           </div>
 
           {/* Desktop: Full input area + CTA with smooth white beam */}
@@ -349,7 +364,7 @@ export const HeroSection = (): JSX.Element => {
         </div>
         </div>
 
-        <div className="w-full flex-shrink-0 min-h-[44px] sm:min-h-[52px] pb-5 md:pb-8">
+        <div className="w-full flex-shrink-0 min-h-[44px] sm:min-h-[52px] pb-4 md:pb-8 overflow-hidden md:overflow-visible">
           <LogoLoop
             logos={techLogos}
             speed={80}

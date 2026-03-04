@@ -39,7 +39,7 @@ const capabilities = [
     subtitle: "Signal",
     variant: "brand-signal" as const,
     description:
-      "We build brand systems that compound — positioning, visual identity, voice, and strategy that make you impossible to ignore and effortless to remember.",
+      "Brand systems that compound — positioning, identity, voice, and strategy that make you impossible to ignore.",
     metric: "3x",
     metricLabel: "brand recall lift",
     tags: [
@@ -57,7 +57,7 @@ const capabilities = [
     subtitle: "Clarity",
     variant: "product-clarity" as const,
     description:
-      "Every pixel is a business decision. Interfaces engineered to convert, retain, and delight — across web, mobile, and complex systems.",
+      "Every pixel is a business decision. Interfaces engineered to convert, retain, and delight.",
     metric: "340%",
     metricLabel: "activation lift",
     tags: ["UX/UI", "Prototyping", "User Research", "Design Systems"],
@@ -81,7 +81,7 @@ const capabilities = [
     subtitle: "Motion",
     variant: "living-motion" as const,
     description:
-      "Cinematic micro-interactions and transitions that give your product a premium, living feel. Invisible is forgettable.",
+      "Micro-interactions and transitions that give your product a premium, living feel.",
     metric: "60%",
     metricLabel: "engagement lift",
     tags: ["Micro-interactions", "Page Transitions", "Scroll Animation", "3D"],
@@ -105,7 +105,7 @@ const capabilities = [
     subtitle: "Layer",
     variant: "momentum-layer" as const,
     description:
-      "CRO, experimentation, and analytics architecture. We don't just design — we measure, learn, and compound your results over time.",
+      "CRO, experimentation, and analytics. We design, measure, learn, and compound results.",
     metric: "2.8x",
     metricLabel: "conversion lift",
     tags: [
@@ -181,10 +181,10 @@ function CapabilityCardContent({ capability }: { capability: (typeof capabilitie
       </div>
       <div className="flex-1 flex flex-col gap-3">
         <div>
-          <h3 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-white text-[28px] tracking-[-0.84px] leading-[32.2px]">
+          <h3 className="[font-family:'Poppins',Helvetica] font-bold text-white text-[28px] tracking-[-0.84px] leading-[32.2px]">
             {capability.title}
           </h3>
-          <h3 className="[font-family:'Space_Grotesk',Helvetica] font-bold text-[#ff1f4f] text-[28px] tracking-[-0.84px] leading-[32.2px]">
+          <h3 className="[font-family:'Poppins',Helvetica] font-bold text-[#ff1f4f] text-[28px] tracking-[-0.84px] leading-[32.2px]">
             {capability.subtitle}
           </h3>
         </div>
@@ -206,7 +206,7 @@ function CapabilityCardContent({ capability }: { capability: (typeof capabilitie
             <Badge
               key={tag}
               variant="outline"
-              className="bg-[#ff1f4f0d] border-[#ff1f4f1a] rounded-full px-[13px] py-1.5 h-auto [font-family:'Inter',Helvetica] font-normal text-[#bbbbbb] text-[10.5px] tracking-[0.31px] leading-[15.8px]"
+              className="bg-white border-white/30 rounded-full px-[13px] py-1.5 h-auto [font-family:'Inter',Helvetica] font-normal text-black text-[10.5px] tracking-[0.31px] leading-[15.8px]"
             >
               {tag}
             </Badge>
@@ -260,7 +260,7 @@ const stats = [
   
         <div className="absolute top-1/4 left-1/4 w-[900px] h-[900px] blur-[80px] [background:radial-gradient(50%_50%_at_50%_50%,rgba(255,31,79,0.04)_0%,rgba(255,31,79,0.01)_40%,rgba(0,0,0,0)_60%)] opacity-65" />
   
-        <div className="container relative mx-auto px-5 md:px-5 lg:px-16 max-w-[1562px]">
+        <div className="container relative mx-auto px-4 md:px-4 lg:px-12 xl:px-16 max-w-[1562px]">
           <header className="flex flex-col gap-8 mb-28 translate-y-[-1rem] animate-fade-in opacity-0">
             <div className="flex items-center gap-4">
               <div className="w-10 h-[1.5px] bg-[#ff1f4f]" />
@@ -281,10 +281,7 @@ const stats = [
   
               <div className="flex flex-col text-right">
                 <p className="[font-family:'Inter',Helvetica] font-normal text-[#777777] text-sm tracking-[0] leading-[24.5px]">
-                  Seven disciplines. Under One Roof.
-                </p>
-                <p className="[font-family:'Inter',Helvetica] font-normal text-[#777777] text-sm tracking-[0] leading-[24.5px]">
-                  Integrated strategy, design, and engineering.
+                  Seven disciplines. One roof. Strategy, design, and engineering integrated.
                 </p>
               </div>
             </div>

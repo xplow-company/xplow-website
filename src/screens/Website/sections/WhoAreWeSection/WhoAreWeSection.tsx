@@ -6,11 +6,11 @@ import { Badge } from "../../../../components/ui/badge";
 import { Card, CardContent } from "../../../../components/ui/card";
 
 const clientsList = [
-  { id: "01", name: "Samira Patel", initials: "SP", title: "CEO, Meridian", quote: "XPLOW didn't just design a product — they reimagined our entire user journey. Conversion went up 3x in the first quarter.", badge: "From day one" },
+  { id: "01", name: "Samira Patel", initials: "SP", title: "CEO, Meridian", quote: "XPLOW reimagined our user journey. Conversion went up 3x in the first quarter.", badge: "From day one" },
   { id: "02", name: "Marcus Chen", initials: "MC", title: "Founder, Vault", quote: "Strategic depth and execution speed. We shipped our rebrand in six weeks. Every pixel had a reason.", badge: "Rebrand in 6 weeks" },
-  { id: "03", name: "Elena Voss", initials: "EV", title: "Head of Design, Prism", quote: "Finally, a partner who thinks in systems. Our design ops and component library are now a real competitive edge.", badge: "Design system first" },
+  { id: "03", name: "Elena Voss", initials: "EV", title: "Head of Design, Prism", quote: "A partner who thinks in systems. Our design ops and component library are now a real edge.", badge: "Design system first" },
   { id: "04", name: "David Park", initials: "DP", title: "Head of Product, Lumina", quote: "We've worked with six agencies before XPLOW. None of them even came close. The level of strategic thinking behind every design decision is unreal.", badge: "6th time's the charm" },
-  { id: "05", name: "Ava Richardson", initials: "AR", title: "CMO, Onyx", quote: "From analytics to A/B tests to CRO — they turned our site into a growth engine. Revenue attribution improved overnight.", badge: "Growth engine" },
+  { id: "05", name: "Ava Richardson", initials: "AR", title: "CMO, Onyx", quote: "They turned our site into a growth engine. Revenue attribution improved overnight.", badge: "Growth engine" },
 ];
 
 const ratingData = {
@@ -26,7 +26,7 @@ export const WhoAreWeSection = (): JSX.Element => {
   const goNext = () => setActiveIndex((prev) => (prev + 1) % clientsList.length);
 
   return (
-    <section id="who-we-are" className="w-full bg-[#111111] py-5 md:py-20 px-5 md:px-5 lg:px-16">
+    <section id="who-we-are" className="w-full bg-[#111111] py-12 md:py-20 px-4 md:px-4 lg:px-12 xl:px-16">
       <div className="max-w-[1562px] mx-auto">
         <header className="flex flex-col gap-8 mb-24 translate-y-[-1rem] animate-fade-in opacity-0">
           <div className="flex items-center gap-4">

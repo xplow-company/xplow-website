@@ -1,4 +1,8 @@
-const LOGO_COMPANIES = [
+import React, { useState } from "react";
+import { LogoLoop } from "../../../../components/LogoLoop";
+import type { LogoItem } from "../../../../components/LogoLoop";
+
+const LOGO_COMPANIES: Array<{ name: string; domain: string }> = [
   { name: "Liveblocks", domain: "liveblocks.io" },
   { name: "Appwrite", domain: "appwrite.io" },
   { name: "tldraw", domain: "tldraw.com" },
@@ -9,42 +13,83 @@ const LOGO_COMPANIES = [
   { name: "Nhost", domain: "nhost.io" },
 ];
 
+const TrustedByLogo = ({
+  item,
+}: {
+  item: LogoItem & { src: string; href?: string; alt?: string };
+}) => {
+  const [errored, setErrored] = useState(false);
+
+  const inner = errored ? (
+    <span className="[font-family:'Poppins',Helvetica] font-semibold text-white/60 text-[22px] md:text-[26px] whitespace-nowrap">
+      {(item as { alt?: string }).alt ?? "Logo"}
+    </span>
+  ) : (
+    <img
+      src={item.src}
+      alt={item.alt ?? ""}
+      className="h-[56px] md:h-[64px] w-auto object-contain object-center transition-all duration-500 ease-out opacity-50 hover:opacity-100 brightness-0 invert"
+      loading="lazy"
+      onError={() => setErrored(true)}
+    />
+  );
+
+  return item.href ? (
+    <a
+      href={item.href}
+      target="_blank"
+      rel="noreferrer noopener"
+      className="flex items-center justify-center h-[88px] md:h-[100px] min-w-[160px] md:min-w-[200px] px-6 py-4 no-underline rounded-xl transition-all duration-300 border-b-2 border-transparent hover:border-[#ff1f4f]"
+      aria-label={`${item.alt ?? "Logo"} - visit website`}
+    >
+      {inner}
+    </a>
+  ) : (
+    <div className="flex items-center justify-center h-[88px] md:h-[100px] min-w-[160px] md:min-w-[200px] px-6 py-4">
+      {inner}
+    </div>
+  );
+};
+
 export const TrustedBySection = (): JSX.Element => {
+  const logos: LogoItem[] = LOGO_COMPANIES.map((c) => ({
+    src: `https://logo.clearbit.com/${c.domain}?size=128`,
+    alt: c.name,
+    href: `https://${c.domain}`,
+  }));
+
   return (
-    <section id="trusted-by" className="w-full min-w-0 overflow-hidden bg-white py-5 md:py-14">
+    <section id="trusted-by" className="w-full min-w-0 overflow-x-hidden bg-[#0f0f0f] py-16 md:py-24 border-y border-white/[0.06]">
       <div
-        className="container mx-auto px-5 md:px-5 lg:px-16 max-w-[1562px] flex flex-col items-center gap-10 translate-y-[-1rem] animate-fade-in opacity-0"
+        className="flex flex-col items-center gap-6 md:gap-8 translate-y-[-1rem] animate-fade-in opacity-0"
         style={{ "--animation-delay": "0ms" } as React.CSSProperties}
       >
-        <p className="[font-family:'Inter',Helvetica] font-semibold text-black text-[18px] sm:text-[22px] md:text-[26px] tracking-[-0.02em] leading-tight text-center break-words px-2">
-          Trusted by forward-thinking brands
-        </p>
-        <div className="grid grid-cols-2 min-[400px]:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 sm:gap-6 md:gap-8 w-full max-w-[1562px] mx-auto justify-items-center items-center min-w-0">
-          {LOGO_COMPANIES.map((company) => (
-            <a
-              key={company.domain}
-              href={`https://${company.domain}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center h-16 md:h-[72px] w-full max-w-[140px] opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 group"
-            >
-              <img
-                src={`https://logo.clearbit.com/${company.domain}`}
-                alt={company.name}
-                className="h-14 md:h-16 w-auto object-contain max-h-[80px]"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = "none";
-                  const fallback = target.parentElement?.querySelector(".logo-fallback");
-                  if (fallback) (fallback as HTMLElement).style.display = "block";
-                }}
-              />
-              <span className="[font-family:'Inter',Helvetica] font-semibold text-black text-[20px] md:text-[24px] logo-fallback hidden whitespace-nowrap">
-                {company.name}
-              </span>
-            </a>
-          ))}
+        <div className="container mx-auto px-4 md:px-4 lg:px-12 xl:px-16 max-w-[1562px] flex flex-col items-center gap-3">
+          <div className="w-10 h-0.5 bg-[#ff1f4f]" aria-hidden />
+          <p className="[font-family:'Poppins',Helvetica] font-semibold text-white text-[16px] sm:text-[17px] md:text-[18px] tracking-[-0.02em] leading-tight text-center break-words px-4">
+            Trusted by forward-thinking brands
+          </p>
         </div>
+      </div>
+
+      {/* Full-width carousel — edge to edge, 36px gap below heading */}
+      <div className="w-[100vw] relative left-1/2 -translate-x-1/2 overflow-hidden mt-9">
+        <LogoLoop
+          logos={logos}
+          speed={45}
+          direction="left"
+          logoHeight={64}
+          gap={72}
+          fadeOut
+          fadeOutColor="#0f0f0f"
+          pauseOnHover
+          scaleOnHover={false}
+          renderItem={(item) => (
+            <TrustedByLogo item={item as LogoItem & { src: string; href?: string; alt?: string }} />
+          )}
+          ariaLabel="Trusted by brands"
+          className="[--logoloop-logoHeight:64px] [--logoloop-gap:72px]"
+        />
       </div>
     </section>
   );

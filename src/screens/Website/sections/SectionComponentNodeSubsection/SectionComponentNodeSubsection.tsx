@@ -52,7 +52,7 @@ export const SectionComponentNodeSubsection = (): JSX.Element => {
       id="lets-build"
       className="relative w-full bg-[#FFFFFF] overflow-hidden py-5 md:py-24"
     >
-      <div className="container mx-auto px-5 md:px-5 lg:px-16 max-w-[1562px] w-full min-w-0">
+      <div className="container mx-auto px-4 md:px-4 lg:px-12 xl:px-16 max-w-[1562px] w-full min-w-0">
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-14 sm:mb-20 translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]">
           <div className="inline-flex items-center gap-2 rounded-full bg-[#0c0c0c] text-white ring-1 ring-[#e0e0e0] px-[17px] py-[7px] mb-7">
@@ -70,7 +70,7 @@ export const SectionComponentNodeSubsection = (): JSX.Element => {
             <span className="text-[#ff1f4f]">building.</span>
           </h2>
           <p className="[font-family:'Inter',Helvetica] font-normal text-[#999999] text-[15px] leading-[1.6]">
-            We take on limited projects to ensure every client gets our full creative and strategic focus.
+            We take on limited projects so every client gets our full focus.
           </p>
         </div>
 

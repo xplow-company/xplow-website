@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, ExternalLink } from "lucide-react";
+import { BrandLogo } from "../../components/BrandLogo";
 import { workProjects } from "../../data/work";
 
 export const CaseStudy = (): JSX.Element => {
@@ -29,7 +30,7 @@ export const CaseStudy = (): JSX.Element => {
   return (
     <div className="min-h-screen bg-[#080808]">
       {/* Nav — minimal, premium */}
-      <nav className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-20 py-5 bg-[#080808]/80 backdrop-blur-2xl border-b border-white/[0.06]">
+      <nav className="fixed top-0 left-0 right-0 z-50 px-4 md:px-4 lg:px-12 xl:px-20 py-5 bg-[#080808]/80 backdrop-blur-2xl border-b border-white/[0.06]">
         <div className="max-w-[1400px] mx-auto flex items-center justify-between">
           <button
             onClick={() => {
@@ -86,7 +87,7 @@ export const CaseStudy = (): JSX.Element => {
       </header>
 
       {/* Hero image — full-bleed, premium */}
-      <div className="w-full px-6 md:px-12 lg:px-20 mb-32">
+      <div className="w-full px-4 md:px-4 lg:px-12 xl:px-20 mb-32">
         <div className="relative max-w-[1400px] mx-auto overflow-hidden rounded-[20px] border border-white/[0.08] shadow-[0_0_0_1px_rgba(255,255,255,0.03),0_40px_80px_-20px_rgba(0,0,0,0.6)]">
           <div className="relative aspect-[21/9] md:aspect-[3/1]">
             <img
@@ -98,23 +99,14 @@ export const CaseStudy = (): JSX.Element => {
             <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent" />
           </div>
           {/* Brand logo — premium placement */}
-          {project.logoUrl && (
-            <div className="absolute bottom-8 left-8 right-8 md:left-auto md:right-12 md:w-auto flex items-center justify-end">
-              <div className="flex items-center gap-4 px-8 py-5 rounded-2xl bg-black/60 backdrop-blur-2xl border border-white/10">
-                <img
-                  src={project.logoUrl}
-                  alt=""
-                  className="h-12 w-auto object-contain"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = "none";
-                  }}
-                />
-                <span className="[font-family:'Poppins',Helvetica] font-bold text-white text-xl tracking-tight hidden sm:block">
-                  {project.title}
-                </span>
-              </div>
+          <div className="absolute bottom-8 left-8 right-8 md:left-auto md:right-12 md:w-auto flex items-center justify-end">
+            <div className="brand-badge flex items-center gap-4 px-8 py-5 rounded-2xl bg-black/60 backdrop-blur-2xl border border-white/10 [&:has([data-fallback])_.brand-name]:hidden">
+              <BrandLogo src={project.logoUrl} alt={project.title} className="h-12 w-auto object-contain" fallbackClassName="text-xl" />
+              <span className="brand-name [font-family:'Poppins',Helvetica] font-bold text-white text-xl tracking-tight hidden sm:block">
+                {project.title}
+              </span>
             </div>
-          )}
+          </div>
         </div>
       </div>
 
@@ -277,7 +269,7 @@ export const CaseStudy = (): JSX.Element => {
       </main>
 
       {/* CTA — bold close */}
-      <section className="px-6 md:px-12 lg:px-20 py-24 border-t border-white/[0.06]">
+      <section className="px-4 md:px-4 lg:px-12 xl:px-20 py-24 border-t border-white/[0.06]">
         <div className="max-w-[900px] mx-auto text-center">
           <h3 className="[font-family:'Poppins',Helvetica] font-bold text-white text-[36px] md:text-[44px] tracking-[-1px] mb-6">
             Ready to build something iconic?
