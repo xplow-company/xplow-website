@@ -14,7 +14,7 @@ import { WorkSection } from "./sections/WorkSection";
 
 export const Website = (): JSX.Element => {
   return (
-    <div className="w-full min-w-0 flex bg-[#0c0c0c] overflow-x-hidden" data-model-id="5096:19571">
+    <div className="w-full min-w-0 flex bg-[#0c0c0c] overflow-x-clip" data-model-id="5096:19571">
       <div className="z-[1] w-full min-w-0 flex bg-[#0c0c0c]">
         <div className="flex w-full min-w-0 relative flex-col items-stretch bg-[#0c0c0c] gap-y-5 md:gap-y-12 lg:gap-y-16">
           <ScrollReveal amount={0.05} yOffset={24} duration={0.9}>
