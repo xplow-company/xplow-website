@@ -19,47 +19,47 @@
   ],
   "edges": [
     {
-      "id": "src\\screens\\CaseStudy\\CaseStudy.tsx:18:14-to-src\\screens\\Website\\Website.tsx",
+      "id": "src\\screens\\CaseStudy\\CaseStudy.tsx:23:29-to-src\\screens\\Website\\Website.tsx",
       "source": "src\\screens\\CaseStudy\\CaseStudy.tsx",
       "target": "src\\screens\\Website\\Website.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
           "element": "navigate(\"/\")",
-          "line": 18,
-          "endLine": 18,
-          "column": 14,
-          "endColumn": 27,
+          "line": 23,
+          "endLine": 23,
+          "column": 29,
+          "endColumn": 42,
           "sourceFile": "src\\screens\\CaseStudy\\CaseStudy.tsx"
         }
       }
     },
     {
-      "id": "src\\screens\\CaseStudy\\CaseStudy.tsx:37:14-to-src\\screens\\Website\\Website.tsx",
+      "id": "src\\screens\\CaseStudy\\CaseStudy.tsx:40:29-to-src\\screens\\Website\\Website.tsx",
       "source": "src\\screens\\CaseStudy\\CaseStudy.tsx",
       "target": "src\\screens\\Website\\Website.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
           "element": "navigate(\"/\")",
-          "line": 37,
-          "endLine": 37,
-          "column": 14,
-          "endColumn": 27,
+          "line": 40,
+          "endLine": 40,
+          "column": 29,
+          "endColumn": 42,
           "sourceFile": "src\\screens\\CaseStudy\\CaseStudy.tsx"
         }
       }
     },
     {
-      "id": "src\\screens\\CaseStudy\\CaseStudy.tsx:45:10-to-src\\screens\\Website\\Website.tsx",
+      "id": "src\\screens\\CaseStudy\\CaseStudy.tsx:48:10-to-src\\screens\\Website\\Website.tsx",
       "source": "src\\screens\\CaseStudy\\CaseStudy.tsx",
       "target": "src\\screens\\Website\\Website.tsx",
       "data": {
         "viaRoute": "/",
         "trigger": {
           "element": "<a href=\"/\" className=\"[font-family:'Clash_Display',sans-serif] font-semibold text-white text-[17px] tracking-tight\">\r\n            XPLOW\r\n          </a>",
-          "line": 45,
-          "endLine": 47,
+          "line": 48,
+          "endLine": 50,
           "column": 10,
           "endColumn": 14,
           "sourceFile": "src\\screens\\CaseStudy\\CaseStudy.tsx"
