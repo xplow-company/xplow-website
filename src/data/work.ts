@@ -117,7 +117,7 @@ export const workProjects: WorkProject[] = [
     logoUrl: LOGOS["cal-com"],
     projectUrl: "https://cal.com",
     client: "Cal.com",
-    year: "2024",
+    year: "2025",
     services: ["Mobile UX", "React/Next.js", "Performance Optimization", "Analytics"],
     techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Figma"],
     process: [
@@ -215,7 +215,7 @@ export const workProjects: WorkProject[] = [
     featured: true,
     projectUrl: "https://replicate.com",
     client: "Replicate",
-    year: "2024",
+    year: "2025",
     services: ["AI Integration", "Workflow Design", "Smart UX", "Automation"],
     techStack: ["React", "OpenAI API", "Python", "Node.js", "PostgreSQL"],
     process: [
