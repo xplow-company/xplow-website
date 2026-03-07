@@ -139,7 +139,7 @@ export const HeroSection = (): JSX.Element => {
     runLayout();
     window.addEventListener("resize", runLayout);
     if (document.fonts?.ready) {
-      document.fonts.ready.then(runLayout).catch(() => {});
+      document.fonts.ready.then(runLayout).catch(() => { });
     }
     return () => window.removeEventListener("resize", runLayout);
   }, []);
@@ -229,139 +229,139 @@ export const HeroSection = (): JSX.Element => {
         </nav>
         <div className="flex-1 flex flex-col justify-center pt-4 md:pt-6 px-0 md:items-center mt-5">
           <div className="-translate-y-0 md:-translate-y-[6vh] lg:-translate-y-[8vh] w-full max-w-[883px]">
-          <div className="flex flex-col w-full space-y-4 md:space-y-8 lg:space-y-12 items-center translate-y-[-1rem] animate-fade-in opacity-0 min-w-0">
-          <Badge
-            variant="outline"
-            className="hidden sm:flex h-8 sm:h-9 px-3 sm:px-4 items-center gap-2 sm:gap-2.5 bg-[#000000ab] rounded-full border border-[#ffffff0f] shadow-[inset_0px_4px_4px_#000000] hover:bg-[#000000ab] [--animation-delay:0ms] translate-y-[-1rem] animate-fade-in opacity-0"
-          >
-            <div className="relative w-1.5 h-1.5">
-              <div className="absolute top-[-3px] left-[-3px] w-[11px] h-[11px] bg-green-500 rounded-full opacity-[0.06]" />
-              <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-green-500 rounded-full" />
-            </div>
-            <span className="[font-family:'Inter',Helvetica] font-normal text-white text-[10px] sm:text-[11.94px] tracking-[0.36px] leading-[17.91px] whitespace-nowrap">
-              Currently accepting projects
-            </span>
-          </Badge>
-
-          <div
-            ref={headlineContainerRef}
-            className="flex flex-col gap-1 sm:gap-4 [--animation-delay:200ms] translate-y-[-1rem] animate-fade-in opacity-0 w-full min-w-0 px-0 items-center"
-            style={{ position: "relative" }}
-          >
-            {/* Mobile: plain text, center-aligned */}
-            <h1 className="md:hidden [font-family:'Poppins',Helvetica] font-bold text-white tracking-[-0.03em] leading-[1.15] text-center w-full text-[26px] break-words">
-              We Build Brands & Digital Products
-            </h1>
-            <h2 className="md:hidden [font-family:'Poppins',Helvetica] font-bold text-white tracking-[-0.03em] leading-[1.15] text-center w-full text-[26px] break-words">
-              That Dominate Their Category.
-            </h2>
-
-            {/* Desktop: VariableProximity — each line stays on one row (no mid-phrase breaks) */}
-            <h1 className="hidden md:flex items-center justify-center w-full text-center whitespace-nowrap">
-              <VariableProximity
-                label="We Build Brands & Digital Products"
-                containerRef={headlineContainerRef}
-                fromFontVariationSettings="'wght' 700, 'opsz' 9"
-                toFontVariationSettings="'wght' 1000, 'opsz' 40"
-                radius={120}
-                falloff="linear"
-                className="[font-family:'Poppins',Helvetica] font-bold text-white tracking-[-0.03em] leading-[1.1] text-center text-[clamp(2.25rem,8vw,56px)] lg:text-[72px] tracking-[-2.5px] md:tracking-[-3px]"
-              />
-            </h1>
-            <h2 className="hidden md:flex items-center justify-center w-full text-center whitespace-nowrap">
-              <VariableProximity
-                label="That Dominate Their Category."
-                containerRef={headlineContainerRef}
-                fromFontVariationSettings="'wght' 700, 'opsz' 9"
-                toFontVariationSettings="'wght' 1000, 'opsz' 40"
-                radius={120}
-                falloff="linear"
-                className="[font-family:'Poppins',Helvetica] font-bold text-white tracking-[-0.03em] leading-[1.1] text-center text-[clamp(2.25rem,8vw,56px)] lg:text-[72px] tracking-[-2.5px] md:tracking-[-3px]"
-              />
-            </h2>
-          </div>
-
-          <p className="w-full max-w-[883px] [font-family:'Inter',Helvetica] font-light text-[#FAFAFA] text-center tracking-[0.02em] leading-[1.7] sm:leading-[28px] md:leading-[32px] break-words min-w-0 [--animation-delay:400ms] translate-y-[-1rem] animate-fade-in opacity-0 text-[16px] sm:text-[17px] md:text-[18px] lg:text-[19px] px-0">
-          We partner with ambitious founders to design brands and digital products that drive authority, clarity, and measurable impact.
-          </p>
-
-          {/* Mobile & Tablet: CTA only (no View our work on phone) — pill-shaped, center-aligned */}
-          <div className="md:hidden flex flex-col items-center mt-2 [--animation-delay:600ms] translate-y-[-1rem] animate-fade-in opacity-0">
-            <Button
-              asChild
-              className="w-full sm:w-auto h-12 min-h-[48px] px-8 bg-white hover:bg-[#f5f5f5] text-[#0b0b0d] rounded-full [font-family:'Space_Grotesk',Helvetica] font-bold text-[14px] tracking-[0.02em] border-0 shadow-none"
-            >
-              <a
-                href="mailto:team@xplow.in"
-                className="relative overflow-hidden inline-flex items-center justify-center h-full gap-2 no-underline w-full sm:w-auto"
+            <div className="flex flex-col w-full space-y-4 md:space-y-8 lg:space-y-12 items-center translate-y-[-1rem] animate-fade-in opacity-0 min-w-0">
+              <Badge
+                variant="outline"
+                className="hidden sm:flex h-8 sm:h-9 px-3 sm:px-4 items-center gap-2 sm:gap-2.5 bg-[#000000ab] rounded-full border border-[#ffffff0f] shadow-[inset_0px_4px_4px_#000000] hover:bg-[#000000ab] [--animation-delay:0ms] translate-y-[-1rem] animate-fade-in opacity-0"
               >
-                Let&apos;s Build
-                <img src={arrowIcon} className="w-5 h-5 ml-1.5" alt="" aria-hidden />
-              </a>
-            </Button>
-            <a
-              href="#work"
-              className="hidden sm:inline-flex [font-family:'Inter',Helvetica] font-medium text-white/90 text-[14px] hover:text-white transition-colors items-center gap-1.5 mt-4"
-            >
-              View our work
-              <img src={arrowIcon} className="w-4 h-4 opacity-80" alt="" aria-hidden />
-            </a>
-          </div>
-
-          {/* Desktop: Full input area + CTA with smooth white beam */}
-          <div className="hidden md:block w-full max-w-[571px] min-w-0 [--animation-delay:600ms] translate-y-[-1rem] animate-fade-in opacity-0">
-            <style>{heroBeamKeyframes}</style>
-            <div className="relative w-full rounded-full overflow-hidden p-[2px]">
-              {/* Smooth white beam — soft gradient, 4s linear spin */}
-              <div
-                className="absolute inset-[-100%] will-change-transform"
-                style={{
-                  background: "conic-gradient(from 0deg, transparent 0deg, transparent 200deg, rgba(255,255,255,0.15) 230deg, rgba(255,255,255,0.45) 255deg, rgba(255,255,255,0.9) 275deg, rgb(255,255,255) 285deg, rgba(255,255,255,0.9) 295deg, rgba(255,255,255,0.45) 315deg, rgba(255,255,255,0.15) 340deg, transparent 360deg)",
-                  animation: "hero-beam-spin 4s linear infinite",
-                }}
-              />
-              <div className="absolute inset-[2px] rounded-full bg-[#0d0d0d]" />
-              <div className="relative z-10 flex flex-row w-full rounded-full overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.04)]">
-                <div className="flex-1 flex items-center min-h-[60px] pl-6 pr-4 py-0">
-                  <span className="[font-family:'Inter',Helvetica] font-medium text-[#9ca3af] text-[15px] tracking-[0.02em] leading-[1.4]">
-                    What are we building together?
-                  </span>
+                <div className="relative w-1.5 h-1.5">
+                  <div className="absolute top-[-3px] left-[-3px] w-[11px] h-[11px] bg-green-500 rounded-full opacity-[0.06]" />
+                  <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-green-500 rounded-full" />
                 </div>
-                <div className="shrink-0 p-2 pr-2.5 py-2">
+                <span className="[font-family:'Inter',Helvetica] font-normal text-white text-[10px] sm:text-[11.94px] tracking-[0.36px] leading-[17.91px] whitespace-nowrap">
+                  Currently accepting projects
+                </span>
+              </Badge>
+
+              <div
+                ref={headlineContainerRef}
+                className="flex flex-col gap-1 sm:gap-4 [--animation-delay:200ms] translate-y-[-1rem] animate-fade-in opacity-0 w-full min-w-0 px-0 items-center"
+                style={{ position: "relative" }}
+              >
+                {/* Mobile: plain text, center-aligned */}
+                <h1 className="md:hidden [font-family:'Poppins',Helvetica] font-bold text-white tracking-[-0.03em] leading-[1.15] text-center w-full text-[26px] break-words">
+                  We Design, Develop & Ship
+                </h1>
+                <h2 className="md:hidden [font-family:'Poppins',Helvetica] font-bold text-white tracking-[-0.03em] leading-[1.15] text-center w-full text-[26px] break-words">
+                  Products That Dominate Their Category
+                </h2>
+
+                {/* Desktop: VariableProximity — each line stays on one row (no mid-phrase breaks) */}
+                <h1 className="hidden md:flex items-center justify-center w-full text-center whitespace-nowrap">
+                  <VariableProximity
+                    label="We Design, Develop & Ship"
+                    containerRef={headlineContainerRef}
+                    fromFontVariationSettings="'wght' 700, 'opsz' 9"
+                    toFontVariationSettings="'wght' 1000, 'opsz' 40"
+                    radius={120}
+                    falloff="linear"
+                    className="[font-family:'Poppins',Helvetica] font-bold text-white tracking-[-0.03em] leading-[1.1] text-center text-[clamp(2.25rem,8vw,56px)] lg:text-[72px] tracking-[-2.5px] md:tracking-[-3px]"
+                  />
+                </h1>
+                <h2 className="hidden md:flex items-center justify-center w-full text-center whitespace-nowrap">
+                  <VariableProximity
+                    label="Products That Dominate Their Category"
+                    containerRef={headlineContainerRef}
+                    fromFontVariationSettings="'wght' 700, 'opsz' 9"
+                    toFontVariationSettings="'wght' 1000, 'opsz' 40"
+                    radius={120}
+                    falloff="linear"
+                    className="[font-family:'Poppins',Helvetica] font-bold text-white tracking-[-0.03em] leading-[1.1] text-center text-[clamp(2.25rem,8vw,56px)] lg:text-[72px] tracking-[-2.5px] md:tracking-[-3px]"
+                  />
+                </h2>
+              </div>
+
+              <p className="w-full max-w-[883px] [font-family:'Inter',Helvetica] font-light text-[#FAFAFA] text-center tracking-[0.02em] leading-[1.7] sm:leading-[28px] md:leading-[32px] break-words min-w-0 [--animation-delay:400ms] translate-y-[-1rem] animate-fade-in opacity-0 text-[16px] sm:text-[17px] md:text-[18px] lg:text-[19px] px-0">
+                We partner with ambitious founders to craft standout brands and high-performance digital products that drive authority, clarity, and measurable growth.
+              </p>
+
+              {/* Mobile & Tablet: CTA only (no View our work on phone) — pill-shaped, center-aligned */}
+              <div className="md:hidden flex flex-col items-center mt-2 [--animation-delay:600ms] translate-y-[-1rem] animate-fade-in opacity-0">
                 <Button
                   asChild
-                  className="w-auto h-11 px-5 bg-white hover:bg-[#f5f5f5] text-[#0b0b0d] rounded-full [font-family:'Space_Grotesk',Helvetica] font-bold text-[15px] tracking-[0.02em] border-2 border-transparent hover:border-[#ff1f4f] shadow-none transition-colors duration-200"
+                  className="w-full sm:w-auto h-12 min-h-[48px] px-8 bg-white hover:bg-[#f5f5f5] text-[#0b0b0d] rounded-full [font-family:'Space_Grotesk',Helvetica] font-bold text-[14px] tracking-[0.02em] border-0 shadow-none"
                 >
                   <a
                     href="mailto:team@xplow.in"
-                    className="relative overflow-hidden inline-flex items-center justify-center h-full gap-2 no-underline"
-                    onMouseEnter={handleLetsBuildEnter}
-                    onMouseLeave={handleLetsBuildLeave}
+                    className="relative overflow-hidden inline-flex items-center justify-center h-full gap-2 no-underline w-full sm:w-auto"
                   >
-                    <span
-                      className="hover-circle absolute left-1/2 bottom-0 rounded-full z-[1] block pointer-events-none [backface-visibility:hidden] [transform:translateZ(0)]"
-                      style={{ background: "#0b0b0d", willChange: "transform" }}
-                      aria-hidden
-                      ref={letsBuildCircleRef}
-                    />
-                    <span className="label-stack relative inline-flex items-center z-[2]">
-                      <span className="lets-build-pill-label relative z-[2] inline-flex items-center" style={{ willChange: "transform" }}>
-                        Let&apos;s Build
-                        <img src={arrowIcon} className="w-[22px] h-[22px] ml-1.5" alt="" aria-hidden />
-                      </span>
-                      <span className="lets-build-pill-label-hover absolute left-0 top-0 z-[3] inline-flex items-center text-white" style={{ willChange: "transform, opacity" }} aria-hidden>
-                        Let&apos;s Build
-                        <img src={arrowIcon} className="w-[22px] h-[22px] ml-1.5 invert" alt="" aria-hidden />
-                      </span>
-                    </span>
+                    Let&apos;s Build
+                    <img src={arrowIcon} className="w-5 h-5 ml-1.5" alt="" aria-hidden />
                   </a>
                 </Button>
+                <a
+                  href="#work"
+                  className="hidden sm:inline-flex [font-family:'Inter',Helvetica] font-medium text-white/90 text-[14px] hover:text-white transition-colors items-center gap-1.5 mt-4"
+                >
+                  View our work
+                  <img src={arrowIcon} className="w-4 h-4 opacity-80" alt="" aria-hidden />
+                </a>
+              </div>
+
+              {/* Desktop: Full input area + CTA with smooth white beam */}
+              <div className="hidden md:block w-full max-w-[571px] min-w-0 [--animation-delay:600ms] translate-y-[-1rem] animate-fade-in opacity-0">
+                <style>{heroBeamKeyframes}</style>
+                <div className="relative w-full rounded-full overflow-hidden p-[2px]">
+                  {/* Smooth white beam — soft gradient, 4s linear spin */}
+                  <div
+                    className="absolute inset-[-100%] will-change-transform"
+                    style={{
+                      background: "conic-gradient(from 0deg, transparent 0deg, transparent 200deg, rgba(255,255,255,0.15) 230deg, rgba(255,255,255,0.45) 255deg, rgba(255,255,255,0.9) 275deg, rgb(255,255,255) 285deg, rgba(255,255,255,0.9) 295deg, rgba(255,255,255,0.45) 315deg, rgba(255,255,255,0.15) 340deg, transparent 360deg)",
+                      animation: "hero-beam-spin 4s linear infinite",
+                    }}
+                  />
+                  <div className="absolute inset-[2px] rounded-full bg-[#0d0d0d]" />
+                  <div className="relative z-10 flex flex-row w-full rounded-full overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.04)]">
+                    <div className="flex-1 flex items-center min-h-[60px] pl-6 pr-4 py-0">
+                      <span className="[font-family:'Inter',Helvetica] font-medium text-[#9ca3af] text-[15px] tracking-[0.02em] leading-[1.4]">
+                        What are we building together?
+                      </span>
+                    </div>
+                    <div className="shrink-0 p-2 pr-2.5 py-2">
+                      <Button
+                        asChild
+                        className="w-auto h-11 px-5 bg-white hover:bg-[#f5f5f5] text-[#0b0b0d] rounded-full [font-family:'Space_Grotesk',Helvetica] font-bold text-[15px] tracking-[0.02em] border-2 border-transparent hover:border-[#ff1f4f] shadow-none transition-colors duration-200"
+                      >
+                        <a
+                          href="mailto:team@xplow.in"
+                          className="relative overflow-hidden inline-flex items-center justify-center h-full gap-2 no-underline"
+                          onMouseEnter={handleLetsBuildEnter}
+                          onMouseLeave={handleLetsBuildLeave}
+                        >
+                          <span
+                            className="hover-circle absolute left-1/2 bottom-0 rounded-full z-[1] block pointer-events-none [backface-visibility:hidden] [transform:translateZ(0)]"
+                            style={{ background: "#0b0b0d", willChange: "transform" }}
+                            aria-hidden
+                            ref={letsBuildCircleRef}
+                          />
+                          <span className="label-stack relative inline-flex items-center z-[2]">
+                            <span className="lets-build-pill-label relative z-[2] inline-flex items-center" style={{ willChange: "transform" }}>
+                              Let&apos;s Build
+                              <img src={arrowIcon} className="w-[22px] h-[22px] ml-1.5" alt="" aria-hidden />
+                            </span>
+                            <span className="lets-build-pill-label-hover absolute left-0 top-0 z-[3] inline-flex items-center text-white" style={{ willChange: "transform, opacity" }} aria-hidden>
+                              Let&apos;s Build
+                              <img src={arrowIcon} className="w-[22px] h-[22px] ml-1.5 invert" alt="" aria-hidden />
+                            </span>
+                          </span>
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          </div>
-        </div>
         </div>
 
         <div className="w-full flex-shrink-0 min-h-[44px] sm:min-h-[52px] pb-4 md:pb-8 overflow-hidden md:overflow-visible">
